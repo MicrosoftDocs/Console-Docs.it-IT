@@ -1,0 +1,126 @@
+---
+title: GetConsoleProcessList (funzione)
+description: Vedere le informazioni di riferimento sulla funzione GetConsoleProcessList, che recupera un elenco dei processi collegati alla console corrente.
+author: miniksa
+ms.author: miniksa
+ms.topic: article
+keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+f1_keywords:
+- consoleapi3/GetConsoleProcessList
+- wincon/GetConsoleProcessList
+- GetConsoleProcessList
+MS-HAID:
+- '\_win32\_getconsoleprocesslist'
+- base.getconsoleprocesslist
+- consoles.getconsoleprocesslist
+MSHAttr:
+- PreferredSiteName:MSDN
+- PreferredLib:/library/windows/desktop
+ms.assetid: 3d21103b-662d-4393-ae3f-773cd9e4a930
+topic_type:
+- apiref
+api_name:
+- GetConsoleProcessList
+api_location:
+- Kernel32.dll
+api_type:
+- DllExport
+ms.openlocfilehash: 5b032754172886fd83a8152caeb5e2228b917930
+ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "89059777"
+---
+# <a name="getconsoleprocesslist-function"></a><span data-ttu-id="6e9de-104">GetConsoleProcessList (funzione)</span><span class="sxs-lookup"><span data-stu-id="6e9de-104">GetConsoleProcessList function</span></span>
+
+
+<span data-ttu-id="6e9de-105">Recupera un elenco dei processi collegati alla console corrente.</span><span class="sxs-lookup"><span data-stu-id="6e9de-105">Retrieves a list of the processes attached to the current console.</span></span>
+
+<a name="syntax"></a><span data-ttu-id="6e9de-106">Sintassi</span><span class="sxs-lookup"><span data-stu-id="6e9de-106">Syntax</span></span>
+------
+
+```C
+DWORD WINAPI GetConsoleProcessList(
+  _Out_ LPDWORD lpdwProcessList,
+  _In_  DWORD   dwProcessCount
+);
+```
+
+<a name="parameters"></a><span data-ttu-id="6e9de-107">Parametri</span><span class="sxs-lookup"><span data-stu-id="6e9de-107">Parameters</span></span>
+----------
+
+<span data-ttu-id="6e9de-108">*lpdwProcessList* \[ out\]</span><span class="sxs-lookup"><span data-stu-id="6e9de-108">*lpdwProcessList* \[out\]</span></span>  
+<span data-ttu-id="6e9de-109">Puntatore a un buffer che riceve una matrice di identificatori di processo al completamento dell'operazione.</span><span class="sxs-lookup"><span data-stu-id="6e9de-109">A pointer to a buffer that receives an array of process identifiers upon success.</span></span> <span data-ttu-id="6e9de-110">Deve essere un buffer valido e non può essere `NULL` .</span><span class="sxs-lookup"><span data-stu-id="6e9de-110">This must be a valid buffer and cannot be `NULL`.</span></span> <span data-ttu-id="6e9de-111">Il buffer deve avere spazio per ricevere almeno 1 ID processo restituito.</span><span class="sxs-lookup"><span data-stu-id="6e9de-111">The buffer must have space to receive at least 1 returned process id.</span></span>
+
+<span data-ttu-id="6e9de-112">*dwProcessCount* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="6e9de-112">*dwProcessCount* \[in\]</span></span>  
+<span data-ttu-id="6e9de-113">Numero massimo di identificatori di processo che è possibile archiviare nel buffer *lpdwProcessList* .</span><span class="sxs-lookup"><span data-stu-id="6e9de-113">The maximum number of process identifiers that can be stored in the *lpdwProcessList* buffer.</span></span> <span data-ttu-id="6e9de-114">Deve essere maggiore di 0.</span><span class="sxs-lookup"><span data-stu-id="6e9de-114">This must be greater than 0.</span></span>
+
+<a name="return-value"></a><span data-ttu-id="6e9de-115">Valore restituito</span><span class="sxs-lookup"><span data-stu-id="6e9de-115">Return value</span></span>
+------------
+
+<span data-ttu-id="6e9de-116">Se la funzione ha esito positivo, il valore restituito è minore o uguale a *dwProcessCount* e rappresenta il numero di identificatori di processo archiviati nel buffer *lpdwProcessList* .</span><span class="sxs-lookup"><span data-stu-id="6e9de-116">If the function succeeds, the return value is less than or equal to *dwProcessCount* and represents the number of process identifiers stored in the *lpdwProcessList* buffer.</span></span>
+
+<span data-ttu-id="6e9de-117">Se il buffer è troppo piccolo per conservare tutti gli identificatori di processo validi, il valore restituito è il numero necessario di elementi di matrice.</span><span class="sxs-lookup"><span data-stu-id="6e9de-117">If the buffer is too small to hold all the valid process identifiers, the return value is the required number of array elements.</span></span> <span data-ttu-id="6e9de-118">La funzione non avrà archiviato identificatori nel buffer.</span><span class="sxs-lookup"><span data-stu-id="6e9de-118">The function will have stored no identifiers in the buffer.</span></span> <span data-ttu-id="6e9de-119">In questa situazione, utilizzare il valore restituito per allocare un buffer sufficientemente grande da archiviare l'intero elenco e chiamare di nuovo la funzione.</span><span class="sxs-lookup"><span data-stu-id="6e9de-119">In this situation, use the return value to allocate a buffer that is large enough to store the entire list and call the function again.</span></span>
+
+<span data-ttu-id="6e9de-120">Se il valore restituito è zero, la funzione non è riuscita perché a ogni console è associato almeno un processo.</span><span class="sxs-lookup"><span data-stu-id="6e9de-120">If the return value is zero, the function has failed, because every console has at least one process associated with it.</span></span> <span data-ttu-id="6e9de-121">Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="6e9de-121">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
+
+<span data-ttu-id="6e9de-122">Se `NULL` è stato specificato un elenco di processi o il numero di processi è pari a 0, la chiamata restituirà 0 e restituirà `GetLastError` `ERROR_INVALID_PARAMETER` .</span><span class="sxs-lookup"><span data-stu-id="6e9de-122">If a `NULL` process list was provided or the process count was 0, the call will return 0 and `GetLastError` will return `ERROR_INVALID_PARAMETER`.</span></span> <span data-ttu-id="6e9de-123">Fornire un buffer di almeno un elemento per chiamare questa funzione.</span><span class="sxs-lookup"><span data-stu-id="6e9de-123">Please provide a buffer of at least one element to call this function.</span></span> <span data-ttu-id="6e9de-124">Allocare un buffer più grande e chiamare di nuovo se il codice restituito è più grande della lunghezza del buffer fornito.</span><span class="sxs-lookup"><span data-stu-id="6e9de-124">Allocate a larger buffer and call again if the return code is larger than the length of the provided buffer.</span></span>
+
+<a name="remarks"></a><span data-ttu-id="6e9de-125">Osservazioni</span><span class="sxs-lookup"><span data-stu-id="6e9de-125">Remarks</span></span>
+-------
+
+<span data-ttu-id="6e9de-126">Per compilare un'applicazione che usa questa funzione, definire \*\* \_ Win32 \_ WinNT\*\* come 0x0501 o versione successiva.</span><span class="sxs-lookup"><span data-stu-id="6e9de-126">To compile an application that uses this function, define **\_WIN32\_WINNT** as 0x0501 or later.</span></span> <span data-ttu-id="6e9de-127">Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).</span><span class="sxs-lookup"><span data-stu-id="6e9de-127">For more information, see [Using the Windows Headers](https://msdn.microsoft.com/library/windows/desktop/aa383745).</span></span>
+
+<a name="requirements"></a><span data-ttu-id="6e9de-128">Requisiti</span><span class="sxs-lookup"><span data-stu-id="6e9de-128">Requirements</span></span>
+------------
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><p><span data-ttu-id="6e9de-129">Client minimo supportato</span><span class="sxs-lookup"><span data-stu-id="6e9de-129">Minimum supported client</span></span></p></td>
+<td><p><span data-ttu-id="6e9de-130">Windows XP [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="6e9de-130">Windows XP [desktop apps only]</span></span></p></td>
+</tr>
+<tr class="even">
+<td><p><span data-ttu-id="6e9de-131">Server minimo supportato</span><span class="sxs-lookup"><span data-stu-id="6e9de-131">Minimum supported server</span></span></p></td>
+<td><p><span data-ttu-id="6e9de-132">Windows Server 2003 [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="6e9de-132">Windows Server 2003 [desktop apps only]</span></span></p></td>
+</tr>
+<tr class="odd">
+<td><p><span data-ttu-id="6e9de-133">Intestazione</span><span class="sxs-lookup"><span data-stu-id="6e9de-133">Header</span></span></p></td>
+<td><span data-ttu-id="6e9de-134">ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</span><span class="sxs-lookup"><span data-stu-id="6e9de-134">ConsoleApi3.h (via Wincon.h, include Windows.h)</span></span></td>
+</tr>
+<tr class="even">
+<td><p><span data-ttu-id="6e9de-135">Libreria</span><span class="sxs-lookup"><span data-stu-id="6e9de-135">Library</span></span></p></td>
+<td><span data-ttu-id="6e9de-136">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="6e9de-136">Kernel32.lib</span></span></td>
+</tr>
+<tr class="odd">
+<td><p><span data-ttu-id="6e9de-137">DLL</span><span class="sxs-lookup"><span data-stu-id="6e9de-137">DLL</span></span></p></td>
+<td><span data-ttu-id="6e9de-138">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="6e9de-138">Kernel32.dll</span></span></td>
+</tr>
+<tr class="even">
+</tr>
+<tr class="odd">
+</tr>
+<tr class="even">
+</tr>
+</tbody>
+</table>
+
+## <a name="span-idsee_alsospansee-also"></a><span data-ttu-id="6e9de-139"><span id="see_also"></span>Vedere anche</span><span class="sxs-lookup"><span data-stu-id="6e9de-139"><span id="see_also"></span>See also</span></span>
+
+
+[<span data-ttu-id="6e9de-140">**AttachConsole**</span><span class="sxs-lookup"><span data-stu-id="6e9de-140">**AttachConsole**</span></span>](attachconsole.md)
+
+[<span data-ttu-id="6e9de-141">Funzioni console</span><span class="sxs-lookup"><span data-stu-id="6e9de-141">Console Functions</span></span>](console-functions.md)
+
+ 
+
+ 
+
+
+
+
