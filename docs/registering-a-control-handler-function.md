@@ -1,10 +1,10 @@
 ---
-title: Registrazione di una funzione del gestore di controllo
+title: Registrazione di una funzione gestore di controllo
 description: Questo è un esempio della funzione SetConsoleCtrlHandler usata per installare un gestore di controllo.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+ms.topic: sample
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 MS-HAID:
 - '\_win32\_registering\_a\_control\_handler\_function'
 - base.registering\_a\_control\_handler\_function
@@ -13,23 +13,22 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: f1c72277-f06c-4147-a74c-6aaf6feb730e
-ms.openlocfilehash: cda72574b13c8c8fa1644e78310c66598c7b9dcf
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 4142f4f0871bd11a56085324195702ab47301227
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060345"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039449"
 ---
-# <a name="registering-a-control-handler-function"></a><span data-ttu-id="3fb75-104">Registrazione di una funzione del gestore di controllo</span><span class="sxs-lookup"><span data-stu-id="3fb75-104">Registering a Control Handler Function</span></span>
+# <a name="registering-a-control-handler-function"></a><span data-ttu-id="2863f-104">Registrazione di una funzione gestore di controllo</span><span class="sxs-lookup"><span data-stu-id="2863f-104">Registering a Control Handler Function</span></span>
 
+<span data-ttu-id="2863f-105">Questo è un esempio della funzione [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) usata per installare un gestore di controllo.</span><span class="sxs-lookup"><span data-stu-id="2863f-105">This is an example of the [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) function that is used to install a control handler.</span></span>
 
-<span data-ttu-id="3fb75-105">Questo è un esempio della funzione [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) usata per installare un gestore di controllo.</span><span class="sxs-lookup"><span data-stu-id="3fb75-105">This is an example of the [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) function that is used to install a control handler.</span></span>
+<span data-ttu-id="2863f-106">Quando viene ricevuto un segnale CTRL + C, il gestore di controllo restituisce **true** , a indicare che ha gestito il segnale.</span><span class="sxs-lookup"><span data-stu-id="2863f-106">When a CTRL+C signal is received, the control handler returns **TRUE** , indicating that it has handled the signal.</span></span> <span data-ttu-id="2863f-107">Questa operazione impedisce la chiamata di altri gestori del controllo.</span><span class="sxs-lookup"><span data-stu-id="2863f-107">Doing this prevents other control handlers from being called.</span></span>
 
-<span data-ttu-id="3fb75-106">Quando viene ricevuto un segnale CTRL + C, il gestore di controllo restituisce **true**, a indicare che ha gestito il segnale.</span><span class="sxs-lookup"><span data-stu-id="3fb75-106">When a CTRL+C signal is received, the control handler returns **TRUE**, indicating that it has handled the signal.</span></span> <span data-ttu-id="3fb75-107">Questa operazione impedisce la chiamata di altri gestori del controllo.</span><span class="sxs-lookup"><span data-stu-id="3fb75-107">Doing this prevents other control handlers from being called.</span></span>
+<span data-ttu-id="2863f-108">Quando viene ricevuto un segnale di **\_ \_ evento di chiusura CTRL** , il gestore di controllo restituisce **true** e il processo viene terminato.</span><span class="sxs-lookup"><span data-stu-id="2863f-108">When a **CTRL\_CLOSE\_EVENT** signal is received, the control handler returns **TRUE** and the process terminates.</span></span>
 
-<span data-ttu-id="3fb75-108">Quando viene ricevuto un segnale di \*\* \_ \_ evento di chiusura CTRL\*\* , il gestore di controllo restituisce **true** e il processo viene terminato.</span><span class="sxs-lookup"><span data-stu-id="3fb75-108">When a **CTRL\_CLOSE\_EVENT** signal is received, the control handler returns **TRUE** and the process terminates.</span></span>
-
-<span data-ttu-id="3fb75-109">Quando viene ricevuto un evento \*\*CTRL \_ break \_ \*\*, un evento di \*\* \_ disconnessione \_ \*\*CTRL o un segnale di **arresto dell' \_ \_ evento CTRL** , il gestore di controllo restituisce **false**.</span><span class="sxs-lookup"><span data-stu-id="3fb75-109">When a **CTRL\_BREAK\_EVENT**, **CTRL\_LOGOFF\_EVENT**, or **CTRL\_SHUTDOWN\_EVENT** signal is received, the control handler returns **FALSE**.</span></span> <span data-ttu-id="3fb75-110">Questa operazione fa sì che il segnale venga passato alla funzione del gestore di controllo successiva.</span><span class="sxs-lookup"><span data-stu-id="3fb75-110">Doing this causes the signal to be passed to the next control handler function.</span></span> <span data-ttu-id="3fb75-111">Se non sono stati registrati altri gestori di controllo o se nessuno dei gestori registrati restituisce **true**, verrà utilizzato il gestore predefinito, con conseguente terminazione del processo.</span><span class="sxs-lookup"><span data-stu-id="3fb75-111">If no other control handlers have been registered or none of the registered handlers returns **TRUE**, the default handler will be used, resulting in the process being terminated.</span></span>
+<span data-ttu-id="2863f-109">Quando viene ricevuto un evento **CTRL \_ break \_** , un evento di **\_ disconnessione \_** CTRL o un segnale di **arresto dell' \_ \_ evento CTRL** , il gestore di controllo restituisce **false** .</span><span class="sxs-lookup"><span data-stu-id="2863f-109">When a **CTRL\_BREAK\_EVENT** , **CTRL\_LOGOFF\_EVENT** , or **CTRL\_SHUTDOWN\_EVENT** signal is received, the control handler returns **FALSE** .</span></span> <span data-ttu-id="2863f-110">Questa operazione fa sì che il segnale venga passato alla funzione del gestore di controllo successiva.</span><span class="sxs-lookup"><span data-stu-id="2863f-110">Doing this causes the signal to be passed to the next control handler function.</span></span> <span data-ttu-id="2863f-111">Se non sono stati registrati altri gestori di controllo o se nessuno dei gestori registrati restituisce **true** , verrà utilizzato il gestore predefinito, con conseguente terminazione del processo.</span><span class="sxs-lookup"><span data-stu-id="2863f-111">If no other control handlers have been registered or none of the registered handlers returns **TRUE** , the default handler will be used, resulting in the process being terminated.</span></span>
 
 ```C
 // CtrlHandler.cpp : This file contains the 'main' function. Program execution begins and ends there.
@@ -37,26 +36,26 @@ ms.locfileid: "89060345"
 
 #include "pch.h"
 
-#include <windows.h> 
-#include <stdio.h> 
+#include <windows.h>
+#include <stdio.h>
 
 BOOL WINAPI CtrlHandler(DWORD fdwCtrlType)
 {
     switch (fdwCtrlType)
     {
-        // Handle the CTRL-C signal. 
+        // Handle the CTRL-C signal.
     case CTRL_C_EVENT:
         printf("Ctrl-C event\n\n");
         Beep(750, 300);
         return TRUE;
 
-        // CTRL-CLOSE: confirm that the user wants to exit. 
+        // CTRL-CLOSE: confirm that the user wants to exit.
     case CTRL_CLOSE_EVENT:
         Beep(600, 200);
         printf("Ctrl-Close event\n\n");
         return TRUE;
 
-        // Pass other signals to the next handler. 
+        // Pass other signals to the next handler.
     case CTRL_BREAK_EVENT:
         Beep(900, 200);
         printf("Ctrl-Break event\n\n");
@@ -96,11 +95,3 @@ int main(void)
     return 0;
 }
 ```
-
- 
-
- 
-
-
-
-
