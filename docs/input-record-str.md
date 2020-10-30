@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura INPUT_RECORD,
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - wincontypes/INPUT_RECORD
 - wincon/INPUT_RECORD
@@ -25,127 +25,66 @@ topic_type:
 api_name:
 - INPUT_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 5d532b5a009681e650991fd083f7d6ab932a05da
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 4ad86de170c1fef74f133a5d5c51d8de2dea497f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060433"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038539"
 ---
 # <a name="input_record-structure"></a>\_Struttura record di input
 
-
 Descrive un evento di input nel buffer di input della console. Questi record possono essere letti dal buffer di input usando la funzione [**ReadConsoleInput**](readconsoleinput.md) o [**PeekConsoleInput**](peekconsoleinput.md) o scritti nel buffer di input usando la funzione [**WriteConsoleInput**](writeconsoleinput.md) .
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _INPUT_RECORD {
-  WORD  EventType;
+  WORD  EventType;
   union {
-    KEY_EVENT_RECORD          KeyEvent;
-    MOUSE_EVENT_RECORD        MouseEvent;
+    KEY_EVENT_RECORD          KeyEvent;
+    MOUSE_EVENT_RECORD        MouseEvent;
     WINDOW_BUFFER_SIZE_RECORD WindowBufferSizeEvent;
-    MENU_EVENT_RECORD         MenuEvent;
-    FOCUS_EVENT_RECORD        FocusEvent;
-  } Event;
+    MENU_EVENT_RECORD         MenuEvent;
+    FOCUS_EVENT_RECORD        FocusEvent;
+  } Event;
 } INPUT_RECORD;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **EventType**  
 Handle per il tipo di evento di input e il record dell'evento archiviato nel membro dell' **evento** .
 
 Il membro può essere uno dei valori seguenti.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>valore</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="FOCUS_EVENT"></span><span id="focus_event"></span>
-<strong>FOCUS_EVENT</strong> 0x0010</td>
-<td><p>Il membro dell' <strong>evento</strong> contiene una struttura <a href="focus-event-record-str.md" data-raw-source="[&lt;strong&gt;FOCUS_EVENT_RECORD&lt;/strong&gt;](focus-event-record-str.md)"><strong>FOCUS_EVENT_RECORD</strong></a> . Questi eventi vengono usati internamente e devono essere ignorati.</p></td>
-</tr>
-<tr class="even">
-<td><span id="KEY_EVENT"></span><span id="key_event"></span>
-<strong>KEY_EVENT</strong> 0x0001</td>
-<td><p>Il membro dell' <strong>evento</strong> contiene una struttura <a href="key-event-record-str.md" data-raw-source="[&lt;strong&gt;KEY_EVENT_RECORD&lt;/strong&gt;](key-event-record-str.md)"><strong>KEY_EVENT_RECORD</strong></a> con informazioni su un evento di tastiera.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="MENU_EVENT"></span><span id="menu_event"></span>
-<strong>MENU_EVENT</strong> 0x0008</td>
-<td><p>Il membro dell' <strong>evento</strong> contiene una struttura <a href="menu-event-record-str.md" data-raw-source="[&lt;strong&gt;MENU_EVENT_RECORD&lt;/strong&gt;](menu-event-record-str.md)"><strong>MENU_EVENT_RECORD</strong></a> . Questi eventi vengono usati internamente e devono essere ignorati.</p></td>
-</tr>
-<tr class="even">
-<td><span id="MOUSE_EVENT"></span><span id="mouse_event"></span>
-<strong>Mouse_event</strong> 0x0002</td>
-<td><p>Il membro dell' <strong>evento</strong> contiene una struttura di <a href="mouse-event-record-str.md" data-raw-source="[&lt;strong&gt;MOUSE_EVENT_RECORD&lt;/strong&gt;](mouse-event-record-str.md)"><strong>MOUSE_EVENT_RECORD</strong></a> con informazioni su un evento di spostamento o di un pulsante del mouse.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="WINDOW_BUFFER_SIZE_EVENT"></span><span id="window_buffer_size_event"></span>
-<strong>WINDOW_BUFFER_SIZE_EVENT</strong> 0x0004</td>
-<td><p>Il membro dell' <strong>evento</strong> contiene una struttura <a href="window-buffer-size-record-str.md" data-raw-source="[&lt;strong&gt;WINDOW_BUFFER_SIZE_RECORD&lt;/strong&gt;](window-buffer-size-record-str.md)"><strong>WINDOW_BUFFER_SIZE_RECORD</strong></a> con informazioni sulle nuove dimensioni del buffer dello schermo della console.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
-
- 
+| Valore | Significato |
+|-|-|
+| **FOCUS_EVENT** 0x0010 | Il membro dell' **evento** contiene una struttura **[FOCUS_EVENT_RECORD](focus-event-record-str.md)** . Questi eventi vengono usati internamente e devono essere ignorati. |
+| **KEY_EVENT** 0x0001 | Il membro dell' **evento** contiene una struttura **[KEY_EVENT_RECORD](key-event-record-str.md)** con informazioni su un evento di tastiera. |
+| **MENU_EVENT** 0x0008 | Il membro dell' **evento** contiene una struttura **[MENU_EVENT_RECORD](menu-event-record-str.md)** . Questi eventi vengono usati internamente e devono essere ignorati. |
+| **Mouse_event** 0x0002 | Il membro dell' **evento** contiene una struttura di **[MOUSE_EVENT_RECORD](mouse-event-record-str.md)** con informazioni su un evento di spostamento o di un pulsante del mouse. |
+| **WINDOW_BUFFER_SIZE_EVENT** 0x0004 | Il membro dell' **evento** contiene una struttura **[WINDOW_BUFFER_SIZE_RECORD](window-buffer-size-record-str.md)** con informazioni sulle nuove dimensioni del buffer dello schermo della console. |
 
 **Event**  
 Informazioni sull'evento. Il formato di questo membro dipende dal tipo di evento specificato dal membro **eventType** .
 
-<a name="examples"></a>Esempi
---------
+## <a name="examples"></a>Esempio
 
 Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>WinConTypes. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | WinConTypes. h (tramite WinCon. h, Includi Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**\_record evento \_ attivo**](focus-event-record-str.md)
 
@@ -160,11 +99,3 @@ Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-
 [**ReadConsoleInput**](readconsoleinput.md)
 
 [**WriteConsoleInput**](writeconsoleinput.md)
-
- 
-
- 
-
-
-
-

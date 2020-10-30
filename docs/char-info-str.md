@@ -4,7 +4,7 @@ description: Specifica un carattere Unicode o ANSI e i relativi attributi. Quest
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - wincontypes/CHAR_INFO
 - wincon/CHAR_INFO
@@ -25,36 +25,35 @@ topic_type:
 api_name:
 - CHAR_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 6244edaa06b6dd69f8ab3962cf42cb893d08f699
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: b07938d6ac58744533711c91a04b1a0188f7daf6
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060209"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037379"
 ---
 # <a name="char_info-structure"></a>\_Struttura info char
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Specifica un carattere Unicode o ANSI e i relativi attributi. Questa struttura viene utilizzata dalle funzioni console per la lettura e la scrittura in un buffer dello schermo della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _CHAR_INFO {
   union {
     WCHAR UnicodeChar;
-    CHAR  AsciiChar;
-  } Char;
-  WORD  Attributes;
+    CHAR  AsciiChar;
+  } Char;
+  WORD  Attributes;
 } CHAR_INFO, *PCHAR_INFO;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **Char**  
 Unione dei membri seguenti.
@@ -68,166 +67,40 @@ Carattere ANSI di una cella del carattere del buffer dello schermo.
 **Attributes (Attributi)**  
 Attributi carattere. Questo membro può essere zero o una qualsiasi combinazione dei valori seguenti.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>valore</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="FOREGROUND_BLUE"></span><span id="foreground_blue"></span>
-<strong>FOREGROUND_BLUE</strong> 0x0001</td>
-<td><p>Il colore del testo contiene il blu.</p></td>
-</tr>
-<tr class="even">
-<td><span id="FOREGROUND_GREEN"></span><span id="foreground_green"></span>
-<strong>FOREGROUND_GREEN</strong> 0x0002</td>
-<td><p>Il colore del testo contiene verde.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="FOREGROUND_RED"></span><span id="foreground_red"></span>
-<strong>FOREGROUND_RED</strong> 0x0004</td>
-<td><p>Il colore del testo contiene rosso.</p></td>
-</tr>
-<tr class="even">
-<td><span id="FOREGROUND_INTENSITY"></span><span id="foreground_intensity"></span>
-<strong>FOREGROUND_INTENSITY</strong> 0x0008</td>
-<td><p>Il colore del testo viene intensificato.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="BACKGROUND_BLUE"></span><span id="background_blue"></span>
-<strong>BACKGROUND_BLUE</strong> 0x0010</td>
-<td><p>Il colore di sfondo contiene blu.</p></td>
-</tr>
-<tr class="even">
-<td><span id="BACKGROUND_GREEN"></span><span id="background_green"></span>
-<strong>BACKGROUND_GREEN</strong> 0x0020</td>
-<td><p>Il colore di sfondo contiene verde.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="BACKGROUND_RED"></span><span id="background_red"></span>
-<strong>BACKGROUND_RED</strong> 0x0040</td>
-<td><p>Il colore di sfondo contiene rosso.</p></td>
-</tr>
-<tr class="even">
-<td><span id="BACKGROUND_INTENSITY"></span><span id="background_intensity"></span>
-<strong>BACKGROUND_INTENSITY</strong> 0x0080</td>
-<td><p>Il colore di sfondo viene intensificato.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="COMMON_LVB_LEADING_BYTE"></span><span id="common_lvb_leading_byte"></span>
-<strong>COMMON_LVB_LEADING_BYTE</strong> 0x0100</td>
-<td><p>Byte iniziali.</p></td>
-</tr>
-<tr class="even">
-<td><span id="COMMON_LVB_TRAILING_BYTE"></span><span id="common_lvb_trailing_byte"></span>
-<strong>COMMON_LVB_TRAILING_BYTE</strong> 0x0200</td>
-<td><p>Byte finale.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="COMMON_LVB_GRID_HORIZONTAL"></span><span id="common_lvb_grid_horizontal"></span>
-<strong>COMMON_LVB_GRID_HORIZONTAL</strong> 0x0400</td>
-<td><p>Orizzontale superiore</p></td>
-</tr>
-<tr class="even">
-<td><span id="COMMON_LVB_GRID_LVERTICAL"></span><span id="common_lvb_grid_lvertical"></span>
-<strong>COMMON_LVB_GRID_LVERTICAL</strong> 0x0800</td>
-<td><p>Sinistra verticale.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="COMMON_LVB_GRID_RVERTICAL"></span><span id="common_lvb_grid_rvertical"></span>
-<strong>COMMON_LVB_GRID_RVERTICAL</strong> 0x1000</td>
-<td><p>Diritto verticale.</p></td>
-</tr>
-<tr class="even">
-<td><span id="COMMON_LVB_REVERSE_VIDEO"></span><span id="common_lvb_reverse_video"></span>
-<strong>COMMON_LVB_REVERSE_VIDEO</strong> 0x4000</td>
-<td><p>Inverso in primo piano e in background.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="COMMON_LVB_UNDERSCORE"></span><span id="common_lvb_underscore"></span>
-<strong>COMMON_LVB_UNDERSCORE</strong> 0x8000</td>
-<td><p>Sottolineatura.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| Valore | Significato |
+|-|-|
+| **FOREGROUND_BLUE**`0x0001` | Il colore del testo contiene il blu. |
+| **FOREGROUND_GREEN**`0x0002` | Il colore del testo contiene verde. |
+| **FOREGROUND_RED**`0x0004` | Il colore del testo contiene rosso. |
+| **FOREGROUND_INTENSITY**`0x0008` | Il colore del testo viene intensificato. |
+| **BACKGROUND_BLUE**`0x0010` | Il colore di sfondo contiene blu. |
+| **BACKGROUND_GREEN**`0x0020` | Il colore di sfondo contiene verde. |
+| **BACKGROUND_RED**`0x0040` | Il colore di sfondo contiene rosso. |
+| **BACKGROUND_INTENSITY**`0x0080` | Il colore di sfondo viene intensificato. |
+| **COMMON_LVB_LEADING_BYTE**`0x0100` | Byte iniziali. |
+| **COMMON_LVB_TRAILING_BYTE**`0x0200` | Byte finale. |
+| **COMMON_LVB_GRID_HORIZONTAL**`0x0400` | Orizzontale superiore. |
+| **COMMON_LVB_GRID_LVERTICAL**`0x0800` | Sinistra verticale. |
+| **COMMON_LVB_GRID_RVERTICAL**`0x1000` | Diritto verticale. |
+| **COMMON_LVB_REVERSE_VIDEO**`0x4000` | Inverso in primo piano e in background. |
+| **COMMON_LVB_UNDERSCORE**`0x8000` | Sottolineatura. |
 
- 
-
-<a name="examples"></a>Esempi
---------
+## <a name="examples"></a>Esempio
 
 Per un esempio, vedere [scorrimento del contenuto di un buffer dello schermo](scrolling-a-screen-buffer-s-contents.md).
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>Wincon. h (include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | WinCon. h (include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**ReadConsoleOutput**](readconsoleoutput.md)
 
 [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md)
 
 [**WriteConsoleOutput**](writeconsoleoutput.md)
-
- 
-
- 
-
-
-
-

@@ -4,7 +4,7 @@ description: Recupera la dimensione richiesta per il buffer usato dalla funzione
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi3/GetConsoleAliasesLength
 - wincon/GetConsoleAliasesLength
@@ -32,89 +32,54 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 23d820574aab837c89f2598e9934536b91715426
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 395acba39600fe1a98a80ed06ea23646b0b9f174
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059809"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038959"
 ---
 # <a name="getconsolealiaseslength-function"></a>GetConsoleAliasesLength (funzione)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Recupera la dimensione richiesta per il buffer usato dalla funzione [**GetConsoleAliases**](getconsolealiases.md) .
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 DWORD WINAPI GetConsoleAliasesLength(
-  _In_ LPTSTR lpExeName
+  _In_ LPTSTR lpExeName
 );
 ```
 
-<a name="parameters"></a>Parametri
-----------
+## <a name="parameters"></a>Parametri
 
 *lpExeName* \[ in\]  
 Nome del file eseguibile di cui devono essere recuperati gli alias della console.
 
-<a name="return-value"></a>Valore restituito
-------------
+## <a name="return-value"></a>Valore restituito
 
 Dimensioni del buffer necessarie per archiviare tutti gli alias di console definiti per il file eseguibile, in byte.
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
-Per compilare un'applicazione che usa questa funzione, definire ** \_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisiti
-------------
+[!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Libreria</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nomi Unicode e ANSI</p></td>
-<td><p><strong>GetConsoleAliasesLengthW</strong> (Unicode) e <strong>GetConsoleAliasesLengthA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisiti
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
+| Libreria | Kernel32. lib |
+| DLL | Kernel32.dll |
+| Nomi Unicode e ANSI | **GetConsoleAliasesLengthW** (Unicode) e **GetConsoleAliasesLengthA** (ANSI) |
 
+## <a name="see-also"></a>Vedi anche
 
 [**AddConsoleAlias**](addconsolealias.md)
 
@@ -127,11 +92,3 @@ Per compilare un'applicazione che usa questa funzione, definire ** \_ Win32 \_ W
 [**GetConsoleAliases**](getconsolealiases.md)
 
 [**GetConsoleAliasExes**](getconsolealiasexes.md)
-
- 
-
- 
-
-
-
-

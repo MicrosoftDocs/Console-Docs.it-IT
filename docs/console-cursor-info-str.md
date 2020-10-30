@@ -4,7 +4,7 @@ description: Contiene le informazioni sulle dimensioni e sulla visibilità relat
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - wincontypes/CONSOLE_CURSOR_INFO
 - wincon/CONSOLE_CURSOR_INFO
@@ -25,79 +25,52 @@ topic_type:
 api_name:
 - CONSOLE_CURSOR_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 0ac3eb459810f2c8ebc861759312350a487abd3c
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: cdfcc00035738aa468d9795e4f6d32a54b96e1d0
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060132"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037014"
 ---
 # <a name="console_cursor_info-structure"></a>\_ \_ Struttura informazioni cursore console
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene informazioni sul cursore della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _CONSOLE_CURSOR_INFO {
   DWORD dwSize;
-  BOOL  bVisible;
+  BOOL  bVisible;
 } CONSOLE_CURSOR_INFO, *PCONSOLE_CURSOR_INFO;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **dwSize**  
 Percentuale della cella di tipo carattere compilata dal cursore. Questo valore è compreso tra 1 e 100. L'aspetto del cursore varia a seconda che la cella venga riempita completamente per essere visualizzata come riga orizzontale nella parte inferiore della cella.
 
-**Nota**    Anche se il valore **dwSize** è in genere compreso tra 1 e 100, in alcune circostanze potrebbe essere restituito un valore esterno a tale intervallo. Se, ad esempio, **CursorSize** è impostato su 0 nel registro di sistema, il valore **dwSize** restituito sarà 0.
+> [!NOTE]
+>Anche se il valore **dwSize** è in genere compreso tra 1 e 100, in alcune circostanze potrebbe essere restituito un valore esterno a tale intervallo. Se, ad esempio, **CursorSize** è impostato su 0 nel registro di sistema, il valore **dwSize** restituito sarà 0.
 
- 
+ **bVisible**  
+Visibilità del cursore. Se il cursore è visibile, questo membro è **true** .
 
-**bVisible**  
-Visibilità del cursore. Se il cursore è visibile, questo membro è **true**.
+## <a name="requirements"></a>Requisiti
 
-<a name="requirements"></a>Requisiti
-------------
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | WinCon. h (include Windows. h) |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>Wincon. h (include Windows. h)</td>
-</tr>
-</tbody>
-</table>
-
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**GetConsoleCursorInfo**](getconsolecursorinfo.md)
 
 [**SetConsoleCursorInfo**](setconsolecursorinfo.md)
-
- 
-
- 
-
-
-
-

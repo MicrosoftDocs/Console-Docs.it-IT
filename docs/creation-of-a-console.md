@@ -3,8 +3,8 @@ title: Creazione di una console
 description: Il sistema crea una nuova console quando avvia un processo della console, un processo in modalità carattere il cui punto di ingresso è la funzione principale.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+ms.topic: conceptual
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 MS-HAID:
 - '\_win32\_creation\_of\_a\_console'
 - base.creation\_of\_a\_console
@@ -13,22 +13,21 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 84ec2559-cade-447e-8594-5b824d3d3e81
-ms.openlocfilehash: b3b4143596035fed6896243043853932ae68233f
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 78a77044452fe2287a7cea0bfe5a6542eceef337
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038239"
 ---
 # <a name="creation-of-a-console"></a>Creazione di una console
 
-
-Il sistema crea una nuova console quando avvia un *processo della console*, un processo in modalità carattere il cui punto di ingresso è la funzione **principale** . Ad esempio, il sistema crea una nuova console all'avvio del processore dei comandi. Quando il processore dei comandi avvia un nuovo processo console, l'utente può specificare se il sistema crea una nuova console per il nuovo processo o se eredita la console del processore dei comandi.
+Il sistema crea una nuova console quando avvia un *processo della console* , un processo in modalità carattere il cui punto di ingresso è la funzione **principale** . Ad esempio, il sistema crea una nuova console all'avvio del processore dei comandi `cmd.exe` . Quando il processore dei comandi avvia un nuovo processo console, l'utente può specificare se il sistema crea una nuova console per il nuovo processo o se eredita la console del processore dei comandi.
 
 Un processo può creare una console utilizzando uno dei metodi seguenti:
 
-- Un processo della GUI o della console può usare la funzione [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **Create \_ New \_ console** per creare un processo della console con una nuova console. Per impostazione predefinita, un processo console eredita la console padre e non vi è alcuna garanzia che l'input venga ricevuto dal processo per cui è stato progettato.
-- Un'interfaccia utente grafica (GUI) o un processo console che non è attualmente collegato a una console di può utilizzare la funzione [**AllocConsole**](allocconsole.md) per creare una nuova console. I processi GUI non sono collegati a una console quando vengono creati. I processi della console non sono collegati a una console se vengono creati utilizzando [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con ** \_ processo scollegato**.
+- Un'interfaccia utente grafica (GUI) o un processo della console può usare la funzione [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **Create \_ New \_ console** per creare un processo della console con una nuova console. Per impostazione predefinita, un processo console eredita la console padre e non vi è alcuna garanzia che l'input venga ricevuto dal processo per cui è stato progettato.
+- Un'interfaccia utente grafica o un processo console che non è attualmente collegato a una console di può utilizzare la funzione [**AllocConsole**](allocconsole.md) per creare una nuova console. I processi GUI non sono collegati a una console quando vengono creati. I processi della console non sono collegati a una console se vengono creati utilizzando [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **\_ processo scollegato** .
 
 In genere, un processo USA [**AllocConsole**](allocconsole.md) per creare una console quando si verifica un errore che richiede l'interazione con l'utente. Un processo GUI, ad esempio, può creare una console quando si verifica un errore che impedisce di usare l'interfaccia grafica normale oppure un processo console che in genere non interagisce con l'utente può creare una console per visualizzare un errore.
 
@@ -48,25 +47,15 @@ Il sistema usa i valori predefiniti se i valori [**STARTUPINFO**](https://msdn.m
 
 Un processo non può modificare la posizione della finestra della console sullo schermo, ma sono disponibili le funzioni console seguenti per impostare o recuperare le altre proprietà specificate nella struttura [**STARTUPINFO**](https://msdn.microsoft.com/library/windows/desktop/ms686331) .
 
-
-| Funzione                                                         | Descrizione                                                          |
-|------------------------------------------------------------------|----------------------------------------------------------------------|
+| Funzione | Descrizione |
+|-|-|
 | [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) | Recupera le dimensioni della finestra, le dimensioni del buffer dello schermo e gli attributi di colore. |
-| [**SetConsoleWindowInfo**](setconsolewindowinfo.md)             | Modifica la dimensione della finestra della console.                              |
-| [**SetConsoleScreenBufferSize**](setconsolescreenbuffersize.md) | Modifica la dimensione del buffer dello schermo della console.                       |
-| [**SetConsoleTextAttribute**](setconsoletextattribute.md)       | Imposta gli attributi di colore.                                           |
-| [**SetConsoleTitle**](setconsoletitle.md)                       | Imposta il titolo della finestra della console.                                       |
-| [**GetConsoleTitle**](getconsoletitle.md)                       | Recupera il titolo della finestra della console.                                  |
-
-
-
+| [**SetConsoleWindowInfo**](setconsolewindowinfo.md)  | Modifica la dimensione della finestra della console.  |
+| [**SetConsoleScreenBufferSize**](setconsolescreenbuffersize.md) | Modifica la dimensione del buffer dello schermo della console. |
+| [**SetConsoleTextAttribute**](setconsoletextattribute.md) | Imposta gli attributi di colore.  |
+| [**SetConsoleTitle**](setconsoletitle.md)  | Imposta il titolo della finestra della console. |
+| [**GetConsoleTitle**](getconsoletitle.md)  | Recupera il titolo della finestra della console.  |
 
 Un processo può usare la funzione [**FreeConsole**](freeconsole.md) per scollegarsi da una console ereditata o da una console creata da [**AllocConsole**](allocconsole.md).
 
-
-
-
-
-
-
-
+Un processo può utilizzare la funzione [**AttachConsole**](attachconsole.md) per collegarsi a un'altra sessione della console esistente dopo aver utilizzato [**FreeConsole**](freeconsole.md) per scollegarsi dalla propria sessione (o se non è presente alcuna sessione collegata).

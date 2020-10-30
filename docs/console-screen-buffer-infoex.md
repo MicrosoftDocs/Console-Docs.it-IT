@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura CONSOLE_SCREE
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi2/CONSOLE_SCREEN_BUFFER_INFOEX
 - wincon/CONSOLE_SCREEN_BUFFER_INFOEX
@@ -24,40 +24,37 @@ topic_type:
 api_name:
 - CONSOLE_SCREEN_BUFFER_INFOEX
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 010120f2d925727e37bd72905bab4536db073371
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: baf6eeb51cbae5ce410c190852c22ae237e6a367
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060049"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038349"
 ---
 # <a name="console_screen_buffer_infoex-structure"></a>\_ \_ Struttura INFOEX buffer dello schermo della console \_
 
-
 Contiene informazioni estese su un buffer dello schermo della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _CONSOLE_SCREEN_BUFFER_INFOEX {
-  ULONG      cbSize;
-  COORD      dwSize;
-  COORD      dwCursorPosition;
-  WORD       wAttributes;
+  ULONG      cbSize;
+  COORD      dwSize;
+  COORD      dwCursorPosition;
+  WORD       wAttributes;
   SMALL_RECT srWindow;
-  COORD      dwMaximumWindowSize;
-  WORD       wPopupAttributes;
-  BOOL       bFullscreenSupported;
-  COLORREF   ColorTable[16];
+  COORD      dwMaximumWindowSize;
+  WORD       wPopupAttributes;
+  BOOL       bFullscreenSupported;
+  COLORREF   ColorTable[16];
 } CONSOLE_SCREEN_BUFFER_INFOEX, *PCONSOLE_SCREEN_BUFFER_INFOEX;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **cbSize**  
 Dimensioni, in byte, della struttura.
@@ -69,7 +66,7 @@ Struttura [**Coord**](coord-str.md) che contiene le dimensioni del buffer dello 
 Struttura [**Coord**](coord-str.md) che contiene le coordinate di riga e di colonna del cursore nel buffer dello schermo della console.
 
 **wAttributes**  
-Attributi dei caratteri scritti in un buffer dello schermo dalle funzioni [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) e [**WriteConsole**](writeconsole.md) oppure restituiti a un buffer dello schermo dalle funzioni [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) e [**ReadConsole**](readconsole.md) . Per altre informazioni, vedere [attributi carattere](console-screen-buffers.md#_win32_font_attributes).
+Attributi dei caratteri scritti in un buffer dello schermo dalle funzioni [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) e [**WriteConsole**](writeconsole.md) oppure restituiti a un buffer dello schermo dalle funzioni [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) e [**ReadConsole**](readconsole.md) . Per altre informazioni, vedere [attributi carattere](console-screen-buffers.md#character-attributes).
 
 **srWindow**  
 Una [**piccola struttura \_ Rect**](small-rect-str.md) che contiene le coordinate del buffer dello schermo della console degli angoli superiore sinistro e inferiore destro della finestra di visualizzazione.
@@ -81,37 +78,20 @@ Struttura [**Coord**](coord-str.md) che contiene la dimensione massima della fin
 Attributo Fill per i popup della console.
 
 **bFullscreenSupported**  
-Se questo membro è TRUE, la modalità schermo intero è supportata. in caso contrario, non lo è.
+Se questo membro è `TRUE` , la modalità schermo intero è supportata; in caso contrario, non lo è. Questa operazione sarà sempre `FALSE` destinata ai sistemi dopo Windows Vista con il [modello di driver WDDM](https://docs.microsoft.com/windows-hardware/drivers/display/introduction-to-the-windows-vista-and-later-display-driver-model) , perché l'accesso diretto a VGA diretto al monitor non è più disponibile.
 
 **ColorTable**  
 Matrice di valori [**COLORREF**](https://msdn.microsoft.com/library/windows/desktop/dd183449) che descrivono le impostazioni relative ai colori della console.
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows Vista [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows Server 2008 [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi2. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop di Windows Vista\] |
+| Server minimo supportato | \[Solo app desktop Windows Server 2008\] |
+| Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**COORD**](coord-str.md)
 
@@ -120,11 +100,3 @@ Matrice di valori [**COLORREF**](https://msdn.microsoft.com/library/windows/desk
 [**SetConsoleScreenBufferInfoEx**](setconsolescreenbufferinfoex.md)
 
 [**\_Rect piccolo**](small-rect-str.md)
-
- 
-
- 
-
-
-
-

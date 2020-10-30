@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura CONSOLE_SELEC
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi3/CONSOLE_SELECTION_INFO
 - wincon/CONSOLE_SELECTION_INFO
@@ -25,129 +25,63 @@ topic_type:
 api_name:
 - CONSOLE_SELECTION_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: a16fe43e7b7cc4b5890284921823aee7b79217b2
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: aaf1cfaea2a8822c142aab87f6dcf1b022b7160c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038369"
 ---
 # <a name="console_selection_info-structure"></a>Struttura delle informazioni di \_ selezione della console \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene informazioni per la selezione di una console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _CONSOLE_SELECTION_INFO {
-  DWORD      dwFlags;
-  COORD      dwSelectionAnchor;
+  DWORD      dwFlags;
+  COORD      dwSelectionAnchor;
   SMALL_RECT srSelection;
 } CONSOLE_SELECTION_INFO, *PCONSOLE_SELECTION_INFO;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **dwFlags**  
 Indicatore di selezione. Il membro può essere costituito da uno o più dei valori seguenti.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>valore</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CONSOLE_MOUSE_DOWN"></span><span id="console_mouse_down"></span>
-<strong>CONSOLE_MOUSE_DOWN</strong> 0x0008</td>
-<td><p>Il mouse è inattivo</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_MOUSE_SELECTION"></span><span id="console_mouse_selection"></span>
-<strong>CONSOLE_MOUSE_SELECTION</strong> 0x0004</td>
-<td><p>Selezione con il mouse</p></td>
-</tr>
-<tr class="odd">
-<td><span id="CONSOLE_NO_SELECTION"></span><span id="console_no_selection"></span>
-<strong>CONSOLE_NO_SELECTION</strong> 0x0000</td>
-<td><p>Nessuna selezione</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_SELECTION_IN_PROGRESS"></span><span id="console_selection_in_progress"></span>
-<strong>CONSOLE_SELECTION_IN_PROGRESS</strong> 0x0001</td>
-<td><p>Selezione iniziata</p></td>
-</tr>
-<tr class="odd">
-<td><span id="CONSOLE_SELECTION_NOT_EMPTY"></span><span id="console_selection_not_empty"></span>
-<strong>CONSOLE_SELECTION_NOT_EMPTY</strong> 0x0002</td>
-<td><p>Il rettangolo di selezione non è vuoto</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
-
- 
+| Valore | Significato |
+|-|-|
+| **CONSOLE_MOUSE_DOWN** 0x0008 | Il mouse è inattivo. L'utente sta modificando attivamente il rettangolo di selezione con il mouse. |
+| **CONSOLE_MOUSE_SELECTION** 0x0004 | Selezione con il mouse. Se è disattivata, l'utente è la `conhost.exe` selezione della modalità contrassegno operativo con la tastiera. |
+| **CONSOLE_NO_SELECTION** 0x0000 | Nessuna selezione. |
+| **CONSOLE_SELECTION_IN_PROGRESS** 0x0001 | La selezione è iniziata. Se una selezione del mouse non si verifica in genere senza il `CONSOLE_SELECTION_NOT_EMPTY` flag. Se si seleziona una tastiera, questo può verificarsi quando è stata immessa la modalità contrassegno, ma l'utente continua a spostarsi nella posizione iniziale. |
+| **CONSOLE_SELECTION_NOT_EMPTY** 0x0002 | Rettangolo di selezione non vuoto. Il payload di *dwSelectionAnchor* e *srSelection* sono validi.  |
 
 **dwSelectionAnchor**  
 Struttura [**Coord**](coord-str.md) che specifica l'ancoraggio di selezione, in caratteri.
 
 **srSelection**  
-Struttura [** \_ Rect piccola**](small-rect-str.md) che specifica il rettangolo di selezione.
+Struttura [**\_ Rect piccola**](small-rect-str.md) che specifica il rettangolo di selezione.
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows XP [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows Server 2003 [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows XP\] |
+| Server minimo supportato | \[Solo app desktop Windows Server 2003\] |
+| Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**COORD**](coord-str.md)
 
 [**GetConsoleSelectionInfo**](getconsoleselectioninfo.md)
 
 [**\_Rect piccolo**](small-rect-str.md)
-
- 
-
- 
-
-
-
-

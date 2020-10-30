@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura CONSOLE_FONT_
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - wincontypes/CONSOLE_FONT_INFO
 - wincon/CONSOLE_FONT_INFO
@@ -25,23 +25,23 @@ topic_type:
 api_name:
 - CONSOLE_FONT_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: c4218c53eacd95d67f3dc9056f5a1024ac1a8ab0
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 6c437e626ed6d207da4672a3a5ea60c2ea0ee008
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060129"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037139"
 ---
 # <a name="console_font_info-structure"></a>Struttura delle informazioni sul tipo di carattere della CONSOLE \_ \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene informazioni per un tipo di carattere della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _CONSOLE_FONT_INFO {
@@ -50,8 +50,7 @@ typedef struct _CONSOLE_FONT_INFO {
 } CONSOLE_FONT_INFO, *PCONSOLE_FONT_INFO;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **nFont**  
 Indice del tipo di carattere nella tabella dei tipi di carattere della console del sistema.
@@ -59,46 +58,20 @@ Indice del tipo di carattere nella tabella dei tipi di carattere della console d
 **dwFontSize**  
 Struttura [**Coord**](coord-str.md) che contiene la larghezza e l'altezza di ogni carattere del tipo di carattere, in unità logiche. Il membro **X** contiene la larghezza, mentre il membro **Y** contiene l'altezza.
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
 Per ottenere la dimensione del tipo di carattere, passare l'indice del tipo di carattere alla funzione [**GetConsoleFontSize**](getconsolefontsize.md) .
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows XP [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows Server 2003 [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>Wincon. h (include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows XP\] |
+| Server minimo supportato | \[Solo app desktop Windows Server 2003\] |
+| Intestazione | WinCon. h (include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**COORD**](coord-str.md)
 
 [**GetCurrentConsoleFont**](getcurrentconsolefont.md)
-
- 
-
- 
-
-
-
-

@@ -3,15 +3,15 @@ title: Modalità console legacy-desktop di Windows
 description: La modalità console legacy è uno strumento di compatibilità che facilita l'esecuzione di applicazioni della riga di comando che potrebbero non funzionare con l'host della console di Windows 10
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 ms.prod: console
 keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console, compatibilità
-ms.openlocfilehash: a69e192426cc178ae98565db07c49f9ff2ce4961
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: eeddfd00ffa8c3ad9d99583b89e4b3be7959f445
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037709"
 ---
 # <a name="legacy-console-mode"></a>Modalità console legacy
 
@@ -25,7 +25,8 @@ Fare clic con il pulsante destro del mouse sulla barra del titolo dell'applicazi
 
 È possibile ripristinare l'impostazione tornando allo stesso menu della finestra delle proprietà e deselezionando la casella, quindi premendo `OK` .
 
-**Nota:** Questa impostazione viene applicata globalmente a tutte le sessioni che si avviano dopo la modifica delle preferenze. Le sessioni già aperte non verranno modificate.
+> [!NOTE]
+>Questa impostazione viene applicata globalmente a tutte le sessioni che si avviano dopo la modifica delle preferenze. Le sessioni già aperte non verranno modificate.
 
 ## <a name="differences-between-modes"></a>Differenze tra le modalità
 
@@ -41,6 +42,6 @@ L'host della console legacy incorporate la parte relativa ai suggerimenti dell'I
 
 ### <a name="api-differences"></a>Differenze tra API
 
-La differenza nota principale tra legacy e Current è l'implementazione di UTF-8. L'host legacy ha un supporto estremamente rudimentale e spesso non corretto di UTF-8 con [tabella codici 65001](https://docs.microsoft.com/windows/win32/intl/code-pages). L'host della console corrente contiene miglioramenti incrementali per la versione finale di Windows 10 per migliorare questo supporto. Le applicazioni che tentano di basarsi sulla stima delle interpretazioni "note non corrette" di UTF-8 dalla console legacy si troveranno a ricevere risposte diverse a seconda del miglioramento del supporto. 
+La differenza nota principale tra legacy e Current è l'implementazione di UTF-8. L'host legacy ha un supporto estremamente rudimentale e spesso non corretto di UTF-8 con [tabella codici 65001](https://docs.microsoft.com/windows/win32/intl/code-pages). L'host della console corrente contiene miglioramenti incrementali per la versione finale di Windows 10 per migliorare questo supporto. Le applicazioni che tentano di basarsi sulla stima delle interpretazioni "note non corrette" di UTF-8 dalla console legacy si troveranno a ricevere risposte diverse a seconda del miglioramento del supporto.
 
-Altre differenze riscontrate con le API devono essere segnalate al repository GitHub [Microsoft/Terminal](https://github.com/microsoft/terminal/) o tramite l' [Hub feedback](https://docs.microsoft.com/windows-insider/feedback-hub/feedback-hub-app) per la valutazione e la possibile correzione.
+Altre differenze riscontrate con le API devono essere segnalate al [repository GitHub Microsoft/Terminal](https://github.com/microsoft/terminal/) o tramite l' [Hub feedback](https://docs.microsoft.com/windows-insider/feedback-hub/feedback-hub-app) per la valutazione e la possibile correzione.

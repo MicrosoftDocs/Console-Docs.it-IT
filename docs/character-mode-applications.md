@@ -1,10 +1,10 @@
 ---
-title: Console
+title: Applicazioni in modalità carattere
 description: Le console di gestiscono l'input e l'output (I/O) per le applicazioni in modalità carattere (applicazioni che non forniscono una propria interfaccia utente grafica).
 author: miniksa
 ms.author: miniksa
-ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+ms.topic: conceptual
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 MS-HAID:
 - '\_win32\_character\_mode\_applications'
 - base.character\_mode\_applications
@@ -13,15 +13,14 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: ea3ea214-892c-4953-bc22-7905efbc173f
-ms.openlocfilehash: 99f351efbf6b68733b5c3e7b94cee03708d6cbef
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 5e1b0b2b5162360122580f3ea7a100750b96272e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060204"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037349"
 ---
-# <a name="consoles"></a>Console
-
+# <a name="character-mode-applications"></a>Applicazioni in modalità carattere
 
 Le console di gestiscono l'input e l'output (I/O) per le applicazioni in modalità carattere (applicazioni che non forniscono una propria interfaccia utente grafica).
 
@@ -32,11 +31,3 @@ Questa panoramica descrive il supporto per le applicazioni in modalità caratter
 - [Informazioni sulle console](about-character-mode-applications.md)
 - [Uso della console](using-the-console.md)
 - [Riferimento alla console](console-reference.md)
-
- 
-
- 
-
-
-
-

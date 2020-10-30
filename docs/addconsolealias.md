@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla funzione AddConsoleAlia
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi3/AddConsoleAlias
 - consoleapi3/AddConsoleAliasA
@@ -32,104 +32,68 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 108a77b3178e7695e7477ea198df616fa8bcb199
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 2f2396122e693ab76ddf4e4e0bcdb2d38a2c042b
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060241"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037554"
 ---
 # <a name="addconsolealias-function"></a>AddConsoleAlias (funzione)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Definisce un alias di console per il file eseguibile specificato.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 BOOL WINAPI AddConsoleAlias(
-  _In_ LPCTSTR Source,
-  _In_ LPCTSTR Target,
-  _In_ LPCTSTR ExeName
+  _In_ LPCTSTR Source,
+  _In_ LPCTSTR Target,
+  _In_ LPCTSTR ExeName
 );
 ```
 
-<a name="parameters"></a>Parametri
-----------
+## <a name="parameters"></a>Parametri
 
 *Origine* \[ dati in\]  
-Alias della console di cui eseguire il mapping al testo specificato dalla *destinazione*.
+Alias della console di cui eseguire il mapping al testo specificato dalla *destinazione* .
 
 *Destinazione* \[ in\]  
-Testo da sostituire con l' *origine*. Se questo parametro è **null**, l'alias della console verrà rimosso.
+Testo da sostituire con l' *origine* . Se questo parametro è **null** , l'alias della console verrà rimosso.
 
 *Exename* \[ in\]  
 Nome del file eseguibile per cui definire l'alias della console.
 
-<a name="return-value"></a>Valore restituito
-------------
+## <a name="return-value"></a>Valore restituito
 
-Se la funzione ha esito positivo, il valore restituito è **true**.
+Se la funzione ha esito positivo, il valore restituito è **true** .
 
-Se la funzione ha esito negativo, il valore restituito è **false**. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è **false** . Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
-Per compilare un'applicazione che usa questa funzione, definire ** \_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="examples"></a>Esempi
---------
+[!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
+
+## <a name="examples"></a>Esempio
 
 Per un esempio, vedere [alias di console](console-aliases.md).
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Libreria</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nomi Unicode e ANSI</p></td>
-<td><p><strong>AddConsoleAliasW</strong> (Unicode) e <strong>AddConsoleAliasA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
+| Libreria | Kernel32. lib |
+| DLL | Kernel32.dll |
+| Nomi Unicode e ANSI | **AddConsoleAliasW** (Unicode) e **AddConsoleAliasA** (ANSI) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [Alias di console](console-aliases.md)
 
@@ -140,11 +104,3 @@ Per un esempio, vedere [alias di console](console-aliases.md).
 [**GetConsoleAliases**](getconsolealiases.md)
 
 [**GetConsoleAliasExes**](getconsolealiasexes.md)
-
- 
-
- 
-
-
-
-

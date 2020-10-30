@@ -3,14 +3,14 @@ title: Documentazione della console
 description: Home page della documentazione della console di Windows, in cui viene spiegato come è possibile controllare a livello di codice e interagire con la console di Windows.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: landing-page
 keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
-ms.openlocfilehash: 7e78e0ab28a32dd43d1751491ddc9263d957bb11
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: e8dcb122f416c92e6d7a89a3090224e11198452e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89058516"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038569"
 ---
 # <a name="welcome-to-the-windows-console-documentation"></a>Documentazione della console di Windows
 

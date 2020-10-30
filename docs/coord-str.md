@@ -4,7 +4,7 @@ description: Definisce le coordinate di una cella di tipo carattere in un buffer
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - wincontypes/COORD
 - wincon/COORD
@@ -25,23 +25,21 @@ topic_type:
 api_name:
 - COORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: c29594cbddd69ae8ca6d3f958acd0eeb3cb60e9b
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: c8e6f87c3a2730a8af21b9bc064c71900fb82f5b
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059940"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038309"
 ---
 # <a name="coord-structure"></a>Struttura COORD
 
-
 Definisce le coordinate di una cella di tipo carattere in un buffer dello schermo della console. L'origine del sistema di coordinate (0, 0) si trova nella parte superiore della cella sinistra del buffer.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _COORD {
@@ -50,8 +48,7 @@ typedef struct _COORD {
 } COORD, *PCOORD;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **X**  
 Il valore della colonna o della coordinata orizzontale. Le unità dipendono dalla chiamata di funzione.
@@ -59,37 +56,19 @@ Il valore della colonna o della coordinata orizzontale. Le unità dipendono dall
 **S**  
 Il valore della riga o della coordinata verticale. Le unità dipendono dalla chiamata di funzione.
 
-<a name="examples"></a>Esempi
---------
+## <a name="examples"></a>Esempio
 
 Per un esempio, vedere [scorrimento del contenuto di un buffer dello schermo](scrolling-a-screen-buffer-s-contents.md).
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>WinConTypes. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | WinConTypes. h (tramite WinCon. h, Includi Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**informazioni sul tipo di carattere della CONSOLE \_ \_**](console-font-info-str.md)
 
@@ -128,11 +107,3 @@ Per un esempio, vedere [scorrimento del contenuto di un buffer dello schermo](sc
 [**WriteConsoleOutputAttribute**](writeconsoleoutputattribute.md)
 
 [**WriteConsoleOutputCharacter**](writeconsoleoutputcharacter.md)
-
- 
-
- 
-
-
-
-

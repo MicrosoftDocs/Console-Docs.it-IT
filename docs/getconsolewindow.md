@@ -4,7 +4,7 @@ description: Recupera l'handle della finestra utilizzato dalla console di associ
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi3/GetConsoleWindow
 - wincon/GetConsoleWindow
@@ -33,87 +33,54 @@ api_location:
 - API-MS-Win-Core-Kernel32-Legacy-L1-1-5.dll
 api_type:
 - DllExport
-ms.openlocfilehash: dd356bab4674da0cc090e42911829dee994fa8b1
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: c74fe1a29b9ba2ea721e874eb624ea2f8517094c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059676"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038809"
 ---
 # <a name="getconsolewindow-function"></a>GetConsoleWindow (funzione)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Recupera l'handle della finestra utilizzato dalla console di associata al processo chiamante.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 HWND WINAPI GetConsoleWindow(void);
 ```
 
-<a name="parameters"></a>Parametri
-----------
+## <a name="parameters"></a>Parametri
 
 Questa funzione non ha parametri.
 
-<a name="return-value"></a>Valore restituito
-------------
+## <a name="return-value"></a>Valore restituito
 
 Il valore restituito è un handle per la finestra utilizzata dalla console associata al processo chiamante oppure **null** se tale console associata non è presente.
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
-Per compilare un'applicazione che usa questa funzione, definire ** \_ Win32 \_ WinNT** come 0x0500 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0500 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisiti
-------------
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Libreria</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
+[!INCLUDE [no-vt-equiv-local-context](./includes/no-vt-equiv-local-context.md)]
+
+Per un'applicazione ospitata all'interno di una sessione [**pseudoconsole**](pseudoconsoles.md) , questa funzione restituisce un handle di finestra solo per la coda dei messaggi. La finestra associata non viene visualizzata localmente perché _pseudoconsole_ esegue la serializzazione di tutte le azioni in un flusso per la presentazione in un'altra finestra del terminale altrove.
+
+## <a name="requirements"></a>Requisiti
+
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
+| Libreria | Kernel32. lib |
+| DLL | Kernel32.dll |
+
 </table>
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [Funzioni console](console-functions.md)
-
- 
-
- 
-
-
-
-
