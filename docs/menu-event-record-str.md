@@ -4,7 +4,7 @@ description: Descrive un evento di menu in una struttura di record di INPUT dell
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - wincontypes/MENU_EVENT_RECORD
 - wincon/MENU_EVENT_RECORD
@@ -25,23 +25,23 @@ topic_type:
 api_name:
 - MENU_EVENT_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 8bbfbf6ad8bd885d69ce08e94dfced93b0bd3257
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dfca825c03dbf0e63041e68adc5e43f2ca0ef669
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039519"
 ---
 # <a name="menu_event_record-structure"></a>Struttura del record dell' \_ evento menu \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-Descrive un evento di menu in una struttura di [** \_ record di input**](input-record-str.md) della console. Questi eventi vengono usati internamente e devono essere ignorati.
+Descrive un evento di menu in una struttura di [**\_ record di input**](input-record-str.md) della console. Questi eventi vengono usati internamente e devono essere ignorati.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _MENU_EVENT_RECORD {
@@ -49,45 +49,19 @@ typedef struct _MENU_EVENT_RECORD {
 } MENU_EVENT_RECORD, *PMENU_EVENT_RECORD;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **dwCommandId**  
 Riservato.
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>WinConTypes. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | WinConTypes. h (tramite WinCon. h, Includi Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**RECORD di INPUT \_**](input-record-str.md)
-
- 
-
- 
-
-
-
-

@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura CONSOLE_FONT_
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi3/CONSOLE_FONT_INFOEX
 - wincon/CONSOLE_FONT_INFOEX
@@ -24,37 +24,36 @@ topic_type:
 api_name:
 - CONSOLE_FONT_INFOEX
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 12977e288a63397c581143683047239e4d410eec
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: ef89d1bf47a4153d44140d3f9f4845bb7496680e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060100"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039259"
 ---
 # <a name="console_font_infoex-structure"></a>\_Struttura INFOEX del tipo di carattere della console \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene informazioni estese per un tipo di carattere della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _CONSOLE_FONT_INFOEX {
   ULONG cbSize;
   DWORD nFont;
   COORD dwFontSize;
-  UINT  FontFamily;
-  UINT  FontWeight;
+  UINT  FontFamily;
+  UINT  FontWeight;
   WCHAR FaceName[LF_FACESIZE];
 } CONSOLE_FONT_INFOEX, *PCONSOLE_FONT_INFOEX;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **cbSize**  
 Dimensioni, in byte, della struttura. Questo membro deve essere impostato su `sizeof(CONSOLE_FONT_INFOEX)` prima di chiamare [**GetCurrentConsoleFontEx**](getcurrentconsolefontex.md) o avrà esito negativo.
@@ -74,44 +73,18 @@ Spessore del carattere. Il peso può variare da 100 a 1000, in multipli di 100. 
 **Contemplato**  
 Nome del carattere tipografico, ad esempio Courier o Arial.
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
 Per ottenere la dimensione del tipo di carattere, passare l'indice del tipo di carattere alla funzione [**GetConsoleFontSize**](getconsolefontsize.md) .
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows Vista [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows Server 2008 [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>Wincon. h (include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop di Windows Vista\] |
+| Server minimo supportato | \[Solo app desktop Windows Server 2008\] |
+| Intestazione | WinCon. h (include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**GetCurrentConsoleFontEx**](getcurrentconsolefontex.md)
-
- 
-
- 
-
-
-
-

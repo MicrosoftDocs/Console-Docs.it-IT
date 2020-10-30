@@ -4,7 +4,7 @@ description: La funzione CreateConsoleScreenBuffer crea un buffer dello schermo 
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi2/CreateConsoleScreenBuffer
 - wincon/CreateConsoleScreenBuffer
@@ -28,33 +28,32 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 289908708fb1c89c3ec3d990c9e8bf2649914a1b
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 0b8f5b33233f49167c67a47f33e5a95b8864f7bd
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059937"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039134"
 ---
 # <a name="createconsolescreenbuffer-function"></a>CreateConsoleScreenBuffer (funzione)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Crea un buffer dello schermo della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 HANDLE WINAPI CreateConsoleScreenBuffer(
-  _In_             DWORD               dwDesiredAccess,
-  _In_             DWORD               dwShareMode,
-  _In_opt_   const SECURITY_ATTRIBUTES *lpSecurityAttributes,
-  _In_             DWORD               dwFlags,
-  _Reserved_       LPVOID              lpScreenBufferData
+  _In_             DWORD               dwDesiredAccess,
+  _In_             DWORD               dwShareMode,
+  _In_opt_   const SECURITY_ATTRIBUTES *lpSecurityAttributes,
+  _In_             DWORD               dwFlags,
+  _Reserved_       LPVOID              lpScreenBufferData
 );
 ```
 
-<a name="parameters"></a>Parametri
-----------
+## <a name="parameters"></a>Parametri
 
 *dwDesiredAccess* \[ in\]  
 Accesso al buffer dello schermo della console. Per un elenco dei diritti di accesso, vedere [diritti di accesso e sicurezza del buffer della console](console-buffer-security-and-access-rights.md).
@@ -62,58 +61,35 @@ Accesso al buffer dello schermo della console. Per un elenco dei diritti di acce
 *dwShareMode* \[ in\]  
 Questo parametro può essere zero, a indicare che il buffer non può essere condiviso oppure può essere uno o più dei valori seguenti.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>valore</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="FILE_SHARE_READ"></span><span id="file_share_read"></span>
-<strong>FILE_SHARE_READ</strong> 0x00000001</td>
-<td><p>È possibile eseguire altre operazioni aperte sul buffer dello schermo della console per l'accesso in lettura.</p></td>
-</tr>
-<tr class="even">
-<td><span id="FILE_SHARE_WRITE"></span><span id="file_share_write"></span>
-<strong>FILE_SHARE_WRITE</strong> 0x00000002</td>
-<td><p>È possibile eseguire altre operazioni aperte sul buffer dello schermo della console per l'accesso in scrittura.</p></td>
-</tr>
-</tbody>
-</table>
-
- 
+| Valore | Significato |
+|-|-|
+| **FILE_SHARE_READ** 0x00000001 | È possibile eseguire altre operazioni aperte sul buffer dello schermo della console per l'accesso in lettura. |
+| **FILE_SHARE_WRITE** 0x00000002 | È possibile eseguire altre operazioni aperte sul buffer dello schermo della console per l'accesso in scrittura. |
 
 *lpSecurityAttributes* \[ in, facoltativo\]  
-Puntatore a una struttura [**di \_ attributi di sicurezza**](https://msdn.microsoft.com/library/windows/desktop/aa379560) che determina se l'handle restituito può essere ereditato dai processi figlio. Se *lpSecurityAttributes* è **null**, l'handle non può essere ereditato. Il membro **lpSecurityDescriptor** della struttura specifica un descrittore di sicurezza per il nuovo buffer dello schermo della console. Se *lpSecurityAttributes* è **null**, il buffer dello schermo della console ottiene un descrittore di sicurezza predefinito. Gli ACL nel descrittore di sicurezza predefinito per un buffer dello schermo della console provengono dal token primario o di rappresentazione del creatore.
+Puntatore a una struttura [**di \_ attributi di sicurezza**](https://msdn.microsoft.com/library/windows/desktop/aa379560) che determina se l'handle restituito può essere ereditato dai processi figlio. Se *lpSecurityAttributes* è **null** , l'handle non può essere ereditato. Il membro **lpSecurityDescriptor** della struttura specifica un descrittore di sicurezza per il nuovo buffer dello schermo della console. Se *lpSecurityAttributes* è **null** , il buffer dello schermo della console ottiene un descrittore di sicurezza predefinito. Gli ACL nel descrittore di sicurezza predefinito per un buffer dello schermo della console provengono dal token primario o di rappresentazione del creatore.
 
 *dwFlags* \[ in\]  
-Tipo di buffer dello schermo della console da creare. L'unico tipo di buffer dello schermo supportato è il ** \_ \_ buffer testuale della console**.
+Tipo di buffer dello schermo della console da creare. L'unico tipo di buffer dello schermo supportato è il **\_ \_ buffer testuale della console** .
 
-*lpScreenBufferData*   
-Riservati deve essere **null**.
+*lpScreenBufferData*  
+Riservati deve essere **null** .
 
-<a name="return-value"></a>Valore restituito
-------------
+## <a name="return-value"></a>Valore restituito
 
 Se la funzione ha esito positivo, il valore restituito è un handle per il nuovo buffer dello schermo della console.
 
-Se la funzione ha esito negativo, il valore restituito è un ** \_ \_ valore di handle non valido**. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è un **\_ \_ valore di handle non valido** . Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
 Una console può avere più buffer dello schermo, ma solo un buffer attivo dello schermo. È possibile accedere ai buffer dello schermo inattivi per la lettura e la scrittura, ma viene visualizzato solo il buffer attivo dello schermo. Per fare in modo che la nuova schermata ripresenti il buffer dello schermo attivo, utilizzare la funzione [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md) .
 
 Il buffer dello schermo appena creato copierà alcune proprietà dal buffer dello schermo attivo nel momento in cui viene chiamata la funzione. Il comportamento è il seguente:
+
 - `Font` -copiato dal buffer dello schermo attivo
 - `Display Window Size` -copiato dal buffer dello schermo attivo
-- `Buffer Size` -corrispondente a `Display Window Size` (**non** copiato)
+- `Buffer Size` -corrispondente a `Display Window Size` ( **non** copiato)
 - `Default Attributes` (colori)-copiato dal buffer dello schermo attivo
 - `Default Popup Attributes` (colori)-copiato dal buffer dello schermo attivo
 
@@ -123,51 +99,23 @@ Il processo chiamante può utilizzare la funzione [**DuplicateHandle**](https://
 
 Per chiudere l'handle del buffer dello schermo della console, usare la funzione [**CloseHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724211) .
 
-<a name="examples"></a>Esempi
---------
+[!INCLUDE [no-vt-equiv-alt-buf](./includes/no-vt-equiv-alt-buf.md)]
+
+## <a name="examples"></a>Esempio
 
 Per un esempio, vedere [lettura e scrittura di blocchi di caratteri e attributi](reading-and-writing-blocks-of-characters-and-attributes.md).
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi2. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Libreria</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
+| Libreria | Kernel32. lib |
+| DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [Funzioni console](console-functions.md)
 
@@ -184,11 +132,3 @@ Per un esempio, vedere [lettura e scrittura di blocchi di caratteri e attributi]
 [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md)
 
 [**SetConsoleScreenBufferSize**](setconsolescreenbuffersize.md)
-
- 
-
- 
-
-
-
-

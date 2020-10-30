@@ -4,7 +4,7 @@ description: Imposta l'handle per il dispositivo standard specificato (input sta
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - processenv/SetStdHandle
 - winbase/SetStdHandle
@@ -30,126 +30,65 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 6ab17a2162d31c956ec64dbb33696c20ae085298
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 36531872df90239e2b909c80fb75ad3011280c78
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060532"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039299"
 ---
 # <a name="setstdhandle-function"></a>SetStdHandle (funzione)
 
-
 Imposta l'handle per il dispositivo standard specificato (input standard, output standard o errore standard).
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```cpp
 BOOL WINAPI SetStdHandle(
-  _In_ DWORD  nStdHandle,
-  _In_ HANDLE hHandle
+  _In_ DWORD  nStdHandle,
+  _In_ HANDLE hHandle
 );
 ```
 
-<a name="parameters"></a>Parametri
-----------
+## <a name="parameters"></a>Parametri
 
 *nStdHandle* \[ in\]  
 Dispositivo standard per il quale deve essere impostato l'handle. Questo parametro può essere uno dei valori seguenti.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>valore</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="STD_INPUT_HANDLE"></span><span id="std_input_handle"></span>
-<strong>STD_INPUT_HANDLE</strong> (DWORD)-10</td>
-<td><p>Dispositivo di input standard.</p></td>
-</tr>
-<tr class="even">
-<td><span id="STD_OUTPUT_HANDLE"></span><span id="std_output_handle"></span>
-<strong>STD_OUTPUT_HANDLE</strong> (DWORD)-11</td>
-<td><p>Dispositivo di output standard.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="STD_ERROR_HANDLE"></span><span id="std_error_handle"></span>
-<strong>STD_ERROR_HANDLE</strong> (DWORD)-12</td>
-<td><p>Dispositivo di errore standard.</p></td>
-</tr>
-</tbody>
-</table>
-
- 
+| Valore | Significato |
+|-|-|
+| **STD_INPUT_HANDLE** (DWORD)-10 | Dispositivo di input standard. Inizialmente, si tratta del buffer di input della console `CONIN$` . |
+| **STD_OUTPUT_HANDLE** (DWORD)-11 | Dispositivo di output standard. Inizialmente, si tratta del buffer dello schermo della console attivo, `CONOUT$` . |
+| **STD_ERROR_HANDLE** (DWORD)-12 | Dispositivo di errore standard. Inizialmente, si tratta del buffer dello schermo della console attivo, `CONOUT$` . |
 
 *hHandle* \[ in\]  
 Handle per il dispositivo standard.
 
-<a name="return-value"></a>Valore restituito
-------------
+## <a name="return-value"></a>Valore restituito
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
 Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
-Gli handle standard di un processo potrebbero essere stati reindirizzati da una chiamata a **SetStdHandle**, nel qual caso [**GetStdHandle**](getstdhandle.md) restituirà l'handle reindirizzato. Se gli handle standard sono stati reindirizzati, è possibile specificare il valore CONIn $ in una chiamata alla funzione [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) per ottenere un handle per il buffer di input di una console. Analogamente, è possibile specificare il valore CONOUT $ per ottenere un handle per il buffer dello schermo attivo della console.
+Gli handle standard di un processo potrebbero essere stati reindirizzati da una chiamata a **SetStdHandle** , nel qual caso [**GetStdHandle**](getstdhandle.md) restituirà l'handle reindirizzato. Se gli handle standard sono stati reindirizzati, è possibile specificare il valore CONIn $ in una chiamata alla funzione [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) per ottenere un handle per il buffer di input di una console. Analogamente, è possibile specificare il valore CONOUT $ per ottenere un handle per il buffer dello schermo attivo della console.
 
-<a name="examples"></a>Esempi
---------
+## <a name="examples"></a>Esempio
 
 Per un esempio, vedere [creazione di un processo figlio con input e output reindirizzati](https://msdn.microsoft.com/library/windows/desktop/ms682499).
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ProcessEnv. h (tramite Winbase. h, Includi Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Libreria</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | ProcessEnv. h (tramite Winbase. h, Includi Windows. h) |
+| Libreria | Kernel32. lib |
+| DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [Funzioni console](console-functions.md)
 
@@ -158,11 +97,3 @@ Per un esempio, vedere [creazione di un processo figlio con input e output reind
 [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858)
 
 [**GetStdHandle**](getstdhandle.md)
-
- 
-
- 
-
-
-
-

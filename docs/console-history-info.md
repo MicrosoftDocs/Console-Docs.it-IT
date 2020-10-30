@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura CONSOLE_HISTO
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi3/CONSOLE_HISTORY_INFO
 - wincon/CONSOLE_HISTORY_INFO
@@ -24,35 +24,34 @@ topic_type:
 api_name:
 - CONSOLE_HISTORY_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: ee0161f0c4aac5a280fd18260ebbb1f7ca57d54a
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 24d41dca61146cc3e835f405889400ae0d168e7f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060460"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039219"
 ---
 # <a name="console_history_info-structure"></a>Struttura delle informazioni della \_ cronologia della console \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene informazioni sulla cronologia della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct {
-  UINT  cbSize;
-  UINT  HistoryBufferSize;
-  UINT  NumberOfHistoryBuffers;
+  UINT  cbSize;
+  UINT  HistoryBufferSize;
+  UINT  NumberOfHistoryBuffers;
   DWORD dwFlags;
 } CONSOLE_HISTORY_INFO, *PCONSOLE_HISTORY_INFO;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **cbSize**  
 Dimensioni, in byte, della struttura. Impostare questo membro su `sizeof(CONSOLE_HISTORY_INFO)` .
@@ -66,63 +65,20 @@ Numero di buffer di cronologia conservati per questo processo della console.
 **dwFlags**  
 Questo parametro può essere zero o il valore seguente.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>valore</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="HISTORY_NO_DUP_FLAG"></span><span id="history_no_dup_flag"></span>
-<strong>HISTORY_NO_DUP_FLAG</strong> 0x1</td>
-<td><p>Le voci duplicate non verranno archiviate nel buffer della cronologia.</p></td>
-</tr>
-</tbody>
-</table>
+| Valore | Significato |
+|-|-|
+| **HISTORY_NO_DUP_FLAG** 0x1 | Le voci duplicate non verranno archiviate nel buffer della cronologia.
 
- 
+## <a name="requirements"></a>Requisiti
 
-<a name="requirements"></a>Requisiti
-------------
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop di Windows Vista\] |
+| Server minimo supportato | \[Solo app desktop Windows Server 2008\] |
+| Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows Vista [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows Server 2008 [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
-
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**GetConsoleHistoryInfo**](getconsolehistoryinfo.md)
 
 [**SetConsoleHistoryInfo**](setconsolehistoryinfo.md)
-
- 
-
- 
-
-
-
-

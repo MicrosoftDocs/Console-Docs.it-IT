@@ -1,22 +1,22 @@
 ---
-title: Sequenze di terminali virtuali console
+title: Sequenze del terminale virtuale della console
 description: Le sequenze di terminali virtuali sono sequenze di caratteri di controllo che possono controllare lo spostamento del cursore, la modalità colore/carattere e altre operazioni quando vengono scritte nel flusso di output.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+ms.topic: conceptual
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: A5C553A5-FD84-4D16-A814-EDB3B8699B91
-ms.openlocfilehash: d05aa6f44cc97478d4eb2aba25587b2506e84a98
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 45ee5518ec8ea2da840d2a4442efd9e0d4346526
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059969"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039149"
 ---
-# <a name="console-virtual-terminal-sequences"></a>Sequenze di terminali virtuali console
+# <a name="console-virtual-terminal-sequences"></a>Sequenze del terminale virtuale della console
 
 
 Le sequenze di terminali virtuali sono sequenze di caratteri di controllo che possono controllare lo spostamento del cursore, la modalità colore/carattere e altre operazioni quando vengono scritte nel flusso di output. Le sequenze possono anche essere ricevute nel flusso di input in risposta a una sequenza di informazioni di query del flusso di output o come codifica dell'input utente quando viene impostata la modalità appropriata.
@@ -42,24 +42,22 @@ Tutti i comandi in questa tabella sono in genere equivalenti alla chiamata dell'
 Lo spostamento del cursore verrà limitato dal viewport corrente nel buffer. Lo scorrimento, se disponibile, non si verificherà.
 
 
-| Sequenza | Sintassi abbreviata | Comportamento                                                                                                                                      |
+| Sequenza | Sintassi abbreviata | Comportamento |
 |----------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| ESC A    | CUU       | Cursore su 1                                                                                                                                |
-| ESC B    | CUD       | Cursore in basso di 1                                                                                                                              |
-| ESC C    | CUF       | Cursore in poi (destra) di 1                                                                                                                   |
-| ESC D    | CUB       | Cursore indietro (sinistra) di 1                                                                                                                   |
-| ESC M    | RI        | Indice inverso: esegue l'operazione inversa di \\ n, sposta il cursore verso l'alto di una riga, mantiene la posizione orizzontale, scorre il buffer se necessario\* |
-| ESC 7    | DECSC     | Salva posizione cursore in memoria\*\*                                                                                                            |
-| ESC 8    | DECSR     | Ripristina posizione cursore dalla memoria\*\*                                                                                                       |
+| ESC A | CUU | Cursore su 1 |
+| ESC B | CUD | Cursore in basso di 1 |
+| ESC C | CUF | Cursore in poi (destra) di 1 |
+| ESC D | CUB | Cursore indietro (sinistra) di 1 |
+| ESC M | RI | Indice inverso: esegue l'operazione inversa di \\ n, sposta il cursore verso l'alto di una riga, mantiene la posizione orizzontale, scorre il buffer se necessario\* |
+| ESC 7 | DECSC | Salva posizione cursore in memoria\*\* |
+| ESC 8 | DECSR | Ripristina posizione cursore dalla memoria\*\* |
 
 
 
-**Nota**  
-\* Se sono impostati margini di scorrimento, il RI all'interno dei margini scorrerà solo il contenuto dei margini e rimarrà invariato il viewport. (Vedere margini di scorrimento)
-
-\*\*Non verrà salvato alcun valore in memoria fino al primo utilizzo del comando Save. L'unico modo per accedere al valore salvato è con il comando Restore.
-
-
+> [!NOTE]
+>\* Se sono impostati margini di scorrimento, il RI all'interno dei margini scorrerà solo il contenuto dei margini e rimarrà invariato il viewport. (Vedere margini di scorrimento)
+>
+>\*\*Non verrà salvato alcun valore in memoria fino al primo utilizzo del comando Save. L'unico modo per accedere al valore salvato è con il comando Restore.
 
 ## <a name="span-idcursor_positioningspanspan-idcursor_positioningspanspan-idcursor_positioningspancursor-positioning"></a><span id="Cursor_Positioning"></span><span id="cursor_positioning"></span><span id="CURSOR_POSITIONING"></span>Posizionamento del cursore
 
@@ -78,27 +76,27 @@ Tutti i comandi in questa sezione sono in genere equivalenti alla chiamata dell'
 Lo spostamento del cursore verrà limitato dal viewport corrente nel buffer. Lo scorrimento, se disponibile, non si verificherà.
 
 
-| Sequenza                       | Codice      | Descrizione                         | Comportamento                                                                                                                   |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------------------------|-----------|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| ESC \[ &lt; n &gt; A             | CUU       | Cursore su                           | Cursore per &lt; n&gt;                                                                                                     |
-| ESC \[ &lt; n &gt; B             | CUD       | Cursore in basso                         | Cursore verso il basso per &lt; n&gt;                                                                                                   |
-| ESC \[ &lt; n &gt; C             | CUF       | Cursore in su                      | Cursore in poi (destra) per &lt; n&gt;                                                                                        |
-| ESC \[ &lt; n &gt; D             | CUB       | Cursore indietro                     | Cursore indietro (a sinistra) per &lt; n&gt;                                                                                        |
-| ESC \[ &lt; n &gt; E             | CNL       | Riga successiva cursore                    | Cursore verso il basso fino all'inizio della &lt; n &gt; riga nel viewport                                                               |
-| ESC \[ &lt; n &gt; F             | CPL       | Riga precedente cursore                | Cursore fino all'inizio della &lt; n &gt; riga nel viewport                                                                 |
-| ESC \[ &lt; n &gt; G             | CHA       | Assoluto cursore orizzontale          | Il cursore passa &lt; alla &gt; Posizione n orizzontalmente nella riga corrente                                                      |
-| ESC \[ &lt; n &gt; d             | VPA       | Posizione assoluta linea verticale     | Il cursore passa alla &lt; &gt; Posizione n verticalmente nella colonna corrente                                                  |
-| ESC \[ &lt; y &gt; ; &lt; x &gt; H | CUP       | Posizione cursore                     | \*Il cursore passa a &lt; x &gt; ; &lt; &gt; coordinata y all'interno del viewport, dove &lt; x &gt; è la colonna della &lt; &gt; linea y |
-| ESC \[ &lt; y &gt; ; &lt; x &gt; f | HVP       | Posizione verticale orizzontale        | \*Il cursore passa a &lt; x &gt; ; &lt; &gt; coordinata y all'interno del viewport, dove &lt; x &gt; è la colonna della &lt; &gt; linea y |
-| ESC \[ s                       | ANSISYSSC | Salva cursore-emulazione Ansi.sys    | \*\*Senza parametri, esegue un'operazione di salvataggio del cursore, ad esempio DECSC                                                        |
-| \[U ESC                       | ANSISYSSC | Restore Cursor-Ansi.sys emulazione | \*\*Senza parametri, esegue un'operazione di ripristino del cursore, ad esempio DECRC                                                     |
+| ESC \[ &lt; n &gt; A | CUU | Cursore su | Cursore per &lt; n&gt; |
+| ESC \[ &lt; n &gt; B | CUD | Cursore in basso | Cursore verso il basso per &lt; n&gt; |
+| ESC \[ &lt; n &gt; C | CUF | Cursore in su | Cursore in poi (destra) per &lt; n&gt; |
+| ESC \[ &lt; n &gt; D | CUB | Cursore indietro | Cursore indietro (a sinistra) per &lt; n&gt; |
+| ESC \[ &lt; n &gt; E | CNL | Riga successiva cursore | Cursore verso il basso &lt; n &gt; righe dalla posizione corrente |
+| ESC \[ &lt; n &gt; F | CPL | Riga precedente cursore | Cursore su &lt; n &gt; righe dalla posizione corrente |
+| ESC \[ &lt; n &gt; G | CHA | Assoluto cursore orizzontale | Il cursore passa &lt; alla &gt; Posizione n orizzontalmente nella riga corrente |
+| ESC \[ &lt; n &gt; d | VPA | Posizione assoluta linea verticale | Il cursore passa alla &lt; &gt; Posizione n verticalmente nella colonna corrente |
+| ESC \[ &lt; y &gt; ; &lt; x &gt; H | CUP | Posizione cursore | \*Il cursore passa a &lt; x &gt; ; &lt; &gt; coordinata y all'interno del viewport, dove &lt; x &gt; è la colonna della &lt; &gt; linea y |
+| ESC \[ &lt; y &gt; ; &lt; x &gt; f | HVP | Posizione verticale orizzontale | \*Il cursore passa a &lt; x &gt; ; &lt; &gt; coordinata y all'interno del viewport, dove &lt; x &gt; è la colonna della &lt; &gt; linea y |
+| ESC \[ s | ANSISYSSC | Salva cursore-emulazione Ansi.sys | \*\*Senza parametri, esegue un'operazione di salvataggio del cursore, ad esempio DECSC |
+| \[U ESC | ANSISYSSC | Restore Cursor-Ansi.sys emulazione | \*\*Senza parametri, esegue un'operazione di ripristino del cursore, ad esempio DECRC |
 
 
 
-**Nota**  
-\*&lt;&gt; &lt; i parametri x e y &gt; hanno le stesse limitazioni di &lt; n &gt; sopra. Se &lt; &gt; le x e &lt; y &gt; vengono omesse, verranno impostate su 1; 1.
-
-\*\*ANSI.sys documentazione cronologica è reperibile in <https://msdn.microsoft.com/library/cc722862.aspx> ed è implementata per praticità/compatibilità.
+> [!NOTE]
+>\*&lt;&gt; &lt; i parametri x e y &gt; hanno le stesse limitazioni di &lt; n &gt; sopra. Se &lt; &gt; le x e &lt; y &gt; vengono omesse, verranno impostate su 1; 1.
+>
+>\*\*ANSI.sys documentazione cronologica è reperibile in <https://msdn.microsoft.com/library/cc722862.aspx> ed è implementata per praticità/compatibilità.
 
 
 
@@ -108,29 +106,30 @@ Lo spostamento del cursore verrà limitato dal viewport corrente nel buffer. Lo 
 I comandi seguenti consentono di controllare la visibilità del cursore e del relativo stato intermittente. Le sequenze DECTCEM sono in genere equivalenti alla chiamata dell'API della console [**SetConsoleCursorInfo**](setconsolecursorinfo.md) per impostare la visibilità del cursore.
 
 
-| Sequenza      | Codice    | Descrizione                  | Comportamento                  |
+| Sequenza | Codice | Descrizione | Comportamento |
 |---------------|---------|------------------------------|---------------------------|
-| ESC \[ ? 12 ore | ATT160  | Abilitazione del cursore di testo  | Avvia il cursore lampeggiante |
-| ESC \[ ? 12 l | ATT160  | Disabilitazione del cursore di testo  | Interrompi l'intermittenza del cursore  |
-| ESC \[ ? 25 ore | DECTCEM | Mostra modalità di abilitazione cursore testo | Mostra cursore           |
-| ESC \[ ? 25 l | DECTCEM | Nascondi modalità di abilitazione cursore testo | Nascondi cursore           |
+| ESC \[ ? 12 ore | ATT160 | Abilitazione del cursore di testo | Avvia il cursore lampeggiante |
+| ESC \[ ? 12 l | ATT160 | Disabilitazione del cursore di testo | Interrompi l'intermittenza del cursore |
+| ESC \[ ? 25 ore | DECTCEM | Mostra modalità di abilitazione cursore testo | Mostra cursore |
+| ESC \[ ? 25 l | DECTCEM | Nascondi modalità di abilitazione cursore testo | Nascondi cursore |
 
-
+> [!TIP]
+> Le sequenze Enable terminano con un carattere H minuscolo ( `h` ) e le sequenze Disable terminano con un carattere L minuscolo ( `l` ).
 
 ## <a name="span-idviewport_positioningspanspan-idviewport_positioningspanspan-idviewport_positioningspanviewport-positioning"></a><span id="Viewport_Positioning"></span><span id="viewport_positioning"></span><span id="VIEWPORT_POSITIONING"></span>Posizionamento del viewport
 
 
 Tutti i comandi in questa sezione sono in genere equivalenti alla chiamata dell'API della console [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) per spostare il contenuto del buffer della console.
 
-**Attenzione**  I nomi dei comandi sono fuorvianti. Scroll si riferisce alla direzione di spostamento del testo durante l'operazione, non alla modalità di spostamento del viewport.
+**Attenzione** I nomi dei comandi sono fuorvianti. Scroll si riferisce alla direzione di spostamento del testo durante l'operazione, non alla modalità di spostamento del viewport.
 
 
 
 
-| Sequenza           | Codice | Descrizione | Comportamento                                                                                             |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------------|------|-------------|------------------------------------------------------------------------------------------------------|
-| ESC \[ &lt; n &gt; S | Unità di streaming (SU)   | Scorrimento verso l'alto   | Scorrere il testo per &lt; n &gt; . Noto anche come Pan Down, le nuove righe si riempiono dalla parte inferiore dello schermo |
-| ESC \[ &lt; n &gt; T | DS   | Scorrimento verso il basso | Scorri verso il basso per &lt; n &gt; . Noto anche come Pan up, le nuove righe vengono inserite nella parte superiore della schermata         |
+| ESC \[ &lt; n &gt; S | Unità di streaming (SU) | Scorrimento verso l'alto | Scorrere il testo per &lt; n &gt; . Noto anche come Pan Down, le nuove righe si riempiono dalla parte inferiore dello schermo |
+| ESC \[ &lt; n &gt; T | DS | Scorrimento verso il basso | Scorri verso il basso per &lt; n &gt; . Noto anche come Pan up, le nuove righe vengono inserite nella parte superiore della schermata |
 
 
 
@@ -146,18 +145,18 @@ Il valore predefinito per &lt; n &gt; è 1 e il valore può essere omesso facolt
 Tutti i comandi in questa sezione sono in genere equivalenti alla chiamata delle API della console [**FillConsoleOutputCharacter**](fillconsoleoutputcharacter.md), [**FillConsoleOutputAttribute**](fillconsoleoutputattribute.md)e [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) per modificare il contenuto del buffer di testo.
 
 
-| Sequenza           | Codice | Descrizione      | Comportamento                                                                                                                                          |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------------|------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| ESC \[ &lt; n&gt; @ | ICH  | Inserisci carattere | Inserisce &lt; n &gt; spazi nella posizione corrente del cursore, spostando tutto il testo esistente a destra. Il testo che esce dalla schermata a destra viene rimosso. |
-| ESC \[ &lt; n &gt; P | DCH  | Elimina carattere | Eliminare &lt; n &gt; caratteri nella posizione corrente del cursore, spostando i caratteri di spazio dal bordo destro dello schermo.                       |
-| ESC \[ &lt; n &gt; X | ECH  | Carattere di cancellazione  | &lt; &gt; Consente di cancellare n caratteri dalla posizione corrente del cursore sovrascrivendo gli elementi con uno spazio.                                           |
-| ESC \[ &lt; n &gt; L | IL   | Inserisci riga      | Inserisce &lt; n &gt; righe nel buffer in corrispondenza della posizione del cursore. La riga in cui si trova il cursore e le linee sotto di essa verranno spostate verso il basso.         |
-| ESC \[ &lt; n &gt; M | DL   | Elimina riga      | Elimina &lt; n &gt; righe dal buffer, a partire dalla riga in cui si trova il cursore.                                                                  |
+| ESC \[ &lt; n&gt; @ | ICH | Inserisci carattere | Inserisce &lt; n &gt; spazi nella posizione corrente del cursore, spostando tutto il testo esistente a destra. Il testo che esce dalla schermata a destra viene rimosso. |
+| ESC \[ &lt; n &gt; P | DCH | Elimina carattere | Eliminare &lt; n &gt; caratteri nella posizione corrente del cursore, spostando i caratteri di spazio dal bordo destro dello schermo. |
+| ESC \[ &lt; n &gt; X | ECH | Carattere di cancellazione | &lt; &gt; Consente di cancellare n caratteri dalla posizione corrente del cursore sovrascrivendo gli elementi con uno spazio. |
+| ESC \[ &lt; n &gt; L | IL | Inserisci riga | Inserisce &lt; n &gt; righe nel buffer in corrispondenza della posizione del cursore. La riga in cui si trova il cursore e le linee sotto di essa verranno spostate verso il basso. |
+| ESC \[ &lt; n &gt; M | DL | Elimina riga | Elimina &lt; n &gt; righe dal buffer, a partire dalla riga in cui si trova il cursore. |
 
 
 
-**Nota**  
-Per IL e DL, sono interessate solo le righe dei margini di scorrimento (vedere i margini di scorrimento). Se non sono impostati margini, i bordi dei margini predefiniti corrispondono al viewport corrente. Se le righe vengono spostate al di sotto dei margini, vengono scartate. Quando le righe vengono eliminate, le righe vuote vengono inserite nella parte inferiore dei margini, non vengono mai interessate le linee esterne al viewport.
+> [!NOTE]
+>Per IL e DL, sono interessate solo le righe dei margini di scorrimento (vedere i margini di scorrimento). Se non sono impostati margini, i bordi dei margini predefiniti corrispondono al viewport corrente. Se le righe vengono spostate al di sotto dei margini, vengono scartate. Quando le righe vengono eliminate, le righe vuote vengono inserite nella parte inferiore dei margini, non vengono mai interessate le linee esterne al viewport.
 
 Per ogni sequenza, il valore predefinito di &lt; n &gt; se viene omesso è 0.
 
@@ -170,10 +169,10 @@ Per i comandi seguenti, il parametro &lt; n &gt; presenta 3 valori validi:
 - 2 Cancella l'intera riga/visualizzazione
 
 
-| Sequenza           | Codice | Descrizione      | Comportamento                                                                                     |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------------|------|------------------|----------------------------------------------------------------------------------------------|
-| ESC \[ &lt; n &gt; J | ED   | Cancella nella visualizzazione | Sostituisci tutto il testo nel viewport/schermata corrente specificato da &lt; n &gt; con caratteri di spazio |
-| ESC \[ &lt; n &gt; K | EL   | Cancella riga    | Sostituisce tutto il testo della riga con il cursore specificato da &lt; n &gt; con caratteri di spazio    |
+| ESC \[ &lt; n &gt; J | ED | Cancella nella visualizzazione | Sostituisci tutto il testo nel viewport/schermata corrente specificato da &lt; n &gt; con caratteri di spazio |
+| ESC \[ &lt; n &gt; K | EL | Cancella riga | Sostituisce tutto il testo della riga con il cursore specificato da &lt; n &gt; con caratteri di spazio |
 
 
 
@@ -187,9 +186,9 @@ Questo comando è speciale in quanto la &lt; &gt; Posizione n seguente può acce
 Quando non viene specificato alcun parametro, questo viene considerato come un singolo parametro 0.
 
 
-| Sequenza           | Codice | Descrizione            | Comportamento                                                        |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------------|------|------------------------|-----------------------------------------------------------------|
-| ESC \[ &lt; n &gt; m | SGR  | Imposta rendering grafica | Imposta il formato dello schermo e del testo come specificato da &lt; n&gt; |
+| ESC \[ &lt; n &gt; m | SGR | Imposta rendering grafica | Imposta il formato dello schermo e del testo come specificato da &lt; n&gt; |
 
 
 
@@ -200,50 +199,50 @@ Le modalità di formattazione vengono applicate da sinistra a destra. Se si appl
 Per le opzioni che specificano i colori, i colori verranno usati come definito nella tabella dei colori della console, che può essere modificata tramite l'API [**SetConsoleScreenBufferInfoEx**](setconsolescreenbufferinfoex.md) . Se la tabella viene modificata per fare in modo che la posizione "blu" della tabella visualizzi una sfumatura di rosso RGB, tutte le chiamate al **blu in primo piano** visualizzeranno il colore rosso fino a quando non viene modificato.
 
 
-| valore | Descrizione               | Comportamento                                                           |
+| Valore | Descrizione | Comportamento |
 |-------|---------------------------|--------------------------------------------------------------------|
-| 0     | Predefinito                   | Restituisce tutti gli attributi allo stato predefinito prima della modifica  |
-| 1     | Grassetto/chiaro               | Applica il flag di luminosità/intensità al colore di primo piano              |
-| 4     | Sottolineato                 | Aggiunge la sottolineatura                                                     |
-| 24    | Nessun sottolineatura              | Rimuove la sottolineatura                                                  |
-| 7     | Negativo                  | Scambia i colori di primo piano e sfondo                             |
-| 27    | Positivo (nessun valore negativo)    | Restituisce il primo piano/sfondo al normale                            |
-| 30    | Nero in primo piano          | Applica il nero in primo piano non in grassetto/chiaro                        |
-| 31    | Rosso in primo piano            | Applica il colore rosso in primo piano a quello non grassetto/chiaro                          |
-| 32    | Verde primo piano          | Applica il verde in primo piano non grassetto/chiaro                        |
-| 33    | Giallo in primo piano         | Applica il giallo non grassetto/chiaro a in primo piano                       |
-| 34    | Blu in primo piano           | Applica in primo piano non grassetto o blu brillante                         |
-| 35    | Magenta in primo piano        | Applica il magenta non grassetto/luminoso a primo piano                      |
-| 36    | Ciano in primo piano           | Applica il cyan non grassetto/luminoso a in primo piano                         |
-| 37    | Bianco in primo piano          | Applica in primo piano un bianco non grassetto/chiaro                        |
-| 38    | Primo piano esteso       | Applica il valore di colore esteso al primo piano (vedere i dettagli di seguito) |
-| 39    | Valore predefinito primo piano        | Applica solo la parte in primo piano delle impostazioni predefinite (vedere 0)        |
-| 40    | Sfondo nero          | Applica il nero a sfondo non grassetto/chiaro                        |
-| 41    | Rosso sfondo            | Applica lo sfondo al rosso non in grassetto/chiaro                          |
-| 42    | Verde sfondo          | Applica il verde a sfondo non grassetto/chiaro                        |
-| 43    | Sfondo giallo         | Applica lo sfondo al giallo non in grassetto/chiaro                       |
-| 44    | Blu sfondo           | Applica lo sfondo al blu non grassetto/luminoso                         |
-| 45    | Sfondo Magenta        | Applica il magenta non grassetto/luminoso a sfondo                      |
-| 46    | Ciano sfondo           | Applica lo sfondo al ciano non grassetto/luminoso                         |
-| 47    | Sfondo bianco          | Applica lo sfondo al bianco non grassetto/chiaro                        |
-| 48    | Sfondo esteso       | Applica il valore di colore esteso allo sfondo (vedere i dettagli di seguito) |
-| 49    | Impostazione predefinita sfondo        | Applica solo la parte in background delle impostazioni predefinite (vedere 0)        |
-| 90    | Lucido nero in primo piano   | Applica grassetto/nero brillante a primo piano                            |
-| 91    | Rosso in primo piano     | Applica grassetto/rosso chiaro a primo piano                              |
-| 92    | Verde chiaro in primo piano   | Applica grassetto/verde chiaro a primo piano                            |
-| 93    | Giallo chiaro in primo piano  | Viene applicato in grassetto/giallo chiaro a primo piano                           |
-| 94    | Blu lucido in primo piano    | Applica grassetto/blu chiaro a primo piano                             |
-| 95    | Magenta chiaro in primo piano | Applica il magenta in grassetto o luminoso a primo piano                          |
-| 96    | Ciano in primo piano    | Applica in primo piano grassetto/chiaro ciano                             |
-| 97    | Bianco in primo piano   | Applica in grassetto/chiaro bianco a primo piano                            |
-| 100   | Sfondo luminoso nero   | Applica il nero in grassetto/chiaro a sfondo                            |
-| 101   | Rosso sfondo chiaro     | Applica lo sfondo al rosso grassetto/chiaro                              |
-| 102   | Verde sfondo luminoso   | Applica in grassetto/chiaro verde a sfondo                            |
-| 103   | Sfondo luminoso giallo  | Applica in grassetto/giallo chiaro a sfondo                           |
-| 104   | Blu sfondo chiaro    | Applica lo sfondo al blu grassetto/chiaro                             |
-| 105   | Sfondo chiaro magenta | Applica il magenta in grassetto/chiaro a sfondo                          |
-| 106   | Ciano sfondo chiaro    | Applica in grassetto/chiaro ciano a sfondo                             |
-| 107   | Bianco sfondo chiaro   | Applica in grassetto/chiaro bianco a sfondo                            |
+| 0 | Predefinito | Restituisce tutti gli attributi allo stato predefinito prima della modifica |
+| 1 | Grassetto/chiaro | Applica il flag di luminosità/intensità al colore di primo piano |
+| 4 | Sottolineato | Aggiunge la sottolineatura |
+| 24 | Nessun sottolineatura | Rimuove la sottolineatura |
+| 7 | Negativo | Scambia i colori di primo piano e sfondo |
+| 27 | Positivo (nessun valore negativo) | Restituisce il primo piano/sfondo al normale |
+| 30 | Nero in primo piano | Applica il nero in primo piano non in grassetto/chiaro |
+| 31 | Rosso in primo piano | Applica il colore rosso in primo piano a quello non grassetto/chiaro |
+| 32 | Verde primo piano | Applica il verde in primo piano non grassetto/chiaro |
+| 33 | Giallo in primo piano | Applica il giallo non grassetto/chiaro a in primo piano |
+| 34 | Blu in primo piano | Applica in primo piano non grassetto o blu brillante |
+| 35 | Magenta in primo piano | Applica il magenta non grassetto/luminoso a primo piano |
+| 36 | Ciano in primo piano | Applica il cyan non grassetto/luminoso a in primo piano |
+| 37 | Bianco in primo piano | Applica in primo piano un bianco non grassetto/chiaro |
+| 38 | Primo piano esteso | Applica il valore di colore esteso al primo piano (vedere i dettagli di seguito) |
+| 39 | Valore predefinito primo piano | Applica solo la parte in primo piano delle impostazioni predefinite (vedere 0) |
+| 40 | Sfondo nero | Applica il nero a sfondo non grassetto/chiaro |
+| 41 | Rosso sfondo | Applica lo sfondo al rosso non in grassetto/chiaro |
+| 42 | Verde sfondo | Applica il verde a sfondo non grassetto/chiaro |
+| 43 | Sfondo giallo | Applica lo sfondo al giallo non in grassetto/chiaro |
+| 44 | Blu sfondo | Applica lo sfondo al blu non grassetto/luminoso |
+| 45 | Sfondo Magenta | Applica il magenta non grassetto/luminoso a sfondo |
+| 46 | Ciano sfondo | Applica lo sfondo al ciano non grassetto/luminoso |
+| 47 | Sfondo bianco | Applica lo sfondo al bianco non grassetto/chiaro |
+| 48 | Sfondo esteso | Applica il valore di colore esteso allo sfondo (vedere i dettagli di seguito) |
+| 49 | Impostazione predefinita sfondo | Applica solo la parte in background delle impostazioni predefinite (vedere 0) |
+| 90 | Lucido nero in primo piano | Applica grassetto/nero brillante a primo piano |
+| 91 | Rosso in primo piano | Applica grassetto/rosso chiaro a primo piano |
+| 92 | Verde chiaro in primo piano | Applica grassetto/verde chiaro a primo piano |
+| 93 | Giallo chiaro in primo piano | Viene applicato in grassetto/giallo chiaro a primo piano |
+| 94 | Blu lucido in primo piano | Applica grassetto/blu chiaro a primo piano |
+| 95 | Magenta chiaro in primo piano | Applica il magenta in grassetto o luminoso a primo piano |
+| 96 | Ciano in primo piano | Applica in primo piano grassetto/chiaro ciano |
+| 97 | Bianco in primo piano | Applica in grassetto/chiaro bianco a primo piano |
+| 100 | Sfondo luminoso nero | Applica il nero in grassetto/chiaro a sfondo |
+| 101 | Rosso sfondo chiaro | Applica lo sfondo al rosso grassetto/chiaro |
+| 102 | Verde sfondo luminoso | Applica in grassetto/chiaro verde a sfondo |
+| 103 | Sfondo luminoso giallo | Applica in grassetto/giallo chiaro a sfondo |
+| 104 | Blu sfondo chiaro | Applica lo sfondo al blu grassetto/chiaro |
+| 105 | Sfondo chiaro magenta | Applica il magenta in grassetto/chiaro a sfondo |
+| 106 | Ciano sfondo chiaro | Applica in grassetto/chiaro ciano a sfondo |
+| 107 | Bianco sfondo chiaro | Applica in grassetto/chiaro bianco a sfondo |
 
 
 
@@ -252,12 +251,12 @@ Per le opzioni che specificano i colori, i colori verranno usati come definito n
 Alcuni emulatori di terminali virtuali supportano una tavolozza di colori maggiore dei 16 colori forniti dalla console di Windows. Per questi colori estesi, la console di Windows sceglierà il colore appropriato più vicino dalla tabella 16 colori esistente per la visualizzazione. A differenza dei valori di SGR tipici precedenti, i valori estesi utilizzeranno parametri aggiuntivi dopo l'indicatore iniziale in base alla tabella seguente.
 
 
-| Sottosequenza SGR                            | Descrizione                                                                                 |
+| Sottosequenza SGR | Descrizione |
 |--------------------------------------------|---------------------------------------------------------------------------------------------|
 | 38; 2 &lt;r &gt; ; &lt;g &gt; ; &lt;b&gt; | Imposta il colore di primo piano sul valore RGB specificato nei &lt; &gt; parametri r, &lt; g &gt; , &lt; b &gt;\* |
 | 48; 2 &lt;r &gt; ; &lt;g &gt; ; &lt;b&gt; | Imposta il colore di sfondo sul valore RGB specificato nei &lt; &gt; parametri r, &lt; g &gt; , &lt; b &gt;\* |
-| 38; 5 &lt;s&gt;                         | Imposta il colore di primo piano sull' &lt; &gt; Indice s nella tabella colori 88 o 256\*                          |
-| 48; 5 &lt;s&gt;                         | Imposta il colore di sfondo sull' &lt; &gt; Indice s nella tabella colori 88 o 256\*                          |
+| 38; 5 &lt;s&gt; | Imposta il colore di primo piano sull' &lt; &gt; Indice s nella tabella colori 88 o 256\* |
+| 48; 5 &lt;s&gt; | Imposta il colore di sfondo sull' &lt; &gt; Indice s nella tabella colori 88 o 256\* |
 
 
 
@@ -274,7 +273,7 @@ I valori RGB devono essere valori esadecimali compresi tra `0` e `ff` e separati
 Si noti che questa sequenza è una sequenza di "comando del sistema operativo" OSC, non un CSI come molte delle altre sequenze elencate e che inizia con " \\ X1B \] ", non con " \\ X1B \[ ".
 
 
-| Sequenza                                                           | Descrizione          | Comportamento                                                                                                     |
+| Sequenza | Descrizione | Comportamento |
 |--------------------------------------------------------------------|----------------------|--------------------------------------------------------------------------------------------------------------|
 | ESC \] 4; &lt; i &gt; ; RGB: &lt; r &gt;  /  &lt; g &gt;  /  &lt; b &gt; ESC | Modificare i colori della schermata | Imposta l'indice della tavolozza dei colori della schermata sui &lt; &gt; valori RGB specificati in &lt; r &gt; , &lt; g &gt; , &lt; b&gt; |
 
@@ -290,12 +289,12 @@ Ognuna di queste modalità è una semplice impostazione booleana: la modalità d
 Vedere le sezioni tasti di cursore e tastierino numerico & tasti funzione per le sequenze emesse in queste modalità.
 
 
-| Sequenza     | Codice    | Descrizione                                            | Comportamento                                                |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------|---------|--------------------------------------------------------|---------------------------------------------------------|
-| ESC =        | DECKPAM | Abilitare la modalità applicazione del tastierino                         | I tasti del tastierino emetteranno le relative sequenze in modalità applicazione. |
-| ESC &gt;     | DECKPNM | Abilita modalità numerica tastierino                             | I tasti della tastiera emetteranno le sequenze in modalità numerica.     |
-| ESC \[ ? 1 ora | DECCKM  | Abilitare la modalità di applicazione delle chiavi del cursore                    | I tasti del tastierino emetteranno le relative sequenze in modalità applicazione. |
-| ESC \[ ? 1 l | DECCKM  | Disabilitare la modalità di applicazione delle chiavi del cursore (usare la modalità normale) | I tasti della tastiera emetteranno le sequenze in modalità numerica.     |
+| ESC = | DECKPAM | Abilitare la modalità applicazione del tastierino | I tasti del tastierino emetteranno le relative sequenze in modalità applicazione. |
+| ESC &gt; | DECKPNM | Abilita modalità numerica tastierino | I tasti della tastiera emetteranno le sequenze in modalità numerica. |
+| ESC \[ ? 1 ora | DECCKM | Abilitare la modalità di applicazione delle chiavi del cursore | I tasti del tastierino emetteranno le relative sequenze in modalità applicazione. |
+| ESC \[ ? 1 l | DECCKM | Disabilitare la modalità di applicazione delle chiavi del cursore (usare la modalità normale) | I tasti della tastiera emetteranno le sequenze in modalità numerica. |
 
 
 
@@ -304,15 +303,16 @@ Vedere le sezioni tasti di cursore e tastierino numerico & tasti funzione per le
 
 Tutti i comandi in questa sezione sono in genere equivalenti alla chiamata di Get \* console API per recuperare informazioni sullo stato corrente del buffer della console.
 
-**Nota**  Queste query emetteranno le risposte nel flusso di input della console immediatamente dopo essere state riconosciute nel flusso di output mentre è stata ABILITAta l' \_ \_ elaborazione del terminale virtuale \_ . Il \_ flag Enable virtual \_ Terminal input non \_ si applica ai comandi di query perché si presuppone che un'applicazione che esegue la query desideri ricevere sempre la risposta.
+> [!NOTE]
+>Queste query emetteranno le risposte nel flusso di input della console immediatamente dopo essere state riconosciute nel flusso di output mentre è stata ABILITAta l' \_ \_ elaborazione del terminale virtuale \_ . Il \_ flag Enable virtual \_ Terminal input non \_ si applica ai comandi di query perché si presuppone che un'applicazione che esegue la query desideri ricevere sempre la risposta.
 
 
 
 
-| Sequenza   | Codice    | Descrizione            | Comportamento                                                                                                               |
+| Sequenza | Codice | Descrizione | Comportamento |
 |------------|---------|------------------------|------------------------------------------------------------------------------------------------------------------------|
 | ESC \[ 6 n | DECXCPR | Posizione del cursore del report | Creare la posizione del cursore come: ESC \[ &lt; r &gt; ; &lt; c &gt; r dove &lt; R &gt; = riga cursore e &lt; c &gt; = colonna cursore |
-| ESC \[ 0 c | DA      | Attributi del dispositivo      | Segnala l'identità del terminale. Emetterà " \\ X1B \[ ? 1; 0C", che indica "VT101 senza opzioni".                            |
+| ESC \[ 0 c | DA | Attributi del dispositivo | Segnala l'identità del terminale. Emetterà " \\ X1B \[ ? 1; 0C", che indica "VT101 senza opzioni". |
 
 
 
@@ -324,13 +324,13 @@ Sebbene la console di Windows usi tradizionalmente le schede in modo da avere un
 Le sequenze seguenti consentono a un'applicazione di impostare i percorsi di tabulazione nella finestra della console, rimuoverli e spostarsi tra di essi.
 
 
-| Sequenza           | Codice | Descrizione                     | Comportamento                                                                                                                                                                                                                    |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------------|------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ESC H              | HTS  | Set di schede orizzontali              | Imposta un punto di tabulazione nella colonna corrente in cui si trova il cursore.                                                                                                                                                                     |
-| ESC \[ &lt; n &gt; I | CHT  | Scheda cursore orizzontale (in poi) | Spostare il cursore sulla colonna successiva (nella stessa riga) con una tabulazione. Se non sono presenti altre tabulazioni, passare all'ultima colonna della riga. Se il cursore si trova nell'ultima colonna, passare alla prima colonna della riga successiva. |
-| ESC \[ &lt; n &gt; Z | CBT  | Scheda cursore indietro            | Spostare il cursore sulla colonna precedente (nella stessa riga) con una tabulazione. Se non sono presenti altre tabulazioni, sposta il cursore sulla prima colonna. Se il cursore si trova nella prima colonna, il cursore non viene spostato.              |
-| ESC \[ 0 g         | TBC  | Tabulazione cancellata (colonna corrente)      | Cancella la tabulazione nella colonna corrente, se presente. In caso contrario, non esegue alcuna operazione.                                                                                                                                         |
-| ESC \[ 3 g         | TBC  | Cancellazione tabulazione (tutte le colonne)         | Cancella tutte le tabulazioni attualmente impostate.                                                                                                                                                                                         |
+| ESC H | HTS | Set di schede orizzontali | Imposta un punto di tabulazione nella colonna corrente in cui si trova il cursore. |
+| ESC \[ &lt; n &gt; I | CHT | Scheda cursore orizzontale (in poi) | Spostare il cursore sulla colonna successiva (nella stessa riga) con una tabulazione. Se non sono presenti altre tabulazioni, passare all'ultima colonna della riga. Se il cursore si trova nell'ultima colonna, passare alla prima colonna della riga successiva. |
+| ESC \[ &lt; n &gt; Z | CBT | Scheda cursore indietro | Spostare il cursore sulla colonna precedente (nella stessa riga) con una tabulazione. Se non sono presenti altre tabulazioni, sposta il cursore sulla prima colonna. Se il cursore si trova nella prima colonna, il cursore non viene spostato. |
+| ESC \[ 0 g | TBC | Tabulazione cancellata (colonna corrente) | Cancella la tabulazione nella colonna corrente, se presente. In caso contrario, non esegue alcuna operazione. |
+| ESC \[ 3 g | TBC | Cancellazione tabulazione (tutte le colonne) | Cancella tutte le tabulazioni attualmente impostate. |
 
 
 
@@ -344,29 +344,29 @@ Le sequenze seguenti consentono a un'applicazione di impostare i percorsi di tab
 Le sequenze seguenti consentono a un programma di modificare il mapping del set di caratteri attivo. In questo modo un programma può emettere caratteri ASCII a 7 bit, ma è possibile visualizzarli come altri glifi nella schermata finale. Attualmente, gli unici due set di caratteri supportati sono ASCII (impostazione predefinita) e il set di caratteri grafici DEC Special. <http://vt100.net/docs/vt220-rm/table2-4.html>Per un elenco di tutti i caratteri rappresentati dal set di caratteri grafici Dec speciale, vedere.
 
 
-| Sequenza | Descrizione                                | Comportamento                      |
+| Sequenza | Descrizione | Comportamento |
 |----------|--------------------------------------------|-------------------------------|
-| ESC (0  | Designare il set di caratteri – disegno linea DEC | Abilita la modalità di disegno linea DEC |
-| ESC (B  | Designare set di caratteri – US ASCII         | Abilita la modalità ASCII (impostazione predefinita)  |
+| ESC (0 | Designare il set di caratteri – disegno linea DEC | Abilita la modalità di disegno linea DEC |
+| ESC (B | Designare set di caratteri – US ASCII | Abilita la modalità ASCII (impostazione predefinita) |
 
 
 
 In particolare, la modalità di disegno linea DEC viene utilizzata per disegnare i bordi nelle applicazioni console. Nella tabella seguente viene illustrato il mapping di caratteri ASCII a cui è associato il carattere di disegno a linee.
 
 
-| Hex  | ASCII | Disegno linea DEC |
+| Hex | ASCII | Disegno linea DEC |
 |------|-------|------------------|
-| 0x6A | j     | ┘                |
-| 0x6b | k     | ┐                |
-| 0x6C | l     | ┌                |
-| 0x6d | m     | └                |
-| 0x6e | n     | ┼                |
-| 0x71 | q     | ─                |
-| 0x74 | t     | ├                |
-| 0x75 | u     | ┤                |
-| 0x76 | v     | ┴                |
-| 0x77 | w     | ┬                |
-| 0x78 | x     | │                |
+| 0x6A | j | ┘ |
+| 0x6b | k | ┐ |
+| 0x6C | l | ┌ |
+| 0x6d | m | └ |
+| 0x6e | n | ┼ |
+| 0x71 | q | ─ |
+| 0x74 | t | ├ |
+| 0x75 | u | ┤ |
+| 0x76 | v | ┴ |
+| 0x77 | w | ┬ |
+| 0x78 | x | │ |
 
 
 
@@ -383,7 +383,7 @@ Per DECSTBM sono disponibili due parametri facoltativi, &lt; t &gt; e &lt; b &gt
 I margini di scorrimento sono per buffer, quindi è importante che il buffer alternativo e il buffer principale gestiscano le impostazioni dei margini di scorrimento separati (pertanto un'applicazione a schermo intero nel buffer alternativo non avvelena i margini del buffer principale).
 
 
-| Sequenza                       | Codice    | Descrizione          | Comportamento                                       |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------------------------|---------|----------------------|------------------------------------------------|
 | ESC \[ &lt; t &gt; ; &lt; b &gt; r | DECSTBM | Imposta area di scorrimento | Imposta i margini di scorrimento del VT del viewport. |
 
@@ -397,10 +397,10 @@ I comandi seguenti consentono all'applicazione di impostare il titolo della fine
 Si noti che queste sequenze sono "Command del sistema operativo" e non un CSI come molte delle altre sequenze elencate e che inizia con " \\ X1B \] ", non con " \\ X1B \[ ".
 
 
-| Sequenza                      | Descrizione               | Comportamento                                           |
+| Sequenza | Descrizione | Comportamento |
 |-------------------------------|---------------------------|----------------------------------------------------|
 | ESC \] 0; &lt; stringa &gt; bel | Imposta icona e titolo finestra | Imposta il titolo della finestra della console su &lt; stringa &gt; . |
-| ESC \] 2; &lt; stringa &gt; bel | Imposta titolo finestra          | Imposta il titolo della finestra della console su &lt; stringa &gt; . |
+| ESC \] 2; &lt; stringa &gt; bel | Imposta titolo finestra | Imposta il titolo della finestra della console su &lt; stringa &gt; . |
 
 
 
@@ -414,10 +414,10 @@ Il carattere di terminazione qui è il carattere "campanello", " \\ x07"
 Per un esempio di questo comportamento, si prenda in considerazione quando VIM viene avviato da bash. Vim usa l'intero schermo per modificare il file e quindi il ritorno a bash lascia invariato il buffer originale.
 
 
-| Sequenza           | Descrizione                 | Comportamento                                   |
+| Sequenza | Descrizione | Comportamento |
 |--------------------|-----------------------------|--------------------------------------------|
 | ESC \[ ? 1 0 4 9 h | Usa buffer schermato alternativo | Passa a un nuovo buffer dello schermo alternativo. |
-| ESC \[ ? 1 0 4 9 l | Usa buffer dello schermo principale      | Passa al buffer principale.               |
+| ESC \[ ? 1 0 4 9 l | Usa buffer dello schermo principale | Passa al buffer principale. |
 
 
 
@@ -427,10 +427,10 @@ Per un esempio di questo comportamento, si prenda in considerazione quando VIM v
 Le sequenze seguenti possono essere utilizzate per controllare la larghezza della finestra della console. Sono approssimativamente equivalenti al chiamante dell'API della console SetConsoleScreenBufferInfoEx per impostare la larghezza della finestra.
 
 
-| Sequenza     | Codice    | Descrizione                  | Comportamento                                    |
+| Sequenza | Codice | Descrizione | Comportamento |
 |--------------|---------|------------------------------|---------------------------------------------|
 | ESC \[ ? 3 ore | DECCOLM | Imposta il numero di colonne su 132 | Imposta la larghezza della console su una larghezza di 132 colonne. |
-| ESC \[ ? 3 l | DECCOLM | Imposta il numero di colonne su 80  | Imposta la larghezza della console su una larghezza di 80 colonne.  |
+| ESC \[ ? 3 l | DECCOLM | Imposta il numero di colonne su 80 | Imposta la larghezza della console su una larghezza di 80 colonne. |
 
 
 
@@ -448,9 +448,9 @@ La sequenza seguente può essere utilizzata per reimpostare i valori predefiniti
 - Salva stato cursore: posizione Home (0,0) (DECSC)
 
 
-| Sequenza   | Codice   | Descrizione | Comportamento                                           |
+| Sequenza | Codice | Descrizione | Comportamento |
 |------------|--------|-------------|----------------------------------------------------|
-| ESC \[ ! p | DECSTR | Ripristino soft  | Ripristinare le impostazioni predefinite di determinate impostazioni del terminale. |
+| ESC \[ ! p | DECSTR | Ripristino soft | Ripristinare le impostazioni predefinite di determinate impostazioni del terminale. |
 
 
 
@@ -464,53 +464,53 @@ Sono disponibili due modalità interne che controllano le sequenze emesse per le
 ### <a name="span-idcursor_keys__spanspan-idcursor_keys__spanspan-idcursor_keys__spancursor-keys"></a><span id="Cursor_Keys__"></span><span id="cursor_keys__"></span><span id="CURSOR_KEYS__"></span>Tasti di cursore
 
 
-| Chiave         | Modalità normale | Modalità applicazione |
+| Chiave | Modalità normale | Modalità applicazione |
 |-------------|-------------|------------------|
-| Freccia SU    | ESC \[ A    | ESC O A          |
-| Freccia GIÙ  | ESC \[ B    | ESC O B          |
-| Freccia DESTRA | ESC \[ C    | ESC O C          |
-| Freccia SINISTRA  | ESC \[ D    | ESC O D          |
-| Home page        | ESC \[ H    | ESC O H          |
-| Fine         | ESC \[ F    | ESC O F          |
+| Freccia SU | ESC \[ A | ESC O A |
+| Freccia GIÙ | ESC \[ B | ESC O B |
+| Freccia DESTRA | ESC \[ C | ESC O C |
+| Freccia SINISTRA | ESC \[ D | ESC O D |
+| Home page | ESC \[ H | ESC O H |
+| Fine | ESC \[ F | ESC O F |
 
 
 
 Inoltre, se si preme CTRL con una qualsiasi di queste chiavi, vengono generate le sequenze seguenti, indipendentemente dalla modalità dei tasti di cursore:
 
 
-| Chiave                | Qualsiasi modalità       |
+| Chiave | Qualsiasi modalità |
 |--------------------|----------------|
-| CTRL + freccia su    | ESC \[ 1; 5 A |
-| CTRL + freccia giù  | ESC \[ 1; 5 B |
+| CTRL + freccia su | ESC \[ 1; 5 A |
+| CTRL + freccia giù | ESC \[ 1; 5 B |
 | CTRL + freccia destra | ESC \[ 1; 5 C |
-| CTRL + freccia sinistra  | ESC \[ 1; 5 D |
+| CTRL + freccia sinistra | ESC \[ 1; 5 D |
 
 
 
 ### <a name="span-idnumpad___function_keys__spanspan-idnumpad___function_keys__spanspan-idnumpad___function_keys__spannumpad--function-keys"></a><span id="Numpad___Function_Keys__"></span><span id="numpad___function_keys__"></span><span id="NUMPAD___FUNCTION_KEYS__"></span>Tastierino numerico & tasti funzione
 
 
-| Chiave       | Sequenza     |
+| Chiave | Sequenza |
 |-----------|--------------|
-| Backspace | 0x7F (CANC)   |
-| Sospendi     | 0x1A (SUB)   |
-| Carattere speciale di escape    | 0x1B (ESC)   |
-| Insert    | ESC \[ 2 ~   |
-| Elimina    | ESC \[ 3 ~   |
-| PGSU   | ESC \[ 5 ~   |
-| PGGIÙ | ESC \[ 6 ~   |
-| F1        | ESC O P      |
-| F2        | ESC O Q      |
-| F3        | ESC O R      |
-| F4        | ESC O S      |
-| F5        | ESC \[ 1 5 ~ |
-| F6        | ESC \[ 1 7 ~ |
-| F7        | ESC \[ 1 8 ~ |
-| F8        | ESC \[ 1 9 ~ |
-| F9        | ESC \[ 2 0 ~ |
-| F10       | ESC \[ 2 1 ~ |
-| F11       | ESC \[ 2 3 ~ |
-| F12       | ESC \[ 2 4 ~ |
+| Backspace | 0x7F (CANC) |
+| Sospendi | 0x1A (SUB) |
+| Carattere speciale di escape | 0x1B (ESC) |
+| Insert | ESC \[ 2 ~ |
+| Elimina | ESC \[ 3 ~ |
+| PGSU | ESC \[ 5 ~ |
+| PGGIÙ | ESC \[ 6 ~ |
+| F1 | ESC O P |
+| F2 | ESC O Q |
+| F3 | ESC O R |
+| F4 | ESC O S |
+| F5 | ESC \[ 1 5 ~ |
+| F6 | ESC \[ 1 7 ~ |
+| F7 | ESC \[ 1 8 ~ |
+| F8 | ESC \[ 1 9 ~ |
+| F9 | ESC \[ 2 0 ~ |
+| F10 | ESC \[ 2 1 ~ |
+| F11 | ESC \[ 2 3 ~ |
+| F12 | ESC \[ 2 4 ~ |
 
 
 
@@ -521,17 +521,18 @@ ALT viene trattato anteponendo la sequenza con un carattere di escape: ESC &lt; 
 La combinazione di tasti CTRL viene in genere passata esattamente come ricevuta dal sistema. Si tratta in genere di un singolo carattere spostato nello spazio riservato dei caratteri di controllo (0x0-0x1F). Ad esempio, Ctrl + @ (0x40) diventa NUL (0x00), CTRL + \[ (0x5b) diventa ESC (0x1B) e così via. Alcune combinazioni di tasti CTRL vengono trattate in modo speciale in base alla tabella seguente:
 
 
-| Chiave                | Sequenza       |
+| Chiave | Sequenza |
 |--------------------|----------------|
-| CTRL+BARRA SPAZIATRICE       | 0x00 (NUL)     |
-| CTRL + freccia su    | ESC \[ 1; 5 A |
-| CTRL + freccia giù  | ESC \[ 1; 5 B |
+| CTRL+BARRA SPAZIATRICE | 0x00 (NUL) |
+| CTRL + freccia su | ESC \[ 1; 5 A |
+| CTRL + freccia giù | ESC \[ 1; 5 B |
 | CTRL + freccia destra | ESC \[ 1; 5 C |
-| CTRL + freccia sinistra  | ESC \[ 1; 5 D |
+| CTRL + freccia sinistra | ESC \[ 1; 5 D |
 
 
 
-**Nota**  Il tasto CTRL + freccia destra viene considerato come AltGr. Quando entrambi gli elementi vengono visualizzati insieme, verranno rimossi e il valore Unicode del carattere presentato dal sistema verrà passato nella destinazione. Il sistema effettuerà la pre-conversione dei valori di AltGr in base alle impostazioni di input di sistema correnti.
+> [!NOTE]
+>Il <kbd>tasto CTRL</kbd> + <kbd>freccia destra viene</kbd> considerato come AltGr. Quando entrambi gli elementi vengono visualizzati insieme, verranno rimossi e il valore Unicode del carattere presentato dal sistema verrà passato nella destinazione. Il sistema effettuerà la pre-conversione dei valori di AltGr in base alle impostazioni di input di sistema correnti.
 
 
 
@@ -549,40 +550,41 @@ Nel codice riportato di seguito vengono forniti alcuni esempi di formattazione d
 
 int main()
 {
-    // Set output mode to handle virtual terminal sequences
-    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (hOut == INVALID_HANDLE_VALUE)
-    {
-        return GetLastError();
-    }
+ // Set output mode to handle virtual terminal sequences
+ HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+ if (hOut == INVALID_HANDLE_VALUE)
+ {
+ return GetLastError();
+ }
 
-    DWORD dwMode = 0;
-    if (!GetConsoleMode(hOut, &dwMode))
-    {
-        return GetLastError();
-    }
+ DWORD dwMode = 0;
+ if (!GetConsoleMode(hOut, &dwMode))
+ {
+ return GetLastError();
+ }
 
-    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-    if (!SetConsoleMode(hOut, dwMode))
-    {
-        return GetLastError();
-    }
+ dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+ if (!SetConsoleMode(hOut, dwMode))
+ {
+ return GetLastError();
+ }
 
-    // Try some Set Graphics Rendition (SGR) terminal escape sequences
-    wprintf(L"\x1b[31mThis text has a red foreground using SGR.31.\r\n");
-    wprintf(L"\x1b[1mThis text has a bright (bold) red foreground using SGR.1 to affect the previous color setting.\r\n");
-    wprintf(L"\x1b[mThis text has returned to default colors using SGR.0 implicitly.\r\n");
-    wprintf(L"\x1b[34;46mThis text shows the foreground and background change at the same time.\r\n");
-    wprintf(L"\x1b[0mThis text has returned to default colors using SGR.0 explicitly.\r\n");
-    wprintf(L"\x1b[31;32;33;34;35;36;101;102;103;104;105;106;107mThis text attempts to apply many colors in the same command. Note the colors are applied from left to right so only the right-most option of foreground cyan (SGR.36) and background bright white (SGR.107) is effective.\r\n");
-    wprintf(L"\x1b[39mThis text has restored the foreground color only.\r\n");
-    wprintf(L"\x1b[49mThis text has restored the background color only.\r\n");
+ // Try some Set Graphics Rendition (SGR) terminal escape sequences
+ wprintf(L"\x1b[31mThis text has a red foreground using SGR.31.\r\n");
+ wprintf(L"\x1b[1mThis text has a bright (bold) red foreground using SGR.1 to affect the previous color setting.\r\n");
+ wprintf(L"\x1b[mThis text has returned to default colors using SGR.0 implicitly.\r\n");
+ wprintf(L"\x1b[34;46mThis text shows the foreground and background change at the same time.\r\n");
+ wprintf(L"\x1b[0mThis text has returned to default colors using SGR.0 explicitly.\r\n");
+ wprintf(L"\x1b[31;32;33;34;35;36;101;102;103;104;105;106;107mThis text attempts to apply many colors in the same command. Note the colors are applied from left to right so only the right-most option of foreground cyan (SGR.36) and background bright white (SGR.107) is effective.\r\n");
+ wprintf(L"\x1b[39mThis text has restored the foreground color only.\r\n");
+ wprintf(L"\x1b[49mThis text has restored the background color only.\r\n");
 
-    return 0;
+ return 0;
 }
 ```
 
-**Nota**  Nell'esempio precedente, la stringa ' `\x1b[31m` ' è l'implementazione di **ESC \[ &lt; n &gt; m** con &lt; n &gt; è 31.
+> [!NOTE]
+>Nell'esempio precedente, la stringa ' `\x1b[31m` ' è l'implementazione di **ESC \[ &lt; n &gt; m** con &lt; n &gt; è 31.
 
 
 
@@ -605,53 +607,53 @@ Il codice seguente fornisce un esempio della modalità consigliata per abilitare
 
 int main()
 {
-    // Set output mode to handle virtual terminal sequences
-    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (hOut == INVALID_HANDLE_VALUE)
-    {
-        return false;
-    }
-    HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);
-    if (hIn == INVALID_HANDLE_VALUE)
-    {
-        return false;
-    }
+ // Set output mode to handle virtual terminal sequences
+ HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+ if (hOut == INVALID_HANDLE_VALUE)
+ {
+ return false;
+ }
+ HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);
+ if (hIn == INVALID_HANDLE_VALUE)
+ {
+ return false;
+ }
 
-    DWORD dwOriginalOutMode = 0;
-    DWORD dwOriginalInMode = 0;
-    if (!GetConsoleMode(hOut, &dwOriginalOutMode))
-    {
-        return false;
-    }
-    if (!GetConsoleMode(hIn, &dwOriginalInMode))
-    {
-        return false;
-    }
+ DWORD dwOriginalOutMode = 0;
+ DWORD dwOriginalInMode = 0;
+ if (!GetConsoleMode(hOut, &dwOriginalOutMode))
+ {
+ return false;
+ }
+ if (!GetConsoleMode(hIn, &dwOriginalInMode))
+ {
+ return false;
+ }
 
-    DWORD dwRequestedOutModes = ENABLE_VIRTUAL_TERMINAL_PROCESSING | DISABLE_NEWLINE_AUTO_RETURN;
-    DWORD dwRequestedInModes = ENABLE_VIRTUAL_TERMINAL_INPUT;
+ DWORD dwRequestedOutModes = ENABLE_VIRTUAL_TERMINAL_PROCESSING | DISABLE_NEWLINE_AUTO_RETURN;
+ DWORD dwRequestedInModes = ENABLE_VIRTUAL_TERMINAL_INPUT;
 
-    DWORD dwOutMode = dwOriginalOutMode | dwRequestedOutModes;
-    if (!SetConsoleMode(hOut, dwOutMode))
-    {
-        // we failed to set both modes, try to step down mode gracefully.
-        dwRequestedOutModes = ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-        dwOutMode = dwOriginalOutMode | dwRequestedOutModes;
-        if (!SetConsoleMode(hOut, dwOutMode))
-        {
-            // Failed to set any VT mode, can't do anything here.
-            return -1;
-        }
-    }
+ DWORD dwOutMode = dwOriginalOutMode | dwRequestedOutModes;
+ if (!SetConsoleMode(hOut, dwOutMode))
+ {
+ // we failed to set both modes, try to step down mode gracefully.
+ dwRequestedOutModes = ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+ dwOutMode = dwOriginalOutMode | dwRequestedOutModes;
+ if (!SetConsoleMode(hOut, dwOutMode))
+ {
+ // Failed to set any VT mode, can't do anything here.
+ return -1;
+ }
+ }
 
-    DWORD dwInMode = dwOriginalInMode | ENABLE_VIRTUAL_TERMINAL_INPUT;
-    if (!SetConsoleMode(hIn, dwInMode))
-    {
-        // Failed to set VT input mode, can't do anything here.
-        return -1;
-    }
+ DWORD dwInMode = dwOriginalInMode | ENABLE_VIRTUAL_TERMINAL_INPUT;
+ if (!SetConsoleMode(hIn, dwInMode))
+ {
+ // Failed to set VT input mode, can't do anything here.
+ return -1;
+ }
 
-    return 0;
+ return 0;
 }
 ```
 
@@ -663,7 +665,7 @@ Questo esempio usa il buffer dello schermo alternativo, la modifica delle tabula
 
 ```C
 //
-//    Copyright (C) Microsoft.  All rights reserved.
+// Copyright (C) Microsoft. All rights reserved.
 //
 #define DEFINE_CONSOLEV2_PROPERTIES
 
@@ -680,172 +682,172 @@ Questo esempio usa il buffer dello schermo alternativo, la modifica delle tabula
 
 bool EnableVTMode()
 {
-    // Set output mode to handle virtual terminal sequences
-    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (hOut == INVALID_HANDLE_VALUE)
-    {
-        return false;
-    }
+ // Set output mode to handle virtual terminal sequences
+ HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+ if (hOut == INVALID_HANDLE_VALUE)
+ {
+ return false;
+ }
 
-    DWORD dwMode = 0;
-    if (!GetConsoleMode(hOut, &dwMode))
-    {
-        return false;
-    }
+ DWORD dwMode = 0;
+ if (!GetConsoleMode(hOut, &dwMode))
+ {
+ return false;
+ }
 
-    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-    if (!SetConsoleMode(hOut, dwMode))
-    {
-        return false;
-    }
-    return true;
+ dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+ if (!SetConsoleMode(hOut, dwMode))
+ {
+ return false;
+ }
+ return true;
 }
 
 void PrintVerticalBorder()
 {
-    printf(ESC "(0");       // Enter Line drawing mode
-    printf(CSI "104;93m");   // bright yellow on bright blue
-    printf("x");            // in line drawing mode, \x78 -> \u2502 "Vertical Bar"
-    printf(CSI "0m");       // restore color
-    printf(ESC "(B");       // exit line drawing mode
+ printf(ESC "(0"); // Enter Line drawing mode
+ printf(CSI "104;93m"); // bright yellow on bright blue
+ printf("x"); // in line drawing mode, \x78 -> \u2502 "Vertical Bar"
+ printf(CSI "0m"); // restore color
+ printf(ESC "(B"); // exit line drawing mode
 }
 
 void PrintHorizontalBorder(COORD const Size, bool fIsTop)
 {
-    printf(ESC "(0");       // Enter Line drawing mode
-    printf(CSI "104;93m");  // Make the border bright yellow on bright blue
-    printf(fIsTop? "l" : "m"); // print left corner 
+ printf(ESC "(0"); // Enter Line drawing mode
+ printf(CSI "104;93m"); // Make the border bright yellow on bright blue
+ printf(fIsTop? "l" : "m"); // print left corner 
 
-    for (int i = 1; i < Size.X - 1; i++) 
-        printf("q"); // in line drawing mode, \x71 -> \u2500 "HORIZONTAL SCAN LINE-5"
+ for (int i = 1; i < Size.X - 1; i++) 
+ printf("q"); // in line drawing mode, \x71 -> \u2500 "HORIZONTAL SCAN LINE-5"
 
-    printf(fIsTop? "k" : "j"); // print right corner
-    printf(CSI "0m");
-    printf(ESC "(B");       // exit line drawing mode
+ printf(fIsTop? "k" : "j"); // print right corner
+ printf(CSI "0m");
+ printf(ESC "(B"); // exit line drawing mode
 }
 
 void PrintStatusLine(char* const pszMessage, COORD const Size)
 {
-    printf(CSI "%d;1H", Size.Y);
-    printf(CSI "K"); // clear the line
-    printf(pszMessage);  
+ printf(CSI "%d;1H", Size.Y);
+ printf(CSI "K"); // clear the line
+ printf(pszMessage); 
 }
 
 int __cdecl wmain(int argc, WCHAR* argv[])
-{   
-    argc; // unused
-    argv; // unused
-    //First, enable VT mode
-    bool fSuccess = EnableVTMode();
-    if (!fSuccess)
-    {
-        printf("Unable to enter VT processing mode. Quitting.\n");
-        return -1;
-    }
-    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (hOut == INVALID_HANDLE_VALUE)
-    {
-        printf("Couldn't get the console handle. Quitting.\n");
-        return -1;
-    }
+{ 
+ argc; // unused
+ argv; // unused
+ //First, enable VT mode
+ bool fSuccess = EnableVTMode();
+ if (!fSuccess)
+ {
+ printf("Unable to enter VT processing mode. Quitting.\n");
+ return -1;
+ }
+ HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+ if (hOut == INVALID_HANDLE_VALUE)
+ {
+ printf("Couldn't get the console handle. Quitting.\n");
+ return -1;
+ }
 
-    CONSOLE_SCREEN_BUFFER_INFO ScreenBufferInfo;
-    GetConsoleScreenBufferInfo(hOut, &ScreenBufferInfo);
-    COORD Size;
-    Size.X = ScreenBufferInfo.srWindow.Right - ScreenBufferInfo.srWindow.Left + 1;
-    Size.Y = ScreenBufferInfo.srWindow.Bottom -  ScreenBufferInfo.srWindow.Top + 1;
+ CONSOLE_SCREEN_BUFFER_INFO ScreenBufferInfo;
+ GetConsoleScreenBufferInfo(hOut, &ScreenBufferInfo);
+ COORD Size;
+ Size.X = ScreenBufferInfo.srWindow.Right - ScreenBufferInfo.srWindow.Left + 1;
+ Size.Y = ScreenBufferInfo.srWindow.Bottom - ScreenBufferInfo.srWindow.Top + 1;
 
-    // Enter the alternate buffer
-    printf(CSI "?1049h");
+ // Enter the alternate buffer
+ printf(CSI "?1049h");
 
-    // Clear screen, tab stops, set, stop at columns 16, 32
-    printf(CSI "1;1H");
-    printf(CSI "2J"); // Clear screen
+ // Clear screen, tab stops, set, stop at columns 16, 32
+ printf(CSI "1;1H");
+ printf(CSI "2J"); // Clear screen
 
-    int iNumTabStops = 4; // (0, 20, 40, width)
-    printf(CSI "3g"); // clear all tab stops
-    printf(CSI "1;20H"); // Move to column 20
-    printf(ESC "H"); // set a tab stop
+ int iNumTabStops = 4; // (0, 20, 40, width)
+ printf(CSI "3g"); // clear all tab stops
+ printf(CSI "1;20H"); // Move to column 20
+ printf(ESC "H"); // set a tab stop
 
-    printf(CSI "1;40H"); // Move to column 40
-    printf(ESC "H"); // set a tab stop
+ printf(CSI "1;40H"); // Move to column 40
+ printf(ESC "H"); // set a tab stop
 
-    // Set scrolling margins to 3, h-2
-    printf(CSI "3;%dr", Size.Y-2);
-    int iNumLines = Size.Y - 4;
+ // Set scrolling margins to 3, h-2
+ printf(CSI "3;%dr", Size.Y-2);
+ int iNumLines = Size.Y - 4;
 
-    printf(CSI "1;1H");
-    printf(CSI "102;30m");
-    printf("Windows 10 Anniversary Update - VT Example"); 
-    printf(CSI "0m");
+ printf(CSI "1;1H");
+ printf(CSI "102;30m");
+ printf("Windows 10 Anniversary Update - VT Example"); 
+ printf(CSI "0m");
 
-    // Print a top border - Yellow
-    printf(CSI "2;1H");
-    PrintHorizontalBorder(Size, true);
+ // Print a top border - Yellow
+ printf(CSI "2;1H");
+ PrintHorizontalBorder(Size, true);
 
-    // // Print a bottom border
-    printf(CSI "%d;1H", Size.Y-1);
-    PrintHorizontalBorder(Size, false);
+ // // Print a bottom border
+ printf(CSI "%d;1H", Size.Y-1);
+ PrintHorizontalBorder(Size, false);
 
-    wchar_t wch;
+ wchar_t wch;
 
-    // draw columns
-    printf(CSI "3;1H"); 
-    int line = 0;
-    for (line = 0; line < iNumLines * iNumTabStops; line++)
-    {
-        PrintVerticalBorder();
-        if (line + 1 != iNumLines * iNumTabStops) // don't advance to next line if this is the last line
-            printf("\t"); // advance to next tab stop
+ // draw columns
+ printf(CSI "3;1H"); 
+ int line = 0;
+ for (line = 0; line < iNumLines * iNumTabStops; line++)
+ {
+ PrintVerticalBorder();
+ if (line + 1 != iNumLines * iNumTabStops) // don't advance to next line if this is the last line
+ printf("\t"); // advance to next tab stop
 
-    }
+ }
 
-    PrintStatusLine("Press any key to see text printed between tab stops.", Size);
-    wch = _getwch();
+ PrintStatusLine("Press any key to see text printed between tab stops.", Size);
+ wch = _getwch();
 
-    // Fill columns with output
-    printf(CSI "3;1H"); 
-    for (line = 0; line < iNumLines; line++)
-    {
-        int tab = 0;
-        for (tab = 0; tab < iNumTabStops-1; tab++)
-        {
-            PrintVerticalBorder();
-            printf("line=%d", line);
-            printf("\t"); // advance to next tab stop
-        }
-        PrintVerticalBorder();// print border at right side
-        if (line+1 != iNumLines)
-            printf("\t"); // advance to next tab stop, (on the next line)
-    }
+ // Fill columns with output
+ printf(CSI "3;1H"); 
+ for (line = 0; line < iNumLines; line++)
+ {
+ int tab = 0;
+ for (tab = 0; tab < iNumTabStops-1; tab++)
+ {
+ PrintVerticalBorder();
+ printf("line=%d", line);
+ printf("\t"); // advance to next tab stop
+ }
+ PrintVerticalBorder();// print border at right side
+ if (line+1 != iNumLines)
+ printf("\t"); // advance to next tab stop, (on the next line)
+ }
 
-    PrintStatusLine("Press any key to demonstrate scroll margins", Size);
-    wch = _getwch();
+ PrintStatusLine("Press any key to demonstrate scroll margins", Size);
+ wch = _getwch();
 
-    printf(CSI "3;1H"); 
-    for (line = 0; line < iNumLines * 2; line++)
-    {
-        printf(CSI "K"); // clear the line
-        int tab = 0;
-        for (tab = 0; tab < iNumTabStops-1; tab++)
-        {
-            PrintVerticalBorder();
-            printf("line=%d", line);
-            printf("\t"); // advance to next tab stop
-        }
-        PrintVerticalBorder(); // print border at right side
-        if (line+1 != iNumLines * 2)
-        {
-            printf("\n"); //Advance to next line. If we're at the bottom of the margins, the text will scroll.
-            printf("\r"); //return to first col in buffer
-        }
-    }
+ printf(CSI "3;1H"); 
+ for (line = 0; line < iNumLines * 2; line++)
+ {
+ printf(CSI "K"); // clear the line
+ int tab = 0;
+ for (tab = 0; tab < iNumTabStops-1; tab++)
+ {
+ PrintVerticalBorder();
+ printf("line=%d", line);
+ printf("\t"); // advance to next tab stop
+ }
+ PrintVerticalBorder(); // print border at right side
+ if (line+1 != iNumLines * 2)
+ {
+ printf("\n"); //Advance to next line. If we're at the bottom of the margins, the text will scroll.
+ printf("\r"); //return to first col in buffer
+ }
+ }
 
-    PrintStatusLine("Press any key to exit", Size);
-    wch = _getwch();
+ PrintStatusLine("Press any key to exit", Size);
+ wch = _getwch();
 
-    // Exit the alternate buffer
-    printf(CSI "?1049l");
+ // Exit the alternate buffer
+ printf(CSI "?1049l");
 
 }
 ```

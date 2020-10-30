@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura CONSOLE_READC
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi/CONSOLE_READCONSOLE_CONTROL
 - wincon/CONSOLE_READCONSOLE_CONTROL
@@ -24,23 +24,21 @@ topic_type:
 api_name:
 - CONSOLE_READCONSOLE_CONTROL
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 4fc6af26cd540a7af207af252963c21ba216cdee
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 8a703a1eaa370e16095e1b10eb146a0718f332e9
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039189"
 ---
 # <a name="console_readconsole_control-structure"></a>\_Struttura di \_ controllo READCONSOLE console
 
-
 Contiene informazioni per un'operazione di lettura della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _CONSOLE_READCONSOLE_CONTROL {
@@ -51,8 +49,7 @@ typedef struct _CONSOLE_READCONSOLE_CONTROL {
 } CONSOLE_READCONSOLE_CONTROL, *PCONSOLE_READCONSOLE_CONTROL;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **nLength**  
 Dimensione della struttura. Impostare questo membro su `sizeof(CONSOLE_READCONSOLE_CONTROL)` .
@@ -61,120 +58,31 @@ Dimensione della struttura. Impostare questo membro su `sizeof(CONSOLE_READCONSO
 Numero di caratteri da ignorare (e di conseguenza conservati) prima di scrivere un nuovo input di lettura nel buffer passato alla funzione [**ReadConsole**](readconsole.md) . Questo valore deve essere minore del parametro *nNumberOfCharsToRead* della funzione **ReadConsole** .
 
 **dwCtrlWakeupMask**  
-Carattere di controllo definito dall'utente usato per segnalare che la lettura è stata completata.
+Maschera che specifica i caratteri di controllo tra `0x00` e `0x1F` da usare per segnalare che la lettura è stata completata. Ogni bit corrisponde a un carattere con il bit meno significativo che corrisponde a `0x00` o `NUL` e il bit più significativo corrispondente a `0x1F` o `US` . È possibile specificare più bit (caratteri di controllo).
 
 **dwControlKeyState**  
 Stato delle chiavi del controllo. Il membro può essere costituito da uno o più dei valori seguenti.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>valore</th>
-<th>Significato</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CAPSLOCK_ON"></span><span id="capslock_on"></span>
-<strong>CAPSLOCK_ON</strong> 0x0080</td>
-<td><p>La luce del blocco è attiva.</p></td>
-</tr>
-<tr class="even">
-<td><span id="ENHANCED_KEY"></span><span id="enhanced_key"></span>
-<strong>ENHANCED_KEY</strong> 0x0100</td>
-<td><p>La chiave è stata migliorata.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="LEFT_ALT_PRESSED"></span><span id="left_alt_pressed"></span>
-<strong>LEFT_ALT_PRESSED</strong> 0x0002</td>
-<td><p>Viene premuto il tasto ALT sinistro.</p></td>
-</tr>
-<tr class="even">
-<td><span id="LEFT_CTRL_PRESSED"></span><span id="left_ctrl_pressed"></span>
-<strong>LEFT_CTRL_PRESSED</strong> 0x0008</td>
-<td><p>Viene premuto il tasto CTRL sinistro.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="NUMLOCK_ON"></span><span id="numlock_on"></span>
-<strong>NUMLOCK_ON</strong> 0x0020</td>
-<td><p>Il BLOC NUM Light è on.</p></td>
-</tr>
-<tr class="even">
-<td><span id="RIGHT_ALT_PRESSED"></span><span id="right_alt_pressed"></span>
-<strong>RIGHT_ALT_PRESSED</strong> 0x0001</td>
-<td><p>Viene premuto il tasto ALT destro.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="RIGHT_CTRL_PRESSED"></span><span id="right_ctrl_pressed"></span>
-<strong>RIGHT_CTRL_PRESSED</strong> 0x0004</td>
-<td><p>Viene premuto il tasto CTRL destro.</p></td>
-</tr>
-<tr class="even">
-<td><span id="SCROLLLOCK_ON"></span><span id="scrolllock_on"></span>
-<strong>SCROLLLOCK_ON</strong> 0x0040</td>
-<td><p>La luce del blocco di scorrimento è attiva.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="SHIFT_PRESSED"></span><span id="shift_pressed"></span>
-<strong>SHIFT_PRESSED</strong> 0x0010</td>
-<td><p>Il tasto MAIUSC è premuto.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| Valore | Significato |
+|-|-|
+| **CAPSLOCK_ON** 0x0080 | La luce del blocco è attiva. |
+| **ENHANCED_KEY** 0x0100 | La chiave è stata migliorata. Vedere la [sezione Osservazioni](key-event-record-str.md#remarks). |
+| **LEFT_ALT_PRESSED** 0x0002 | Viene premuto il tasto ALT sinistro. |
+| **LEFT_CTRL_PRESSED** 0x0008 | Viene premuto il tasto CTRL sinistro. |
+| **NUMLOCK_ON** 0x0020 | Il BLOC NUM Light è on. |
+| **RIGHT_ALT_PRESSED** 0x0001 | Viene premuto il tasto ALT destro. |
+| **RIGHT_CTRL_PRESSED** 0x0004 | Viene premuto il tasto CTRL destro. |
+| **SCROLLLOCK_ON** 0x0040 | La luce del blocco di scorrimento è attiva. |
+| **SHIFT_PRESSED** 0x0010 | Il tasto MAIUSC è premuto. |
 
- 
+## <a name="requirements"></a>Requisiti
 
-<a name="requirements"></a>Requisiti
-------------
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop di Windows Vista\] |
+| Server minimo supportato | \[Solo app desktop Windows Server 2008\] |
+| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows Vista [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows Server 2008 [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>ConsoleApi. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
-
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**ReadConsole**](readconsole.md)
-
- 
-
- 
-
-
-
-

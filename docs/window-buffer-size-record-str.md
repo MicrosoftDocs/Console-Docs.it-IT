@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura WINDOW_BUFFER
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - wincontypes/WINDOW_BUFFER_SIZE_RECORD
 - wincon/WINDOW_BUFFER_SIZE_RECORD
@@ -25,23 +25,21 @@ topic_type:
 api_name:
 - WINDOW_BUFFER_SIZE_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 0041c4390fe331302df458965faec0ace2d1888f
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 355482dfd162e2c29944d53e5b17b0315ea15950
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060545"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039269"
 ---
 # <a name="window_buffer_size_record-structure"></a>\_ \_ Struttura record dimensioni buffer finestra \_
 
-
 Descrive una modifica delle dimensioni del buffer dello schermo della console.
 
-<a name="syntax"></a>Sintassi
-------
+## <a name="syntax"></a>Sintassi
 
 ```C
 typedef struct _WINDOW_BUFFER_SIZE_RECORD {
@@ -49,59 +47,31 @@ typedef struct _WINDOW_BUFFER_SIZE_RECORD {
 } WINDOW_BUFFER_SIZE_RECORD;
 ```
 
-<a name="members"></a>Membri
--------
+## <a name="members"></a>Members
 
 **dwSize**  
 Struttura [**Coord**](coord-str.md) che contiene le dimensioni del buffer dello schermo della console, in colonne e righe di celle di tipo carattere.
 
-<a name="remarks"></a>Osservazioni
--------
+## <a name="remarks"></a>Commenti
 
-Gli eventi di dimensioni del buffer vengono inseriti nel buffer di input quando la console di è in modalità compatibile con la finestra (**Abilita \_ \_ input finestra**).
+Gli eventi di dimensioni del buffer vengono inseriti nel buffer di input quando la console di è in modalità compatibile con la finestra ( **Abilita \_ \_ input finestra** ).
 
-<a name="examples"></a>Esempi
---------
+## <a name="examples"></a>Esempio
 
 Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).
 
-<a name="requirements"></a>Requisiti
-------------
+## <a name="requirements"></a>Requisiti
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Client minimo supportato</p></td>
-<td><p>Windows 2000 Professional [solo app desktop]</p></td>
-</tr>
-<tr class="even">
-<td><p>Server minimo supportato</p></td>
-<td><p>Windows 2000 Server [solo app desktop]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Intestazione</p></td>
-<td>WinConTypes. h (tramite wincon. h, Includi Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
+| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Intestazione | WinConTypes. h (tramite WinCon. h, Includi Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vedere anche
-
+## <a name="see-also"></a>Vedi anche
 
 [**COORD**](coord-str.md)
 
 [**RECORD di INPUT \_**](input-record-str.md)
 
 [**ReadConsoleInput**](readconsoleinput.md)
-
- 
-
- 
-
-
-
-
