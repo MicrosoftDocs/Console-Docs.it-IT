@@ -4,7 +4,7 @@ description: Vedere le informazioni di riferimento sulla struttura CONSOLE_SELEC
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapi3/CONSOLE_SELECTION_INFO
 - wincon/CONSOLE_SELECTION_INFO
@@ -25,134 +25,63 @@ topic_type:
 api_name:
 - CONSOLE_SELECTION_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: a16fe43e7b7cc4b5890284921823aee7b79217b2
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: aaf1cfaea2a8822c142aab87f6dcf1b022b7160c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038369"
 ---
-# <a name="console_selection_info-structure"></a><span data-ttu-id="cae84-104">Struttura delle informazioni di \_ selezione della console \_</span><span class="sxs-lookup"><span data-stu-id="cae84-104">CONSOLE\_SELECTION\_INFO structure</span></span>
+# <a name="console_selection_info-structure"></a><span data-ttu-id="a3dd0-104">Struttura delle informazioni di \_ selezione della console \_</span><span class="sxs-lookup"><span data-stu-id="a3dd0-104">CONSOLE\_SELECTION\_INFO structure</span></span>
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-<span data-ttu-id="cae84-105">Contiene informazioni per la selezione di una console.</span><span class="sxs-lookup"><span data-stu-id="cae84-105">Contains information for a console selection.</span></span>
+<span data-ttu-id="a3dd0-105">Contiene informazioni per la selezione di una console.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-105">Contains information for a console selection.</span></span>
 
-<a name="syntax"></a><span data-ttu-id="cae84-106">Sintassi</span><span class="sxs-lookup"><span data-stu-id="cae84-106">Syntax</span></span>
-------
+## <a name="syntax"></a><span data-ttu-id="a3dd0-106">Sintassi</span><span class="sxs-lookup"><span data-stu-id="a3dd0-106">Syntax</span></span>
 
 ```C
 typedef struct _CONSOLE_SELECTION_INFO {
-  DWORD      dwFlags;
-  COORD      dwSelectionAnchor;
+  DWORD      dwFlags;
+  COORD      dwSelectionAnchor;
   SMALL_RECT srSelection;
 } CONSOLE_SELECTION_INFO, *PCONSOLE_SELECTION_INFO;
 ```
 
-<a name="members"></a><span data-ttu-id="cae84-107">Membri</span><span class="sxs-lookup"><span data-stu-id="cae84-107">Members</span></span>
--------
+## <a name="members"></a><span data-ttu-id="a3dd0-107">Members</span><span class="sxs-lookup"><span data-stu-id="a3dd0-107">Members</span></span>
 
-<span data-ttu-id="cae84-108">**dwFlags**</span><span class="sxs-lookup"><span data-stu-id="cae84-108">**dwFlags**</span></span>  
-<span data-ttu-id="cae84-109">Indicatore di selezione.</span><span class="sxs-lookup"><span data-stu-id="cae84-109">The selection indicator.</span></span> <span data-ttu-id="cae84-110">Il membro può essere costituito da uno o più dei valori seguenti.</span><span class="sxs-lookup"><span data-stu-id="cae84-110">This member can be one or more of the following values.</span></span>
+<span data-ttu-id="a3dd0-108">**dwFlags**</span><span class="sxs-lookup"><span data-stu-id="a3dd0-108">**dwFlags**</span></span>  
+<span data-ttu-id="a3dd0-109">Indicatore di selezione.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-109">The selection indicator.</span></span> <span data-ttu-id="a3dd0-110">Il membro può essere costituito da uno o più dei valori seguenti.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-110">This member can be one or more of the following values.</span></span>
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><span data-ttu-id="cae84-111">valore</span><span class="sxs-lookup"><span data-stu-id="cae84-111">Value</span></span></th>
-<th><span data-ttu-id="cae84-112">Significato</span><span class="sxs-lookup"><span data-stu-id="cae84-112">Meaning</span></span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span data-ttu-id="cae84-113"><span id="CONSOLE_MOUSE_DOWN"></span><span id="console_mouse_down"></span>
-<strong>CONSOLE_MOUSE_DOWN</strong> 0x0008</span><span class="sxs-lookup"><span data-stu-id="cae84-113"><span id="CONSOLE_MOUSE_DOWN"></span><span id="console_mouse_down"></span>
-<strong>CONSOLE_MOUSE_DOWN</strong> 0x0008</span></span></td>
-<td><p><span data-ttu-id="cae84-114">Il mouse è inattivo</span><span class="sxs-lookup"><span data-stu-id="cae84-114">Mouse is down</span></span></p></td>
-</tr>
-<tr class="even">
-<td><span data-ttu-id="cae84-115"><span id="CONSOLE_MOUSE_SELECTION"></span><span id="console_mouse_selection"></span>
-<strong>CONSOLE_MOUSE_SELECTION</strong> 0x0004</span><span class="sxs-lookup"><span data-stu-id="cae84-115"><span id="CONSOLE_MOUSE_SELECTION"></span><span id="console_mouse_selection"></span>
-<strong>CONSOLE_MOUSE_SELECTION</strong> 0x0004</span></span></td>
-<td><p><span data-ttu-id="cae84-116">Selezione con il mouse</span><span class="sxs-lookup"><span data-stu-id="cae84-116">Selecting with the mouse</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><span data-ttu-id="cae84-117"><span id="CONSOLE_NO_SELECTION"></span><span id="console_no_selection"></span>
-<strong>CONSOLE_NO_SELECTION</strong> 0x0000</span><span class="sxs-lookup"><span data-stu-id="cae84-117"><span id="CONSOLE_NO_SELECTION"></span><span id="console_no_selection"></span>
-<strong>CONSOLE_NO_SELECTION</strong> 0x0000</span></span></td>
-<td><p><span data-ttu-id="cae84-118">Nessuna selezione</span><span class="sxs-lookup"><span data-stu-id="cae84-118">No selection</span></span></p></td>
-</tr>
-<tr class="even">
-<td><span data-ttu-id="cae84-119"><span id="CONSOLE_SELECTION_IN_PROGRESS"></span><span id="console_selection_in_progress"></span>
-<strong>CONSOLE_SELECTION_IN_PROGRESS</strong> 0x0001</span><span class="sxs-lookup"><span data-stu-id="cae84-119"><span id="CONSOLE_SELECTION_IN_PROGRESS"></span><span id="console_selection_in_progress"></span>
-<strong>CONSOLE_SELECTION_IN_PROGRESS</strong> 0x0001</span></span></td>
-<td><p><span data-ttu-id="cae84-120">Selezione iniziata</span><span class="sxs-lookup"><span data-stu-id="cae84-120">Selection has begun</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><span data-ttu-id="cae84-121"><span id="CONSOLE_SELECTION_NOT_EMPTY"></span><span id="console_selection_not_empty"></span>
-<strong>CONSOLE_SELECTION_NOT_EMPTY</strong> 0x0002</span><span class="sxs-lookup"><span data-stu-id="cae84-121"><span id="CONSOLE_SELECTION_NOT_EMPTY"></span><span id="console_selection_not_empty"></span>
-<strong>CONSOLE_SELECTION_NOT_EMPTY</strong> 0x0002</span></span></td>
-<td><p><span data-ttu-id="cae84-122">Il rettangolo di selezione non è vuoto</span><span class="sxs-lookup"><span data-stu-id="cae84-122">Selection rectangle is not empty</span></span></p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| <span data-ttu-id="a3dd0-111">Valore</span><span class="sxs-lookup"><span data-stu-id="a3dd0-111">Value</span></span> | <span data-ttu-id="a3dd0-112">Significato</span><span class="sxs-lookup"><span data-stu-id="a3dd0-112">Meaning</span></span> |
+|-|-|
+| <span data-ttu-id="a3dd0-113">**CONSOLE_MOUSE_DOWN** 0x0008</span><span class="sxs-lookup"><span data-stu-id="a3dd0-113">**CONSOLE_MOUSE_DOWN** 0x0008</span></span> | <span data-ttu-id="a3dd0-114">Il mouse è inattivo.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-114">Mouse is down.</span></span> <span data-ttu-id="a3dd0-115">L'utente sta modificando attivamente il rettangolo di selezione con il mouse.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-115">The user is actively adjusting the selection rectangle with a mouse.</span></span> |
+| <span data-ttu-id="a3dd0-116">**CONSOLE_MOUSE_SELECTION** 0x0004</span><span class="sxs-lookup"><span data-stu-id="a3dd0-116">**CONSOLE_MOUSE_SELECTION** 0x0004</span></span> | <span data-ttu-id="a3dd0-117">Selezione con il mouse.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-117">Selecting with the mouse.</span></span> <span data-ttu-id="a3dd0-118">Se è disattivata, l'utente è la `conhost.exe` selezione della modalità contrassegno operativo con la tastiera.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-118">If off, the user is operating `conhost.exe` mark mode selection with the keyboard.</span></span> |
+| <span data-ttu-id="a3dd0-119">**CONSOLE_NO_SELECTION** 0x0000</span><span class="sxs-lookup"><span data-stu-id="a3dd0-119">**CONSOLE_NO_SELECTION** 0x0000</span></span> | <span data-ttu-id="a3dd0-120">Nessuna selezione.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-120">No selection.</span></span> |
+| <span data-ttu-id="a3dd0-121">**CONSOLE_SELECTION_IN_PROGRESS** 0x0001</span><span class="sxs-lookup"><span data-stu-id="a3dd0-121">**CONSOLE_SELECTION_IN_PROGRESS** 0x0001</span></span> | <span data-ttu-id="a3dd0-122">La selezione è iniziata.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-122">Selection has begun.</span></span> <span data-ttu-id="a3dd0-123">Se una selezione del mouse non si verifica in genere senza il `CONSOLE_SELECTION_NOT_EMPTY` flag.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-123">If a mouse selection, this will typically not occur without the `CONSOLE_SELECTION_NOT_EMPTY` flag.</span></span> <span data-ttu-id="a3dd0-124">Se si seleziona una tastiera, questo può verificarsi quando è stata immessa la modalità contrassegno, ma l'utente continua a spostarsi nella posizione iniziale.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-124">If a keyboard selection, this may occur when mark mode has been entered but the user is still navigating to the initial position.</span></span> |
+| <span data-ttu-id="a3dd0-125">**CONSOLE_SELECTION_NOT_EMPTY** 0x0002</span><span class="sxs-lookup"><span data-stu-id="a3dd0-125">**CONSOLE_SELECTION_NOT_EMPTY** 0x0002</span></span> | <span data-ttu-id="a3dd0-126">Rettangolo di selezione non vuoto.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-126">Selection rectangle not empty.</span></span> <span data-ttu-id="a3dd0-127">Il payload di *dwSelectionAnchor* e *srSelection* sono validi.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-127">The payload of *dwSelectionAnchor* and *srSelection* are valid.</span></span>  |
 
- 
+<span data-ttu-id="a3dd0-128">**dwSelectionAnchor**</span><span class="sxs-lookup"><span data-stu-id="a3dd0-128">**dwSelectionAnchor**</span></span>  
+<span data-ttu-id="a3dd0-129">Struttura [**Coord**](coord-str.md) che specifica l'ancoraggio di selezione, in caratteri.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-129">A [**COORD**](coord-str.md) structure that specifies the selection anchor, in characters.</span></span>
 
-<span data-ttu-id="cae84-123">**dwSelectionAnchor**</span><span class="sxs-lookup"><span data-stu-id="cae84-123">**dwSelectionAnchor**</span></span>  
-<span data-ttu-id="cae84-124">Struttura [**Coord**](coord-str.md) che specifica l'ancoraggio di selezione, in caratteri.</span><span class="sxs-lookup"><span data-stu-id="cae84-124">A [**COORD**](coord-str.md) structure that specifies the selection anchor, in characters.</span></span>
+<span data-ttu-id="a3dd0-130">**srSelection**</span><span class="sxs-lookup"><span data-stu-id="a3dd0-130">**srSelection**</span></span>  
+<span data-ttu-id="a3dd0-131">Struttura [**\_ Rect piccola**](small-rect-str.md) che specifica il rettangolo di selezione.</span><span class="sxs-lookup"><span data-stu-id="a3dd0-131">A [**SMALL\_RECT**](small-rect-str.md) structure that specifies the selection rectangle.</span></span>
 
-<span data-ttu-id="cae84-125">**srSelection**</span><span class="sxs-lookup"><span data-stu-id="cae84-125">**srSelection**</span></span>  
-<span data-ttu-id="cae84-126">Struttura [\*\* \_ Rect piccola\*\*](small-rect-str.md) che specifica il rettangolo di selezione.</span><span class="sxs-lookup"><span data-stu-id="cae84-126">A [**SMALL\_RECT**](small-rect-str.md) structure that specifies the selection rectangle.</span></span>
+## <a name="requirements"></a><span data-ttu-id="a3dd0-132">Requisiti</span><span class="sxs-lookup"><span data-stu-id="a3dd0-132">Requirements</span></span>
 
-<a name="requirements"></a><span data-ttu-id="cae84-127">Requisiti</span><span class="sxs-lookup"><span data-stu-id="cae84-127">Requirements</span></span>
-------------
+| &nbsp; | &nbsp; |
+|-|-|
+| <span data-ttu-id="a3dd0-133">Client minimo supportato</span><span class="sxs-lookup"><span data-stu-id="a3dd0-133">Minimum supported client</span></span> | <span data-ttu-id="a3dd0-134">\[Solo app desktop Windows XP\]</span><span class="sxs-lookup"><span data-stu-id="a3dd0-134">Windows XP \[desktop apps only\]</span></span> |
+| <span data-ttu-id="a3dd0-135">Server minimo supportato</span><span class="sxs-lookup"><span data-stu-id="a3dd0-135">Minimum supported server</span></span> | <span data-ttu-id="a3dd0-136">\[Solo app desktop Windows Server 2003\]</span><span class="sxs-lookup"><span data-stu-id="a3dd0-136">Windows Server 2003 \[desktop apps only\]</span></span> |
+| <span data-ttu-id="a3dd0-137">Intestazione</span><span class="sxs-lookup"><span data-stu-id="a3dd0-137">Header</span></span> | <span data-ttu-id="a3dd0-138">ConsoleApi3. h (tramite WinCon. h, Includi Windows. h)</span><span class="sxs-lookup"><span data-stu-id="a3dd0-138">ConsoleApi3.h (via WinCon.h, include Windows.h)</span></span> |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><span data-ttu-id="cae84-128">Client minimo supportato</span><span class="sxs-lookup"><span data-stu-id="cae84-128">Minimum supported client</span></span></p></td>
-<td><p><span data-ttu-id="cae84-129">Windows XP [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="cae84-129">Windows XP [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="cae84-130">Server minimo supportato</span><span class="sxs-lookup"><span data-stu-id="cae84-130">Minimum supported server</span></span></p></td>
-<td><p><span data-ttu-id="cae84-131">Windows Server 2003 [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="cae84-131">Windows Server 2003 [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="cae84-132">Intestazione</span><span class="sxs-lookup"><span data-stu-id="cae84-132">Header</span></span></p></td>
-<td><span data-ttu-id="cae84-133">ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</span><span class="sxs-lookup"><span data-stu-id="cae84-133">ConsoleApi3.h (via Wincon.h, include Windows.h)</span></span></td>
-</tr>
-</tbody>
-</table>
+## <a name="see-also"></a><span data-ttu-id="a3dd0-139">Vedi anche</span><span class="sxs-lookup"><span data-stu-id="a3dd0-139">See also</span></span>
 
-## <a name="span-idsee_alsospansee-also"></a><span data-ttu-id="cae84-134"><span id="see_also"></span>Vedere anche</span><span class="sxs-lookup"><span data-stu-id="cae84-134"><span id="see_also"></span>See also</span></span>
+[<span data-ttu-id="a3dd0-140">**COORD**</span><span class="sxs-lookup"><span data-stu-id="a3dd0-140">**COORD**</span></span>](coord-str.md)
 
+[<span data-ttu-id="a3dd0-141">**GetConsoleSelectionInfo**</span><span class="sxs-lookup"><span data-stu-id="a3dd0-141">**GetConsoleSelectionInfo**</span></span>](getconsoleselectioninfo.md)
 
-[<span data-ttu-id="cae84-135">**COORD**</span><span class="sxs-lookup"><span data-stu-id="cae84-135">**COORD**</span></span>](coord-str.md)
-
-[<span data-ttu-id="cae84-136">**GetConsoleSelectionInfo**</span><span class="sxs-lookup"><span data-stu-id="cae84-136">**GetConsoleSelectionInfo**</span></span>](getconsoleselectioninfo.md)
-
-[<span data-ttu-id="cae84-137">**\_Rect piccolo**</span><span class="sxs-lookup"><span data-stu-id="cae84-137">**SMALL\_RECT**</span></span>](small-rect-str.md)
-
- 
-
- 
-
-
-
-
+[<span data-ttu-id="a3dd0-142">**\_Rect piccolo**</span><span class="sxs-lookup"><span data-stu-id="a3dd0-142">**SMALL\_RECT**</span></span>](small-rect-str.md)

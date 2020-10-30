@@ -4,7 +4,7 @@ description: Recupera la dimensione richiesta per il buffer usato dalla funzione
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - consoleapie/GetConsoleAliasExesLength
 - wincon/GetConsoleAliasExesLength
@@ -32,103 +32,60 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 0f4459254e9382a0c784ceb2c214af056087ab1b
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: d204fd3effe5169b6be3e60a9e3c0d39fa418d20
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059801"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038909"
 ---
-# <a name="getconsolealiasexeslength-function"></a><span data-ttu-id="201ce-104">GetConsoleAliasExesLength (funzione)</span><span class="sxs-lookup"><span data-stu-id="201ce-104">GetConsoleAliasExesLength function</span></span>
+# <a name="getconsolealiasexeslength-function"></a><span data-ttu-id="6bdd9-104">GetConsoleAliasExesLength (funzione)</span><span class="sxs-lookup"><span data-stu-id="6bdd9-104">GetConsoleAliasExesLength function</span></span>
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-<span data-ttu-id="201ce-105">Recupera la dimensione richiesta per il buffer usato dalla funzione [**GetConsoleAliasExes**](getconsolealiasexes.md) .</span><span class="sxs-lookup"><span data-stu-id="201ce-105">Retrieves the required size for the buffer used by the [**GetConsoleAliasExes**](getconsolealiasexes.md) function.</span></span>
+<span data-ttu-id="6bdd9-105">Recupera la dimensione richiesta per il buffer usato dalla funzione [**GetConsoleAliasExes**](getconsolealiasexes.md) .</span><span class="sxs-lookup"><span data-stu-id="6bdd9-105">Retrieves the required size for the buffer used by the [**GetConsoleAliasExes**](getconsolealiasexes.md) function.</span></span>
 
-<a name="syntax"></a><span data-ttu-id="201ce-106">Sintassi</span><span class="sxs-lookup"><span data-stu-id="201ce-106">Syntax</span></span>
-------
+## <a name="syntax"></a><span data-ttu-id="6bdd9-106">Sintassi</span><span class="sxs-lookup"><span data-stu-id="6bdd9-106">Syntax</span></span>
 
 ```C
 DWORD WINAPI GetConsoleAliasExesLength(void);
 ```
 
-<a name="parameters"></a><span data-ttu-id="201ce-107">Parametri</span><span class="sxs-lookup"><span data-stu-id="201ce-107">Parameters</span></span>
-----------
+## <a name="parameters"></a><span data-ttu-id="6bdd9-107">Parametri</span><span class="sxs-lookup"><span data-stu-id="6bdd9-107">Parameters</span></span>
 
-<span data-ttu-id="201ce-108">Questa funzione non ha parametri.</span><span class="sxs-lookup"><span data-stu-id="201ce-108">This function has no parameters.</span></span>
+<span data-ttu-id="6bdd9-108">Questa funzione non ha parametri.</span><span class="sxs-lookup"><span data-stu-id="6bdd9-108">This function has no parameters.</span></span>
 
-<a name="return-value"></a><span data-ttu-id="201ce-109">Valore restituito</span><span class="sxs-lookup"><span data-stu-id="201ce-109">Return value</span></span>
-------------
+## <a name="return-value"></a><span data-ttu-id="6bdd9-109">Valore restituito</span><span class="sxs-lookup"><span data-stu-id="6bdd9-109">Return value</span></span>
 
-<span data-ttu-id="201ce-110">Dimensioni del buffer necessarie per archiviare i nomi di tutti i file eseguibili con alias di console definiti, in byte.</span><span class="sxs-lookup"><span data-stu-id="201ce-110">The size of the buffer required to store the names of all executable files that have console aliases defined, in bytes.</span></span>
+<span data-ttu-id="6bdd9-110">Dimensioni del buffer necessarie per archiviare i nomi di tutti i file eseguibili con alias di console definiti, in byte.</span><span class="sxs-lookup"><span data-stu-id="6bdd9-110">The size of the buffer required to store the names of all executable files that have console aliases defined, in bytes.</span></span>
 
-<a name="remarks"></a><span data-ttu-id="201ce-111">Osservazioni</span><span class="sxs-lookup"><span data-stu-id="201ce-111">Remarks</span></span>
--------
+## <a name="remarks"></a><span data-ttu-id="6bdd9-111">Commenti</span><span class="sxs-lookup"><span data-stu-id="6bdd9-111">Remarks</span></span>
 
-<span data-ttu-id="201ce-112">Per compilare un'applicazione che usa questa funzione, definire \*\* \_ Win32 \_ WinNT\*\* come 0x0501 o versione successiva.</span><span class="sxs-lookup"><span data-stu-id="201ce-112">To compile an application that uses this function, define **\_WIN32\_WINNT** as 0x0501 or later.</span></span> <span data-ttu-id="201ce-113">Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).</span><span class="sxs-lookup"><span data-stu-id="201ce-113">For more information, see [Using the Windows Headers](https://msdn.microsoft.com/library/windows/desktop/aa383745).</span></span>
+<span data-ttu-id="6bdd9-112">Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva.</span><span class="sxs-lookup"><span data-stu-id="6bdd9-112">To compile an application that uses this function, define **\_WIN32\_WINNT** as 0x0501 or later.</span></span> <span data-ttu-id="6bdd9-113">Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).</span><span class="sxs-lookup"><span data-stu-id="6bdd9-113">For more information, see [Using the Windows Headers](https://msdn.microsoft.com/library/windows/desktop/aa383745).</span></span>
 
-<a name="requirements"></a><span data-ttu-id="201ce-114">Requisiti</span><span class="sxs-lookup"><span data-stu-id="201ce-114">Requirements</span></span>
-------------
+[!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><span data-ttu-id="201ce-115">Client minimo supportato</span><span class="sxs-lookup"><span data-stu-id="201ce-115">Minimum supported client</span></span></p></td>
-<td><p><span data-ttu-id="201ce-116">Windows 2000 Professional [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="201ce-116">Windows 2000 Professional [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="201ce-117">Server minimo supportato</span><span class="sxs-lookup"><span data-stu-id="201ce-117">Minimum supported server</span></span></p></td>
-<td><p><span data-ttu-id="201ce-118">Windows 2000 Server [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="201ce-118">Windows 2000 Server [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="201ce-119">Intestazione</span><span class="sxs-lookup"><span data-stu-id="201ce-119">Header</span></span></p></td>
-<td><span data-ttu-id="201ce-120">ConsoleApi3. h (tramite wincon. h, Includi Windows. h)</span><span class="sxs-lookup"><span data-stu-id="201ce-120">ConsoleApi3.h (via Wincon.h, include Windows.h)</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="201ce-121">Libreria</span><span class="sxs-lookup"><span data-stu-id="201ce-121">Library</span></span></p></td>
-<td><span data-ttu-id="201ce-122">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="201ce-122">Kernel32.lib</span></span></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="201ce-123">DLL</span><span class="sxs-lookup"><span data-stu-id="201ce-123">DLL</span></span></p></td>
-<td><span data-ttu-id="201ce-124">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="201ce-124">Kernel32.dll</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="201ce-125">Nomi Unicode e ANSI</span><span class="sxs-lookup"><span data-stu-id="201ce-125">Unicode and ANSI names</span></span></p></td>
-<td><p><span data-ttu-id="201ce-126"><strong>GetConsoleAliasExesLengthW</strong> (Unicode) e <strong>GetConsoleAliasExesLengthA</strong> (ANSI)</span><span class="sxs-lookup"><span data-stu-id="201ce-126"><strong>GetConsoleAliasExesLengthW</strong> (Unicode) and <strong>GetConsoleAliasExesLengthA</strong> (ANSI)</span></span></p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a><span data-ttu-id="6bdd9-114">Requisiti</span><span class="sxs-lookup"><span data-stu-id="6bdd9-114">Requirements</span></span>
 
-## <a name="span-idsee_alsospansee-also"></a><span data-ttu-id="201ce-127"><span id="see_also"></span>Vedere anche</span><span class="sxs-lookup"><span data-stu-id="201ce-127"><span id="see_also"></span>See also</span></span>
+| &nbsp; | &nbsp; |
+|-|-|
+| <span data-ttu-id="6bdd9-115">Client minimo supportato</span><span class="sxs-lookup"><span data-stu-id="6bdd9-115">Minimum supported client</span></span> | <span data-ttu-id="6bdd9-116">\[Solo app desktop Windows 2000 Professional\]</span><span class="sxs-lookup"><span data-stu-id="6bdd9-116">Windows 2000 Professional \[desktop apps only\]</span></span> |
+| <span data-ttu-id="6bdd9-117">Server minimo supportato</span><span class="sxs-lookup"><span data-stu-id="6bdd9-117">Minimum supported server</span></span> | <span data-ttu-id="6bdd9-118">Solo app desktop di Windows 2000 Server \[\]</span><span class="sxs-lookup"><span data-stu-id="6bdd9-118">Windows 2000 Server \[desktop apps only\]</span></span> |
+| <span data-ttu-id="6bdd9-119">Intestazione</span><span class="sxs-lookup"><span data-stu-id="6bdd9-119">Header</span></span> | <span data-ttu-id="6bdd9-120">ConsoleApi3. h (tramite WinCon. h, Includi Windows. h)</span><span class="sxs-lookup"><span data-stu-id="6bdd9-120">ConsoleApi3.h (via WinCon.h, include Windows.h)</span></span> |
+| <span data-ttu-id="6bdd9-121">Libreria</span><span class="sxs-lookup"><span data-stu-id="6bdd9-121">Library</span></span> | <span data-ttu-id="6bdd9-122">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="6bdd9-122">Kernel32.lib</span></span> |
+| <span data-ttu-id="6bdd9-123">DLL</span><span class="sxs-lookup"><span data-stu-id="6bdd9-123">DLL</span></span> | <span data-ttu-id="6bdd9-124">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="6bdd9-124">Kernel32.dll</span></span> |
+| <span data-ttu-id="6bdd9-125">Nomi Unicode e ANSI</span><span class="sxs-lookup"><span data-stu-id="6bdd9-125">Unicode and ANSI names</span></span> | <span data-ttu-id="6bdd9-126">**GetConsoleAliasExesLengthW** (Unicode) e **GetConsoleAliasExesLengthA** (ANSI)</span><span class="sxs-lookup"><span data-stu-id="6bdd9-126">**GetConsoleAliasExesLengthW** (Unicode) and **GetConsoleAliasExesLengthA** (ANSI)</span></span> |
 
+## <a name="see-also"></a><span data-ttu-id="6bdd9-127">Vedi anche</span><span class="sxs-lookup"><span data-stu-id="6bdd9-127">See also</span></span>
 
-[<span data-ttu-id="201ce-128">**AddConsoleAlias**</span><span class="sxs-lookup"><span data-stu-id="201ce-128">**AddConsoleAlias**</span></span>](addconsolealias.md)
+[<span data-ttu-id="6bdd9-128">**AddConsoleAlias**</span><span class="sxs-lookup"><span data-stu-id="6bdd9-128">**AddConsoleAlias**</span></span>](addconsolealias.md)
 
-[<span data-ttu-id="201ce-129">Alias di console</span><span class="sxs-lookup"><span data-stu-id="201ce-129">Console Aliases</span></span>](console-aliases.md)
+[<span data-ttu-id="6bdd9-129">Alias di console</span><span class="sxs-lookup"><span data-stu-id="6bdd9-129">Console Aliases</span></span>](console-aliases.md)
 
-[<span data-ttu-id="201ce-130">Funzioni console</span><span class="sxs-lookup"><span data-stu-id="201ce-130">Console Functions</span></span>](console-functions.md)
+[<span data-ttu-id="6bdd9-130">Funzioni console</span><span class="sxs-lookup"><span data-stu-id="6bdd9-130">Console Functions</span></span>](console-functions.md)
 
-[<span data-ttu-id="201ce-131">**GetConsoleAlias**</span><span class="sxs-lookup"><span data-stu-id="201ce-131">**GetConsoleAlias**</span></span>](getconsolealias.md)
+[<span data-ttu-id="6bdd9-131">**GetConsoleAlias**</span><span class="sxs-lookup"><span data-stu-id="6bdd9-131">**GetConsoleAlias**</span></span>](getconsolealias.md)
 
-[<span data-ttu-id="201ce-132">**GetConsoleAliases**</span><span class="sxs-lookup"><span data-stu-id="201ce-132">**GetConsoleAliases**</span></span>](getconsolealiases.md)
+[<span data-ttu-id="6bdd9-132">**GetConsoleAliases**</span><span class="sxs-lookup"><span data-stu-id="6bdd9-132">**GetConsoleAliases**</span></span>](getconsolealiases.md)
 
-[<span data-ttu-id="201ce-133">**GetConsoleAliasExes**</span><span class="sxs-lookup"><span data-stu-id="201ce-133">**GetConsoleAliasExes**</span></span>](getconsolealiasexes.md)
-
- 
-
- 
-
-
-
-
+[<span data-ttu-id="6bdd9-133">**GetConsoleAliasExes**</span><span class="sxs-lookup"><span data-stu-id="6bdd9-133">**GetConsoleAliasExes**</span></span>](getconsolealiasexes.md)

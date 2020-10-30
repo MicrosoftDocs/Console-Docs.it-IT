@@ -4,7 +4,7 @@ description: Recupera un handle per il dispositivo standard specificato (input s
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console
+keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console
 f1_keywords:
 - processenv/GetStdHandle
 - winbase/GetStdHandle
@@ -30,160 +30,97 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 613aacf4052e8e3b38c0a3e254ac4dd2b55ced5d
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: e1cac9a8b2636f5272c6d1ecc358eb59f33295b5
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059625"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038699"
 ---
-# <a name="getstdhandle-function"></a><span data-ttu-id="144ff-104">GetStdHandle (funzione)</span><span class="sxs-lookup"><span data-stu-id="144ff-104">GetStdHandle function</span></span>
+# <a name="getstdhandle-function"></a><span data-ttu-id="6a0ce-104">GetStdHandle (funzione)</span><span class="sxs-lookup"><span data-stu-id="6a0ce-104">GetStdHandle function</span></span>
 
+<span data-ttu-id="6a0ce-105">Recupera un handle per il dispositivo standard specificato (input standard, output standard o errore standard).</span><span class="sxs-lookup"><span data-stu-id="6a0ce-105">Retrieves a handle to the specified standard device (standard input, standard output, or standard error).</span></span>
 
-<span data-ttu-id="144ff-105">Recupera un handle per il dispositivo standard specificato (input standard, output standard o errore standard).</span><span class="sxs-lookup"><span data-stu-id="144ff-105">Retrieves a handle to the specified standard device (standard input, standard output, or standard error).</span></span>
-
-<a name="syntax"></a><span data-ttu-id="144ff-106">Sintassi</span><span class="sxs-lookup"><span data-stu-id="144ff-106">Syntax</span></span>
-------
+## <a name="syntax"></a><span data-ttu-id="6a0ce-106">Sintassi</span><span class="sxs-lookup"><span data-stu-id="6a0ce-106">Syntax</span></span>
 
 ```C
 HANDLE WINAPI GetStdHandle(
-  _In_ DWORD nStdHandle
+  _In_ DWORD nStdHandle
 );
 ```
 
-<a name="parameters"></a><span data-ttu-id="144ff-107">Parametri</span><span class="sxs-lookup"><span data-stu-id="144ff-107">Parameters</span></span>
-----------
+## <a name="parameters"></a><span data-ttu-id="6a0ce-107">Parametri</span><span class="sxs-lookup"><span data-stu-id="6a0ce-107">Parameters</span></span>
 
-<span data-ttu-id="144ff-108">*nStdHandle* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="144ff-108">*nStdHandle* \[in\]</span></span>  
-<span data-ttu-id="144ff-109">Il dispositivo standard.</span><span class="sxs-lookup"><span data-stu-id="144ff-109">The standard device.</span></span> <span data-ttu-id="144ff-110">Questo parametro può essere uno dei valori seguenti.</span><span class="sxs-lookup"><span data-stu-id="144ff-110">This parameter can be one of the following values.</span></span>
+<span data-ttu-id="6a0ce-108">*nStdHandle* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="6a0ce-108">*nStdHandle* \[in\]</span></span>  
+<span data-ttu-id="6a0ce-109">Il dispositivo standard.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-109">The standard device.</span></span> <span data-ttu-id="6a0ce-110">Questo parametro può essere uno dei valori seguenti.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-110">This parameter can be one of the following values.</span></span>
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><span data-ttu-id="144ff-111">valore</span><span class="sxs-lookup"><span data-stu-id="144ff-111">Value</span></span></th>
-<th><span data-ttu-id="144ff-112">Significato</span><span class="sxs-lookup"><span data-stu-id="144ff-112">Meaning</span></span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span data-ttu-id="144ff-113"><span id="STD_INPUT_HANDLE"></span><span id="std_input_handle"></span>
-<strong>STD_INPUT_HANDLE</strong> (DWORD)-10</span><span class="sxs-lookup"><span data-stu-id="144ff-113"><span id="STD_INPUT_HANDLE"></span><span id="std_input_handle"></span>
-<strong>STD_INPUT_HANDLE</strong> (DWORD) -10</span></span></td>
-<td><p><span data-ttu-id="144ff-114">Dispositivo di input standard.</span><span class="sxs-lookup"><span data-stu-id="144ff-114">The standard input device.</span></span> <span data-ttu-id="144ff-115">Inizialmente, si tratta del buffer di input della console, CONIn $.</span><span class="sxs-lookup"><span data-stu-id="144ff-115">Initially, this is the console input buffer, CONIN$.</span></span></p></td>
-</tr>
-<tr class="even">
-<td><span data-ttu-id="144ff-116"><span id="STD_OUTPUT_HANDLE"></span><span id="std_output_handle"></span>
-<strong>STD_OUTPUT_HANDLE</strong> (DWORD)-11</span><span class="sxs-lookup"><span data-stu-id="144ff-116"><span id="STD_OUTPUT_HANDLE"></span><span id="std_output_handle"></span>
-<strong>STD_OUTPUT_HANDLE</strong> (DWORD) -11</span></span></td>
-<td><p><span data-ttu-id="144ff-117">Dispositivo di output standard.</span><span class="sxs-lookup"><span data-stu-id="144ff-117">The standard output device.</span></span> <span data-ttu-id="144ff-118">Inizialmente, si tratta del buffer dello schermo della console attivo, CONOUT $.</span><span class="sxs-lookup"><span data-stu-id="144ff-118">Initially, this is the active console screen buffer, CONOUT$.</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><span data-ttu-id="144ff-119"><span id="STD_ERROR_HANDLE"></span><span id="std_error_handle"></span>
-<strong>STD_ERROR_HANDLE</strong> (DWORD)-12</span><span class="sxs-lookup"><span data-stu-id="144ff-119"><span id="STD_ERROR_HANDLE"></span><span id="std_error_handle"></span>
-<strong>STD_ERROR_HANDLE</strong> (DWORD) -12</span></span></td>
-<td><p><span data-ttu-id="144ff-120">Dispositivo di errore standard.</span><span class="sxs-lookup"><span data-stu-id="144ff-120">The standard error device.</span></span> <span data-ttu-id="144ff-121">Inizialmente, si tratta del buffer dello schermo della console attivo, CONOUT $.</span><span class="sxs-lookup"><span data-stu-id="144ff-121">Initially, this is the active console screen buffer, CONOUT$.</span></span></p></td>
-</tr>
-</tbody>
-</table>
+| <span data-ttu-id="6a0ce-111">Valore</span><span class="sxs-lookup"><span data-stu-id="6a0ce-111">Value</span></span> | <span data-ttu-id="6a0ce-112">Significato</span><span class="sxs-lookup"><span data-stu-id="6a0ce-112">Meaning</span></span> |
+|-|-|
+| <span data-ttu-id="6a0ce-113">**STD_INPUT_HANDLE** (DWORD)-10</span><span class="sxs-lookup"><span data-stu-id="6a0ce-113">**STD_INPUT_HANDLE** (DWORD) -10</span></span> | <span data-ttu-id="6a0ce-114">Dispositivo di input standard.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-114">The standard input device.</span></span> <span data-ttu-id="6a0ce-115">Inizialmente, si tratta del buffer di input della console `CONIN$` .</span><span class="sxs-lookup"><span data-stu-id="6a0ce-115">Initially, this is the console input buffer, `CONIN$`.</span></span> |
+| <span data-ttu-id="6a0ce-116">**STD_OUTPUT_HANDLE** (DWORD)-11</span><span class="sxs-lookup"><span data-stu-id="6a0ce-116">**STD_OUTPUT_HANDLE** (DWORD) -11</span></span> | <span data-ttu-id="6a0ce-117">Dispositivo di output standard.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-117">The standard output device.</span></span> <span data-ttu-id="6a0ce-118">Inizialmente, si tratta del buffer dello schermo della console attivo, `CONOUT$` .</span><span class="sxs-lookup"><span data-stu-id="6a0ce-118">Initially, this is the active console screen buffer, `CONOUT$`.</span></span> |
+| <span data-ttu-id="6a0ce-119">**STD_ERROR_HANDLE** (DWORD)-12</span><span class="sxs-lookup"><span data-stu-id="6a0ce-119">**STD_ERROR_HANDLE** (DWORD) -12</span></span> | <span data-ttu-id="6a0ce-120">Dispositivo di errore standard.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-120">The standard error device.</span></span> <span data-ttu-id="6a0ce-121">Inizialmente, si tratta del buffer dello schermo della console attivo, `CONOUT$` .</span><span class="sxs-lookup"><span data-stu-id="6a0ce-121">Initially, this is the active console screen buffer, `CONOUT$`.</span></span> |
 
- 
+## <a name="return-value"></a><span data-ttu-id="6a0ce-122">Valore restituito</span><span class="sxs-lookup"><span data-stu-id="6a0ce-122">Return value</span></span>
 
-<a name="return-value"></a><span data-ttu-id="144ff-122">Valore restituito</span><span class="sxs-lookup"><span data-stu-id="144ff-122">Return value</span></span>
-------------
+<span data-ttu-id="6a0ce-123">Se la funzione ha esito positivo, il valore restituito è un handle per il dispositivo specificato o un handle reindirizzato impostato da una chiamata precedente a [**SetStdHandle**](setstdhandle.md).</span><span class="sxs-lookup"><span data-stu-id="6a0ce-123">If the function succeeds, the return value is a handle to the specified device, or a redirected handle set by a previous call to [**SetStdHandle**](setstdhandle.md).</span></span> <span data-ttu-id="6a0ce-124">L'handle dispone di diritti di accesso di **\_ lettura** e **\_ scrittura** generici, a meno che l'applicazione non abbia utilizzato **SetStdHandle** per impostare un handle standard con accesso minore.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-124">The handle has **GENERIC\_READ** and **GENERIC\_WRITE** access rights, unless the application has used **SetStdHandle** to set a standard handle with lesser access.</span></span>
 
-<span data-ttu-id="144ff-123">Se la funzione ha esito positivo, il valore restituito è un handle per il dispositivo specificato o un handle reindirizzato impostato da una chiamata precedente a [**SetStdHandle**](setstdhandle.md).</span><span class="sxs-lookup"><span data-stu-id="144ff-123">If the function succeeds, the return value is a handle to the specified device, or a redirected handle set by a previous call to [**SetStdHandle**](setstdhandle.md).</span></span> <span data-ttu-id="144ff-124">L'handle dispone di diritti di accesso di \*\* \_ lettura\*\* e \*\* \_ scrittura\*\* generici, a meno che l'applicazione non abbia utilizzato **SetStdHandle** per impostare un handle standard con accesso minore.</span><span class="sxs-lookup"><span data-stu-id="144ff-124">The handle has **GENERIC\_READ** and **GENERIC\_WRITE** access rights, unless the application has used **SetStdHandle** to set a standard handle with lesser access.</span></span>
+<span data-ttu-id="6a0ce-125">Se la funzione ha esito negativo, il valore restituito è un **\_ \_ valore di handle non valido** .</span><span class="sxs-lookup"><span data-stu-id="6a0ce-125">If the function fails, the return value is **INVALID\_HANDLE\_VALUE** .</span></span> <span data-ttu-id="6a0ce-126">Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="6a0ce-126">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
 
-<span data-ttu-id="144ff-125">Se la funzione ha esito negativo, il valore restituito è un \*\* \_ \_ valore di handle non valido\*\*.</span><span class="sxs-lookup"><span data-stu-id="144ff-125">If the function fails, the return value is **INVALID\_HANDLE\_VALUE**.</span></span> <span data-ttu-id="144ff-126">Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="144ff-126">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
+<span data-ttu-id="6a0ce-127">Se a un'applicazione non sono associati handle standard, ad esempio un servizio in esecuzione su un desktop interattivo e non è stato reindirizzato, il valore restituito è **null** .</span><span class="sxs-lookup"><span data-stu-id="6a0ce-127">If an application does not have associated standard handles, such as a service running on an interactive desktop, and has not redirected them, the return value is **NULL** .</span></span>
 
-<span data-ttu-id="144ff-127">Se a un'applicazione non sono associati handle standard, ad esempio un servizio in esecuzione su un desktop interattivo e non è stato reindirizzato, il valore restituito è **null**.</span><span class="sxs-lookup"><span data-stu-id="144ff-127">If an application does not have associated standard handles, such as a service running on an interactive desktop, and has not redirected them, the return value is **NULL**.</span></span>
+## <a name="remarks"></a><span data-ttu-id="6a0ce-128">Commenti</span><span class="sxs-lookup"><span data-stu-id="6a0ce-128">Remarks</span></span>
 
-<a name="remarks"></a><span data-ttu-id="144ff-128">Osservazioni</span><span class="sxs-lookup"><span data-stu-id="144ff-128">Remarks</span></span>
--------
+<span data-ttu-id="6a0ce-129">Gli handle restituiti da **GetStdHandle** possono essere usati dalle applicazioni che devono leggere o scrivere nella console.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-129">Handles returned by **GetStdHandle** can be used by applications that need to read from or write to the console.</span></span> <span data-ttu-id="6a0ce-130">Quando viene creata una console, l'handle di input standard è un handle per il buffer di input della console e l'output standard e gli handle di errore standard sono handle del buffer dello schermo attivo della console.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-130">When a console is created, the standard input handle is a handle to the console's input buffer, and the standard output and standard error handles are handles of the console's active screen buffer.</span></span> <span data-ttu-id="6a0ce-131">Questi handle possono essere usati dalle funzioni [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) e [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o da qualsiasi funzione console che accede al buffer di input della console o a un buffer dello schermo (ad esempio, le funzioni [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md)o [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) ).</span><span class="sxs-lookup"><span data-stu-id="6a0ce-131">These handles can be used by the [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) and [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) functions, or by any of the console functions that access the console input buffer or a screen buffer (for example, the [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md), or [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) functions).</span></span>
 
-<span data-ttu-id="144ff-129">Gli handle restituiti da **GetStdHandle** possono essere usati dalle applicazioni che devono leggere o scrivere nella console.</span><span class="sxs-lookup"><span data-stu-id="144ff-129">Handles returned by **GetStdHandle** can be used by applications that need to read from or write to the console.</span></span> <span data-ttu-id="144ff-130">Quando viene creata una console, l'handle di input standard è un handle per il buffer di input della console e l'output standard e gli handle di errore standard sono handle del buffer dello schermo attivo della console.</span><span class="sxs-lookup"><span data-stu-id="144ff-130">When a console is created, the standard input handle is a handle to the console's input buffer, and the standard output and standard error handles are handles of the console's active screen buffer.</span></span> <span data-ttu-id="144ff-131">Questi handle possono essere usati dalle funzioni [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) e [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o da qualsiasi funzione console che accede al buffer di input della console o a un buffer dello schermo (ad esempio, le funzioni [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md)o [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) ).</span><span class="sxs-lookup"><span data-stu-id="144ff-131">These handles can be used by the [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) and [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) functions, or by any of the console functions that access the console input buffer or a screen buffer (for example, the [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md), or [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) functions).</span></span>
+<span data-ttu-id="6a0ce-132">Gli handle standard di un processo possono essere reindirizzati da una chiamata a [**SetStdHandle**](setstdhandle.md), nel qual caso **GetStdHandle** restituisce l'handle reindirizzato.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-132">The standard handles of a process may be redirected by a call to [**SetStdHandle**](setstdhandle.md), in which case **GetStdHandle** returns the redirected handle.</span></span> <span data-ttu-id="6a0ce-133">Se gli handle standard sono stati reindirizzati, è possibile specificare il `CONIN$` valore in una chiamata alla funzione [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) per ottenere un handle per il buffer di input di una console.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-133">If the standard handles have been redirected, you can specify the `CONIN$` value in a call to the [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) function to get a handle to a console's input buffer.</span></span> <span data-ttu-id="6a0ce-134">Analogamente, è possibile specificare il `CONOUT$` valore per ottenere un handle per il buffer dello schermo attivo di una console.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-134">Similarly, you can specify the `CONOUT$` value to get a handle to a console's active screen buffer.</span></span>
 
-<span data-ttu-id="144ff-132">Gli handle standard di un processo possono essere reindirizzati da una chiamata a [**SetStdHandle**](setstdhandle.md), nel qual caso **GetStdHandle** restituisce l'handle reindirizzato.</span><span class="sxs-lookup"><span data-stu-id="144ff-132">The standard handles of a process may be redirected by a call to [**SetStdHandle**](setstdhandle.md), in which case **GetStdHandle** returns the redirected handle.</span></span> <span data-ttu-id="144ff-133">Se gli handle standard sono stati reindirizzati, è possibile specificare il valore CONIn $ in una chiamata alla funzione [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) per ottenere un handle per il buffer di input di una console.</span><span class="sxs-lookup"><span data-stu-id="144ff-133">If the standard handles have been redirected, you can specify the CONIN$ value in a call to the [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) function to get a handle to a console's input buffer.</span></span> <span data-ttu-id="144ff-134">Analogamente, è possibile specificare il valore CONOUT $ per ottenere un handle per il buffer dello schermo attivo di una console.</span><span class="sxs-lookup"><span data-stu-id="144ff-134">Similarly, you can specify the CONOUT$ value to get a handle to a console's active screen buffer.</span></span>
+<span data-ttu-id="6a0ce-135">Gli handle standard di un processo all'immissione del metodo Main sono determinati dalla configurazione del flag [**/Subsystem**](https://docs.microsoft.com/cpp/build/reference/subsystem-specify-subsystem) passato al linker quando è stata compilata l'applicazione.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-135">The standard handles of a process on entry of the main method are dictated by the configuration of the [**/SUBSYSTEM**](https://docs.microsoft.com/cpp/build/reference/subsystem-specify-subsystem) flag passed to the linker when the application was built.</span></span> <span data-ttu-id="6a0ce-136">Specificando **/SUBSYSTEM: console** richiede che il sistema operativo riempia gli handle con una sessione della console all'avvio, se l'elemento padre non ha già riempito la tabella di handle standard in base all'ereditarietà.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-136">Specifying **/SUBSYSTEM:CONSOLE** requests that the operating system fill the handles with a console session on startup, if the parent didn't already fill the standard handle table by inheritance.</span></span> <span data-ttu-id="6a0ce-137">Al contrario, **/SUBSYSTEM: Windows** implica che l'applicazione non necessita di una console e probabilmente non utilizzerà gli handle standard.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-137">On the contrary, **/SUBSYSTEM:WINDOWS** implies that the application does not need a console and will likely not be making use of the standard handles.</span></span> <span data-ttu-id="6a0ce-138">Altre informazioni sull'ereditarietà dell'handle sono reperibili nella documentazione di [**STARTF \_ USESTDHANDLES**](https://docs.microsoft.com/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).</span><span class="sxs-lookup"><span data-stu-id="6a0ce-138">More information on handle inheritance can be found in the documentation for [**STARTF\_USESTDHANDLES**](https://docs.microsoft.com/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).</span></span>
 
-### <a name="span-idattach_detach_behaviorspanspan-idattach_detach_behaviorspanspan-idattach_detach_behaviorspanattachdetach-behavior"></a><span data-ttu-id="144ff-135"><span id="Attach_detach_behavior"></span><span id="attach_detach_behavior"></span><span id="ATTACH_DETACH_BEHAVIOR"></span>Comportamento di collegamento/scollegamento</span><span class="sxs-lookup"><span data-stu-id="144ff-135"><span id="Attach_detach_behavior"></span><span id="attach_detach_behavior"></span><span id="ATTACH_DETACH_BEHAVIOR"></span>Attach/detach behavior</span></span>
+<span data-ttu-id="6a0ce-139">Alcune applicazioni operano all'esterno dei limiti del sottosistema dichiarato; ad esempio, un'applicazione **/SUBSYSTEM: Windows** potrebbe controllare/utilizzare handle standard a scopo di registrazione o di debug, ma funzionare normalmente con un'interfaccia utente grafica.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-139">Some applications operate outside the boundaries of their declared subsystem; for instance, a **/SUBSYSTEM:WINDOWS** application might check/use standard handles for logging or debugging purposes but operate normally with a graphical user interface.</span></span> <span data-ttu-id="6a0ce-140">Queste applicazioni dovranno verificare accuratamente lo stato degli handle standard all'avvio e usare [**AttachConsole**](attachconsole.md), [**AllocConsole**](allocconsole.md)e [**FreeConsole**](freeconsole.md) per aggiungere o rimuovere una console, se necessario.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-140">These applications will need to carefully probe the state of standard handles on startup and make use of [**AttachConsole**](attachconsole.md), [**AllocConsole**](allocconsole.md), and [**FreeConsole**](freeconsole.md) to add/remove a console if desired.</span></span>
 
-<span data-ttu-id="144ff-136">Quando ci si connette a una nuova console, gli handle standard vengono sempre sostituiti con gli handle della console, a meno che non sia stato specificato **STARTF \_ USESTDHANDLES** durante la creazione del processo.</span><span class="sxs-lookup"><span data-stu-id="144ff-136">When attaching to a new console, standard handles are always replaced with console handles unless **STARTF\_USESTDHANDLES** was specified during process creation.</span></span>
+<span data-ttu-id="6a0ce-141">Alcune applicazioni possono anche variare il comportamento del tipo di handle ereditato.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-141">Some applications may also vary their behavior on the type of inherited handle.</span></span> <span data-ttu-id="6a0ce-142">Distinguere il tipo tra la console, la pipe, il file e altri possono essere eseguiti con [**FileType**](https://docs.microsoft.com/windows/win32/api/fileapi/nf-fileapi-getfiletype).</span><span class="sxs-lookup"><span data-stu-id="6a0ce-142">Disambiguating the type between console, pipe, file, and others can be performed with [**GetFileType**](https://docs.microsoft.com/windows/win32/api/fileapi/nf-fileapi-getfiletype).</span></span>
 
-<span data-ttu-id="144ff-137">Se il valore esistente dell'handle standard è **null**o il valore esistente dell'handle standard è simile a un pseudohandle della console, l'handle viene sostituito con un handle della console.</span><span class="sxs-lookup"><span data-stu-id="144ff-137">If the existing value of the standard handle is **NULL**, or the existing value of the standard handle looks like a console pseudohandle, the handle is replaced with a console handle.</span></span>
+### <a name="attachdetach-behavior"></a><span data-ttu-id="6a0ce-143">Comportamento di collegamento/scollegamento</span><span class="sxs-lookup"><span data-stu-id="6a0ce-143">Attach/detach behavior</span></span>
 
-<span data-ttu-id="144ff-138">Quando un elemento padre usa sia **Create \_ New \_ console** che **STARTF \_ USESTDHANDLES** per creare un processo console, gli handle standard non verranno sostituiti, a meno che il valore esistente dell'handle standard non sia null o un pseudohandle console.</span><span class="sxs-lookup"><span data-stu-id="144ff-138">When a parent uses both **CREATE\_NEW\_CONSOLE** and **STARTF\_USESTDHANDLES** to create a console process, standard handles will not be replaced unless the existing value of the standard handle is NULL or a console pseudohandle.</span></span>
+<span data-ttu-id="6a0ce-144">Quando ci si connette a una nuova console, gli handle standard vengono sempre sostituiti con gli handle della console, a meno che non sia stato specificato **STARTF \_ USESTDHANDLES** durante la creazione del processo.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-144">When attaching to a new console, standard handles are always replaced with console handles unless **STARTF\_USESTDHANDLES** was specified during process creation.</span></span>
 
-<a name="examples"></a><span data-ttu-id="144ff-139">Esempi</span><span class="sxs-lookup"><span data-stu-id="144ff-139">Examples</span></span>
---------
+<span data-ttu-id="6a0ce-145">Se il valore esistente dell'handle standard è **null** o il valore esistente dell'handle standard è simile a un pseudohandle della console, l'handle viene sostituito con un handle della console.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-145">If the existing value of the standard handle is **NULL** , or the existing value of the standard handle looks like a console pseudohandle, the handle is replaced with a console handle.</span></span>
 
-<span data-ttu-id="144ff-140">Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).</span><span class="sxs-lookup"><span data-stu-id="144ff-140">For an example, see [Reading Input Buffer Events](reading-input-buffer-events.md).</span></span>
+<span data-ttu-id="6a0ce-146">Quando un elemento padre usa sia **Create \_ New \_ console** che **STARTF \_ USESTDHANDLES** per creare un processo console, gli handle standard non verranno sostituiti, a meno che il valore esistente dell'handle standard non sia **null** o un pseudohandle console.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-146">When a parent uses both **CREATE\_NEW\_CONSOLE** and **STARTF\_USESTDHANDLES** to create a console process, standard handles will not be replaced unless the existing value of the standard handle is **NULL** or a console pseudohandle.</span></span>
 
-<a name="requirements"></a><span data-ttu-id="144ff-141">Requisiti</span><span class="sxs-lookup"><span data-stu-id="144ff-141">Requirements</span></span>
-------------
+> [!NOTE]
+><span data-ttu-id="6a0ce-147">I processi della console *devono* iniziare con gli handle standard pieni o verranno riempiti automaticamente con handle appropriati per una nuova console.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-147">Console processes *must* start with the standard handles filled or they will be filled automatically with appropriate handles to a new console.</span></span> <span data-ttu-id="6a0ce-148">Le applicazioni GUI (Graphical User Interface) possono essere avviate senza gli handle standard e non verranno compilate automaticamente.</span><span class="sxs-lookup"><span data-stu-id="6a0ce-148">Graphical user interface (GUI) applications can be started without the standard handles and they will not be automatically filled.</span></span>
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><span data-ttu-id="144ff-142">Client minimo supportato</span><span class="sxs-lookup"><span data-stu-id="144ff-142">Minimum supported client</span></span></p></td>
-<td><p><span data-ttu-id="144ff-143">Windows 2000 Professional [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="144ff-143">Windows 2000 Professional [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="144ff-144">Server minimo supportato</span><span class="sxs-lookup"><span data-stu-id="144ff-144">Minimum supported server</span></span></p></td>
-<td><p><span data-ttu-id="144ff-145">Windows 2000 Server [solo app desktop]</span><span class="sxs-lookup"><span data-stu-id="144ff-145">Windows 2000 Server [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="144ff-146">Intestazione</span><span class="sxs-lookup"><span data-stu-id="144ff-146">Header</span></span></p></td>
-<td><span data-ttu-id="144ff-147">ProcessEnv. h (tramite Winbase. h, Includi Windows. h)</span><span class="sxs-lookup"><span data-stu-id="144ff-147">ProcessEnv.h (via Winbase.h, include Windows.h)</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="144ff-148">Libreria</span><span class="sxs-lookup"><span data-stu-id="144ff-148">Library</span></span></p></td>
-<td><span data-ttu-id="144ff-149">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="144ff-149">Kernel32.lib</span></span></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="144ff-150">DLL</span><span class="sxs-lookup"><span data-stu-id="144ff-150">DLL</span></span></p></td>
-<td><span data-ttu-id="144ff-151">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="144ff-151">Kernel32.dll</span></span></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="examples"></a><span data-ttu-id="6a0ce-149">Esempio</span><span class="sxs-lookup"><span data-stu-id="6a0ce-149">Examples</span></span>
 
-## <a name="span-idsee_alsospansee-also"></a><span data-ttu-id="144ff-152"><span id="see_also"></span>Vedere anche</span><span class="sxs-lookup"><span data-stu-id="144ff-152"><span id="see_also"></span>See also</span></span>
+<span data-ttu-id="6a0ce-150">Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).</span><span class="sxs-lookup"><span data-stu-id="6a0ce-150">For an example, see [Reading Input Buffer Events](reading-input-buffer-events.md).</span></span>
 
+## <a name="requirements"></a><span data-ttu-id="6a0ce-151">Requisiti</span><span class="sxs-lookup"><span data-stu-id="6a0ce-151">Requirements</span></span>
 
-[<span data-ttu-id="144ff-153">Funzioni console</span><span class="sxs-lookup"><span data-stu-id="144ff-153">Console Functions</span></span>](console-functions.md)
+| &nbsp; | &nbsp; |
+|-|-|
+| <span data-ttu-id="6a0ce-152">Client minimo supportato</span><span class="sxs-lookup"><span data-stu-id="6a0ce-152">Minimum supported client</span></span> | <span data-ttu-id="6a0ce-153">\[Solo app desktop Windows 2000 Professional\]</span><span class="sxs-lookup"><span data-stu-id="6a0ce-153">Windows 2000 Professional \[desktop apps only\]</span></span> |
+| <span data-ttu-id="6a0ce-154">Server minimo supportato</span><span class="sxs-lookup"><span data-stu-id="6a0ce-154">Minimum supported server</span></span> | <span data-ttu-id="6a0ce-155">Solo app desktop di Windows 2000 Server \[\]</span><span class="sxs-lookup"><span data-stu-id="6a0ce-155">Windows 2000 Server \[desktop apps only\]</span></span> |
+| <span data-ttu-id="6a0ce-156">Intestazione</span><span class="sxs-lookup"><span data-stu-id="6a0ce-156">Header</span></span> | <span data-ttu-id="6a0ce-157">ProcessEnv. h (tramite Winbase. h, Includi Windows. h)</span><span class="sxs-lookup"><span data-stu-id="6a0ce-157">ProcessEnv.h (via Winbase.h, include Windows.h)</span></span> |
+| <span data-ttu-id="6a0ce-158">Libreria</span><span class="sxs-lookup"><span data-stu-id="6a0ce-158">Library</span></span> | <span data-ttu-id="6a0ce-159">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="6a0ce-159">Kernel32.lib</span></span> |
+| <span data-ttu-id="6a0ce-160">DLL</span><span class="sxs-lookup"><span data-stu-id="6a0ce-160">DLL</span></span> | <span data-ttu-id="6a0ce-161">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="6a0ce-161">Kernel32.dll</span></span> |
 
-[<span data-ttu-id="144ff-154">Handle della console</span><span class="sxs-lookup"><span data-stu-id="144ff-154">Console Handles</span></span>](console-handles.md)
+## <a name="see-also"></a><span data-ttu-id="6a0ce-162">Vedi anche</span><span class="sxs-lookup"><span data-stu-id="6a0ce-162">See also</span></span>
 
-[<span data-ttu-id="144ff-155">**CreateFile**</span><span class="sxs-lookup"><span data-stu-id="144ff-155">**CreateFile**</span></span>](https://msdn.microsoft.com/library/windows/desktop/aa363858)
+[<span data-ttu-id="6a0ce-163">Funzioni console</span><span class="sxs-lookup"><span data-stu-id="6a0ce-163">Console Functions</span></span>](console-functions.md)
 
-[<span data-ttu-id="144ff-156">**GetConsoleScreenBufferInfo**</span><span class="sxs-lookup"><span data-stu-id="144ff-156">**GetConsoleScreenBufferInfo**</span></span>](getconsolescreenbufferinfo.md)
+[<span data-ttu-id="6a0ce-164">Handle della console</span><span class="sxs-lookup"><span data-stu-id="6a0ce-164">Console Handles</span></span>](console-handles.md)
 
-[<span data-ttu-id="144ff-157">**ReadConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="144ff-157">**ReadConsoleInput**</span></span>](readconsoleinput.md)
+[<span data-ttu-id="6a0ce-165">**CreateFile**</span><span class="sxs-lookup"><span data-stu-id="6a0ce-165">**CreateFile**</span></span>](https://msdn.microsoft.com/library/windows/desktop/aa363858)
 
-[<span data-ttu-id="144ff-158">**ReadFile**</span><span class="sxs-lookup"><span data-stu-id="144ff-158">**ReadFile**</span></span>](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[<span data-ttu-id="6a0ce-166">**GetConsoleScreenBufferInfo**</span><span class="sxs-lookup"><span data-stu-id="6a0ce-166">**GetConsoleScreenBufferInfo**</span></span>](getconsolescreenbufferinfo.md)
 
-[<span data-ttu-id="144ff-159">**SetStdHandle**</span><span class="sxs-lookup"><span data-stu-id="144ff-159">**SetStdHandle**</span></span>](setstdhandle.md)
+[<span data-ttu-id="6a0ce-167">**ReadConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="6a0ce-167">**ReadConsoleInput**</span></span>](readconsoleinput.md)
 
-[<span data-ttu-id="144ff-160">**WriteConsole**</span><span class="sxs-lookup"><span data-stu-id="144ff-160">**WriteConsole**</span></span>](writeconsole.md)
+[<span data-ttu-id="6a0ce-168">**ReadFile**</span><span class="sxs-lookup"><span data-stu-id="6a0ce-168">**ReadFile**</span></span>](https://msdn.microsoft.com/library/windows/desktop/aa365467)
 
-[<span data-ttu-id="144ff-161">**WriteFile**</span><span class="sxs-lookup"><span data-stu-id="144ff-161">**WriteFile**</span></span>](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[<span data-ttu-id="6a0ce-169">**SetStdHandle**</span><span class="sxs-lookup"><span data-stu-id="6a0ce-169">**SetStdHandle**</span></span>](setstdhandle.md)
 
- 
+[<span data-ttu-id="6a0ce-170">**WriteConsole**</span><span class="sxs-lookup"><span data-stu-id="6a0ce-170">**WriteConsole**</span></span>](writeconsole.md)
 
- 
-
-
-
-
+[<span data-ttu-id="6a0ce-171">**WriteFile**</span><span class="sxs-lookup"><span data-stu-id="6a0ce-171">**WriteFile**</span></span>](https://msdn.microsoft.com/library/windows/desktop/aa365747)
