@@ -13,21 +13,22 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 84ec2559-cade-447e-8594-5b824d3d3e81
-ms.openlocfilehash: 78a77044452fe2287a7cea0bfe5a6542eceef337
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 09de42ced585e4a644fbbcc04211d5cb6037c2af
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038239"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420280"
 ---
 # <a name="creation-of-a-console"></a>Creazione di una console
 
-Il sistema crea una nuova console quando avvia un *processo della console* , un processo in modalità carattere il cui punto di ingresso è la funzione **principale** . Ad esempio, il sistema crea una nuova console all'avvio del processore dei comandi `cmd.exe` . Quando il processore dei comandi avvia un nuovo processo console, l'utente può specificare se il sistema crea una nuova console per il nuovo processo o se eredita la console del processore dei comandi.
+Il sistema crea una nuova console quando avvia un *processo della console*, un processo in modalità carattere il cui punto di ingresso è la funzione **principale** . Ad esempio, il sistema crea una nuova console all'avvio del processore dei comandi `cmd.exe` . Quando il processore dei comandi avvia un nuovo processo console, l'utente può specificare se il sistema crea una nuova console per il nuovo processo o se eredita la console del processore dei comandi.
 
 Un processo può creare una console utilizzando uno dei metodi seguenti:
 
 - Un'interfaccia utente grafica (GUI) o un processo della console può usare la funzione [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **Create \_ New \_ console** per creare un processo della console con una nuova console. Per impostazione predefinita, un processo console eredita la console padre e non vi è alcuna garanzia che l'input venga ricevuto dal processo per cui è stato progettato.
-- Un'interfaccia utente grafica o un processo console che non è attualmente collegato a una console di può utilizzare la funzione [**AllocConsole**](allocconsole.md) per creare una nuova console. I processi GUI non sono collegati a una console quando vengono creati. I processi della console non sono collegati a una console se vengono creati utilizzando [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **\_ processo scollegato** .
+- Un'interfaccia utente grafica o un processo console che non è attualmente collegato a una console di può utilizzare la funzione [**AllocConsole**](allocconsole.md) per creare una nuova console. I processi GUI non sono collegati a una console quando vengono creati. I processi della console non sono collegati a una console se vengono creati utilizzando [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **\_ processo scollegato**.
 
 In genere, un processo USA [**AllocConsole**](allocconsole.md) per creare una console quando si verifica un errore che richiede l'interazione con l'utente. Un processo GUI, ad esempio, può creare una console quando si verifica un errore che impedisce di usare l'interfaccia grafica normale oppure un processo console che in genere non interagisce con l'utente può creare una console per visualizzare un errore.
 

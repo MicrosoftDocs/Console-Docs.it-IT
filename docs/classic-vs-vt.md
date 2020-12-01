@@ -1,21 +1,22 @@
 ---
-title: API console classiche rispetto alle sequenze di terminali virtuali
+title: Confronto tra API di console classica e sequenze di terminale virtuale
 description: Viene descritto il contrasto tra la superficie dell'API console Win32 classica e il concetto di sequenze di terminali virtuali, talvolta note anche come sequenze di escape, per la scrittura di applicazioni della riga di comando.
 author: miniksa
 ms.author: miniksa
 ms.topic: conceptual
 keywords: Console, terminale, terminale virtuale, sequenze di escape, VT, VT100, API console
 ms.prod: console
-ms.openlocfilehash: 0fdd39cab5b8f6ca5cc1602c8e68ec7f2a2303ad
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 541300b50521909b22ceaccb595f1945fbfc7e6d
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039594"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420180"
 ---
-# <a name="classic-console-apis-versus-virtual-terminal-sequences"></a>API console classiche rispetto alle sequenze di terminali virtuali
+# <a name="classic-console-apis-versus-virtual-terminal-sequences"></a>Confronto tra API di console classica e sequenze di terminale virtuale
 
-Si consiglia di sostituire l' **API console di Windows** classica con le **sequenze di terminali virtuali** . In questo articolo viene illustrata la differenza tra i due e vengono illustrati i motivi della nostra raccomandazione.
+Si consiglia di sostituire l' **API console di Windows** classica con le **sequenze di terminali virtuali**. In questo articolo viene illustrata la differenza tra i due e vengono illustrati i motivi della nostra raccomandazione.
 
 ## <a name="definitions"></a>Definizioni
 
@@ -55,17 +56,17 @@ Al contrario, altre piattaforme usano le **sequenze di terminali virtuali** per 
 
 ### <a name="wrong-way-verbs"></a>Verbi Wrong-Way
 
-Con la **console di Windows** , alcune azioni possono essere eseguite nella direzione opposta a quella naturale sui flussi di input e di output. Questo consente alle applicazioni della riga di comando di Windows di evitare il problema di gestire i propri buffer. Consente inoltre alle app della riga di comando di Windows di eseguire operazioni avanzate, ad esempio simulando/inserendo input per conto di un utente o leggendo parte della cronologia degli elementi scritti.
+Con la **console di Windows**, alcune azioni possono essere eseguite nella direzione opposta a quella naturale sui flussi di input e di output. Questo consente alle applicazioni della riga di comando di Windows di evitare il problema di gestire i propri buffer. Consente inoltre alle app della riga di comando di Windows di eseguire operazioni avanzate, ad esempio simulando/inserendo input per conto di un utente o leggendo parte della cronologia degli elementi scritti.
 
 Sebbene in questo modo si forniscano ulteriore potenza alle applicazioni Windows che operano in un contesto utente specifico in un singolo computer, fornisce anche un vettore per incrociare livelli di sicurezza e privilegi o domini se usati in determinati scenari. Questi scenari includono il funzionamento tra contesti nello stesso computer o tra contesti in un altro computer o ambiente.
 
-Altre piattaforme, che usano **sequenze di terminali virtuali** , non consentono questa attività. Lo scopo della nostra raccomandazione di eseguire la transizione dalla console classica di Windows alla sequenza di terminali virtuali consiste nel convergere con questa strategia sia per motivi di interoperabilità che di sicurezza.
+Altre piattaforme, che usano **sequenze di terminali virtuali**, non consentono questa attività. Lo scopo della nostra raccomandazione di eseguire la transizione dalla console classica di Windows alla sequenza di terminali virtuali consiste nel convergere con questa strategia sia per motivi di interoperabilità che di sicurezza.
 
 ### <a name="direct-window-access"></a>Accesso diretto alla finestra
 
 La **superficie dell'API della console di Windows** fornisce l'handle di finestra esatto per la finestra di hosting. Questo consente a un'utilità della riga di comando di eseguire operazioni di finestra avanzate raggiungendo l'ampia gamma di API Win32 consentite in un handle di finestra. Queste API Win32 possono modificare lo stato della finestra, il frame, l'icona o altre proprietà della finestra.
 
-Al contrario, su altre piattaforme con **sequenze di terminali virtuali** , è possibile eseguire una serie di comandi limitati sulla finestra. Questi comandi possono eseguire operazioni quali la modifica delle dimensioni della finestra o del titolo visualizzato, ma devono essere eseguite nella stessa banda e sotto lo stesso controllo del resto del flusso.
+Al contrario, su altre piattaforme con **sequenze di terminali virtuali**, è possibile eseguire una serie di comandi limitati sulla finestra. Questi comandi possono eseguire operazioni quali la modifica delle dimensioni della finestra o del titolo visualizzato, ma devono essere eseguite nella stessa banda e sotto lo stesso controllo del resto del flusso.
 
 Man mano che Windows si è evoluto, i controlli di sicurezza e le restrizioni sugli handle di finestra sono aumentati. Inoltre, la natura e l'esistenza di un handle di finestra indirizzabile all'applicazione su qualsiasi elemento dell'interfaccia utente specifico si sono evolute, soprattutto con l'aumento del supporto di piattaforme e fattori di forma del dispositivo. In questo modo, l'accesso diretto alla finestra alle applicazioni da riga di comando diventa fragile come la piattaforma e le esperienze si evolvono.
 
@@ -82,7 +83,7 @@ Il supporto UTF-8 nella console di può essere usato tramite _una_ variante dell
 >[!NOTE]
 > Al momento, UTF-8 è supportato completamente nel flusso di output standard con i metodi [**WriteConsole**](writeconsole.md) e [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) . Il supporto per il flusso di input varia a seconda della modalità di input e continuerà a migliorare nel tempo. In particolare, le modalità **["cotte"](high-level-console-modes.md)** predefinite sull'input non supportano ancora completamente UTF-8. Lo stato corrente di questo lavoro si trova in [**Microsoft/Terminal # 7777**](https://github.com/microsoft/terminal/issues/7777) su GitHub. La soluzione alternativa consiste nell'usare il formato UTF-16 traducibile da algoritmicamente per leggere l'input tramite [**ReadConsoleW**](readconsole.md) o [**ReadConsoleInputW**](readconsoleinput.md) fino a quando non vengono risolti i problemi in attesa.
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Raccomandazioni
 
 Per lo sviluppo nuovo e continuo in Windows, le **sequenze di terminali virtuali sono consigliate** come modalità di interazione con il terminale. In questo modo si convergeranno le applicazioni client da riga di comando di Windows con lo stile di programmazione dell'applicazione in tutte le altre piattaforme.
 
@@ -90,9 +91,9 @@ Per lo sviluppo nuovo e continuo in Windows, le **sequenze di terminali virtuali
 
 Un **subset limitato di API console Windows è ancora necessario** per stabilire l'ambiente iniziale. La piattaforma Windows è ancora diversa da altre in fase di elaborazione, segnalazione, dispositivo e gestione della codifica:
 
-- Gli handle standard per un processo verranno comunque controllati con **[GetStdHandle](getstdhandle.md)** e **[SetStdHandle](setstdhandle.md)** .
+- Gli handle standard per un processo verranno comunque controllati con **[GetStdHandle](getstdhandle.md)** e **[SetStdHandle](setstdhandle.md)**.
 
-- La configurazione delle modalità console su un handle per acconsentire esplicitamente al supporto della sequenza di terminali virtuali verrà gestita con **[GetConsoleMode](getconsolemode.md)** e **[SetConsoleMode](setconsolemode.md)** .
+- La configurazione delle modalità console su un handle per acconsentire esplicitamente al supporto della sequenza di terminali virtuali verrà gestita con **[GetConsoleMode](getconsolemode.md)** e **[SetConsoleMode](setconsolemode.md)**.
 
 - La dichiarazione di tabella codici o il supporto UTF-8 viene eseguita con i metodi [**SetConsoleOutputCP**](setconsoleoutputcp.md) e [**SetConsoleCP**](setconsolecp.md) .
 
@@ -100,9 +101,9 @@ Un **subset limitato di API console Windows è ancora necessario** per stabilire
 
 - I segnali e la gestione del segnale continueranno a essere eseguiti con [**SetConsoleCtrlHandler**](setconsolectrlhandler.md), [**HandlerRoutine**](handlerroutine.md)e [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md).
 
-- La comunicazione con gli handle del dispositivo console può essere eseguita con [**WriteConsole**](writeconsole.md) e [**ReadConsole**](readconsole.md). Questi possono essere usati anche tramite i runtime del linguaggio di programmazione in formati:-C Runtime (CRT): [i/O di flusso](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) come **printf** , **scanf** , **putc** , **GETC** o [altri livelli di funzioni di I/o](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
-        -Libreria standard C++ (STL): [iostream](https://docs.microsoft.com/cpp/standard-library/iostream) come **cout** e **cin** .
-        -Runtime .NET: [System. console](https://docs.microsoft.com/dotnet/api/system.console) come **Console. WriteLine** .
+- La comunicazione con gli handle del dispositivo console può essere eseguita con [**WriteConsole**](writeconsole.md) e [**ReadConsole**](readconsole.md). Questi possono essere usati anche tramite i runtime del linguaggio di programmazione in formati:-C Runtime (CRT): [i/O di flusso](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) come **printf**, **scanf**, **putc**, **GETC** o [altri livelli di funzioni di I/o](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
+        -Libreria standard C++ (STL): [iostream](https://docs.microsoft.com/cpp/standard-library/iostream) come **cout** e **cin**.
+        -Runtime .NET: [System. console](https://docs.microsoft.com/dotnet/api/system.console) come **Console. WriteLine**.
 
 - Le applicazioni che devono essere a conoscenza delle modifiche alle dimensioni della finestra dovranno comunque usare [**ReadConsoleInput**](readconsoleinput.md) per riceverle Interleaved con gli eventi chiave, perché solo **ReadConsole** li eliminerà.
 

@@ -30,12 +30,13 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e1cac9a8b2636f5272c6d1ecc358eb59f33295b5
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 42857417cedb661014de869536b798d29c9eb884
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038699"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420210"
 ---
 # <a name="getstdhandle-function"></a>GetStdHandle (funzione)
 
@@ -64,9 +65,9 @@ Il dispositivo standard. Questo parametro può essere uno dei valori seguenti.
 
 Se la funzione ha esito positivo, il valore restituito è un handle per il dispositivo specificato o un handle reindirizzato impostato da una chiamata precedente a [**SetStdHandle**](setstdhandle.md). L'handle dispone di diritti di accesso di **\_ lettura** e **\_ scrittura** generici, a meno che l'applicazione non abbia utilizzato **SetStdHandle** per impostare un handle standard con accesso minore.
 
-Se la funzione ha esito negativo, il valore restituito è un **\_ \_ valore di handle non valido** . Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è un **\_ \_ valore di handle non valido**. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-Se a un'applicazione non sono associati handle standard, ad esempio un servizio in esecuzione su un desktop interattivo e non è stato reindirizzato, il valore restituito è **null** .
+Se a un'applicazione non sono associati handle standard, ad esempio un servizio in esecuzione su un desktop interattivo e non è stato reindirizzato, il valore restituito è **null**.
 
 ## <a name="remarks"></a>Commenti
 
@@ -91,7 +92,7 @@ Quando un elemento padre usa sia **Create \_ New \_ console** che **STARTF \_ US
 > [!NOTE]
 >I processi della console *devono* iniziare con gli handle standard pieni o verranno riempiti automaticamente con handle appropriati per una nuova console. Le applicazioni GUI (Graphical User Interface) possono essere avviate senza gli handle standard e non verranno compilate automaticamente.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).
 

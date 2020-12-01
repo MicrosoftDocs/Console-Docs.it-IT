@@ -1,19 +1,20 @@
 ---
-title: Guida di orientamento per la console Windows e l'ecosistema Terminal
+title: Roadmap per l'ecosistema di console e Terminale Windows
 description: Fornisce una visualizzazione di alto livello delle interazioni tra e piani per l'host della console di Windows, le API console, il sottosistema della console e il prodotto terminal.
 author: miniksa
 ms.author: miniksa
 ms.topic: conceptual
 keywords: Console, terminale, terminale virtuale, host console, riga di comando, sottosistema, roadmap, ecosistema
 ms.prod: console
-ms.openlocfilehash: e47b72a6f66e54b5f2904770f7c1a87e08d927e2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: e5d28a06789f230943d70a49e7c89642b17fdb5c
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039611"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420260"
 ---
-# <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Guida di orientamento per la console Windows e l'ecosistema Terminal
+# <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Roadmap per l'ecosistema di console e Terminale Windows
 
 Questo documento è una roadmap di alto livello dei prodotti Windows Console e Windows Terminal. Vengono illustrate le operazioni seguenti:
 
@@ -28,7 +29,7 @@ Il punto centrale dell'era attuale della console o del terminale in Microsoft è
 
 Prima di procedere, è consigliabile acquisire familiarità con le [definizioni](definitions.md) della terminologia comune utilizzata in questo spazio. La terminologia comune include: [applicazioni da riga di comando (o console)](definitions.md#command-line-applications), [handle standard ( `STDIN` , `STDOUT` , `STDERR` )](definitions.md#standard-handles), [dispositivi TTY e PTY](definitions.md#ttypty), [client e server](definitions.md#clients-and-servers), [sottosistema console](definitions.md#console-subsystem), [host console](definitions.md#console-host), [pseudoconsole](definitions.md#pseudoconsole)e [terminale](definitions.md#terminal).
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 L'architettura generale del sistema è costituita da quattro parti: client, dispositivo, server e terminale.
 

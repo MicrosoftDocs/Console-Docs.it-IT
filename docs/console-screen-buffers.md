@@ -13,12 +13,13 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: f94995fc-5f5f-4fcd-969d-7e10020634c2
-ms.openlocfilehash: c3121a53f654bd2fa85fa140c2efc6d6217b7796
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 4c5740be3b60d54f9e7b586b41e962a4102222a0
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039169"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420200"
 ---
 # <a name="console-screen-buffers"></a>Buffer dello schermo della console
 
@@ -34,7 +35,7 @@ Una serie di proprietà associate a un buffer dello schermo può essere impostat
 - Attributi di testo (colori di primo piano e di sfondo per la visualizzazione di testo da scrivere tramite la funzione [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o [**WriteConsole**](writeconsole.md) ).
 - Dimensioni e posizione della finestra (area rettangolare del buffer dello schermo della console visualizzato nella finestra della console).
 - Posizione, aspetto e visibilità del cursore.
-- Modalità di output **( \_ Abilita \_ output elaborato** e **Abilita \_ wrapping \_ all' \_ \_ output EOL** ). Per altre informazioni sulle modalità di output della console, vedere [modalità console di alto livello](high-level-console-modes.md).
+- Modalità di output **( \_ Abilita \_ output elaborato** e **Abilita \_ wrapping \_ all' \_ \_ output EOL**). Per altre informazioni sulle modalità di output della console, vedere [modalità console di alto livello](high-level-console-modes.md).
 
 Quando viene creato un buffer dello schermo, contiene caratteri spazio in ogni posizione. Il cursore è visibile e posizionato in corrispondenza dell'origine del buffer (0, 0) e la finestra viene posizionata con l'angolo superiore sinistro dell'origine del buffer. La dimensione del buffer dello schermo della console, le dimensioni della finestra, gli attributi di testo e l'aspetto del cursore sono determinati dall'utente o dalle impostazioni predefinite del sistema. Per recuperare i valori correnti delle varie proprietà associate al buffer dello schermo della console, usare le funzioni [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md), [**GetConsoleCursorInfo**](getconsolecursorinfo.md)e [**GetConsoleMode**](getconsolemode.md) .
 
@@ -100,4 +101,4 @@ La funzione [**GetCurrentConsoleFont**](getcurrentconsolefont.md) recupera le in
 La funzione [**GetConsoleFontSize**](getconsolefontsize.md) recupera la dimensione del tipo di carattere utilizzato dal buffer dello schermo della console specificato.
 
 > [!NOTE]
-> L'uso di funzioni per individuare e modificare le informazioni sui tipi di carattere è sconsigliato. Si consiglia di usare le applicazioni da riga di comando in modo neutro per garantire la compatibilità multipiattaforma e la compatibilità con gli ambienti host che consentono all'utente di personalizzare il tipo di carattere. Altre informazioni sulle preferenze utente e sugli ambienti host, inclusi i terminali, vedere la Guida di orientamento per gli **[ecosistemi](ecosystem-roadmap.md)** .
+> L'uso di funzioni per individuare e modificare le informazioni sui tipi di carattere è sconsigliato. Si consiglia di usare le applicazioni da riga di comando in modo neutro per garantire la compatibilità multipiattaforma e la compatibilità con gli ambienti host che consentono all'utente di personalizzare il tipo di carattere. Altre informazioni sulle preferenze utente e sugli ambienti host, inclusi i terminali, vedere la Guida di orientamento per gli **[ecosistemi](ecosystem-roadmap.md)**.

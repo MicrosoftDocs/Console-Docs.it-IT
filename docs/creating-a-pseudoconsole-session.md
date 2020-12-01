@@ -6,12 +6,13 @@ ms.author: miniksa
 ms.topic: conceptual
 ms.prod: console
 keywords: Console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni Terminal, API console, conpty, pseudoconsole, Windows Pty, pseudo console
-ms.openlocfilehash: 17b53bc2f0afb60be1a8311de9ab54b00fbf71d6
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 8cd057d3e74659fdeff6c569ddb053c881af1de8
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039109"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420230"
 ---
 # <a name="creating-a-pseudoconsole-session"></a>Creazione di una sessione Pseudoconsole
 
@@ -93,7 +94,7 @@ Questa struttura contiene la possibilità di fornire informazioni di avvio compl
 
 Usare [**InitializeProcThreadAttributeList**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-initializeprocthreadattributelist) con una doppia chiamata per calcolare prima di tutto il numero di byte necessari per contenere l'elenco, allocare la memoria richiesta, quindi chiamare di nuovo fornendo il puntatore a memoria opaca per impostarlo come elenco di attributi.
 
-Chiamare quindi [**UpdateProcThreadAttribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) passando l'elenco degli attributi inizializzato con il flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE** , l'handle PSEUDOCONSOLE e le dimensioni dell'handle PSEUDOCONSOLE.
+Chiamare quindi [**UpdateProcThreadAttribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) passando l'elenco degli attributi inizializzato con il flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE**, l'handle PSEUDOCONSOLE e le dimensioni dell'handle PSEUDOCONSOLE.
 
 ```C
 
