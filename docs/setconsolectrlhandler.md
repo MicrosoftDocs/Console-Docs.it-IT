@@ -1,6 +1,6 @@
 ---
 title: SetConsoleCtrlHandler (funzione)
-description: Aggiunge o rimuove una funzione HandlerRoutine definita dall'applicazione dall'elenco di funzioni del gestore per il processo chiamante.
+description: Aggiunge o rimuove una funzione HandlerRoutine definita dall'applicazione nell'elenco di funzioni gestore per il processo chiamante.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
@@ -32,16 +32,16 @@ api_type:
 ms.localizationpriority: high
 ms.openlocfilehash: 208eebc92b718fed9856a48dfaf5cbebdaddc1e1
 ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96420270"
 ---
 # <a name="setconsolectrlhandler-function"></a>SetConsoleCtrlHandler (funzione)
 
-Aggiunge o rimuove una funzione [**HandlerRoutine**](handlerroutine.md) definita dall'applicazione dall'elenco di funzioni del gestore per il processo chiamante.
+Aggiunge o rimuove una funzione [**HandlerRoutine**](handlerroutine.md) definita dall'applicazione nell'elenco di funzioni di gestione per il processo chiamante.
 
-Se non viene specificata alcuna funzione del gestore, la funzione imposta un attributo ereditabile che determina se il processo chiamante ignora i segnali <kbd>CTRL</kbd> + <kbd>C</kbd> .
+Se non viene specificata alcuna funzione gestore, la funzione imposta un attributo ereditabile che determina se il processo chiamante ignora i segnali <kbd>CTRL</kbd>+<kbd>C</kbd>.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -54,64 +54,64 @@ BOOL WINAPI SetConsoleCtrlHandler(
 
 ## <a name="parameters"></a>Parametri
 
-*HandlerRoutine* \[ in, facoltativo\]  
-Puntatore alla funzione [**HandlerRoutine**](handlerroutine.md) definita dall'applicazione da aggiungere o rimuovere. Questo parametro può essere **null**.
+*HandlerRoutine* \[in, facoltativo\]  
+Un puntatore alla funzione [**HandlerRoutine**](handlerroutine.md) definita dall'applicazione da aggiungere o rimuovere. Questo parametro può essere **NULL**.
 
-*Aggiungi* \[ in\]  
-Se questo parametro è **true**, viene aggiunto il gestore; Se è **false**, il gestore viene rimosso.
+*Add* \[in\]  
+Se questo parametro è **TRUE**, il gestore viene aggiunto; se è **FALSE**, il gestore viene rimosso.
 
-Se il parametro *HandlerRoutine* è **null**, un **valore true** fa in modo che il processo chiamante ignori l'input <kbd>CTRL</kbd> + <kbd>c</kbd> e un valore **false** ripristini la normale elaborazione dell'input di <kbd>CTRL</kbd> + <kbd>c</kbd> . Questo attributo di ignorare o elaborare <kbd>CTRL</kbd> + <kbd>C</kbd> viene ereditato dai processi figlio.
+Se il parametro *HandlerRoutine* è **NULL**, il valore **TRUE** fa in modo che il processo chiamante ignori l'input <kbd>CTRL</kbd>+<kbd>C</kbd> e il valore **FALSE** ripristina la normale elaborazione dell'input <kbd>CTRL</kbd>+<kbd>C</kbd>. Questo attributo che determina se <kbd>CTRL</kbd>+<kbd>C</kbd> viene ignorato o elaborato viene ereditato dai processi figlio.
 
 ## <a name="return-value"></a>Valore restituito
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
-Questa funzione fornisce una notifica simile per l'applicazione console e i servizi forniti da [**WM \_ QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) per le applicazioni grafiche con un message pump. È anche possibile usare questa funzione da un'applicazione grafica, ma non vi è alcuna garanzia che arrivi prima della notifica da **WM \_ QUERYENDSESSION**.
+Questa funzione fornisce una notifica simile per l'applicazione console e i servizi che [**WM\_QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) fornisce per le applicazioni grafiche con un message pump. È anche possibile usare questa funzione da un'applicazione grafica, ma non è garantito che arrivi prima della notifica da **WM\_QUERYENDSESSION**.
 
-Ogni processo della console dispone di un proprio elenco di funzioni [**HandlerRoutine**](handlerroutine.md) definite dall'applicazione che gestiscono i segnali <kbd>CTRL</kbd> + <kbd>C</kbd> e <kbd>CTRL</kbd> + <kbd>break</kbd> . Le funzioni del gestore gestiscono inoltre i segnali generati dal sistema quando l'utente chiude la console, si disconnette o arresta il sistema. Inizialmente, l'elenco dei gestori per ogni processo contiene solo una funzione di gestione predefinita che chiama la funzione [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658) . Un processo console consente di aggiungere o rimuovere funzioni aggiuntive del gestore chiamando la funzione **SetConsoleCtrlHandler** , che non influisce sull'elenco di funzioni del gestore per altri processi. Quando un processo della console riceve uno dei segnali di controllo, le relative funzioni di gestione vengono chiamate in base a un'ultima chiamata registrata prima che uno dei gestori non restituisce `TRUE` . Se nessuno dei gestori restituisce `TRUE` , viene chiamato il gestore predefinito.
+Ogni processo della console dispone di un elenco specifico di funzioni [**HandlerRoutine**](handlerroutine.md) definite dall'applicazione che gestiscono i segnali <kbd>CTRL</kbd>+<kbd>C</kbd> e <kbd>CTRL</kbd>+<kbd>BREAK</kbd>. Le funzioni gestore gestiscono anche i segnali generati dal sistema quando l'utente chiude la console, si disconnette o arresta il sistema. Inizialmente, l'elenco dei gestori per ogni processo contiene solo una funzione gestore predefinita che chiama la funzione [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658). Un processo della console aggiunge o rimuove ulteriori funzioni gestore chiamando la funzione **SetConsoleCtrlHandler**, che non influisce sull'elenco di funzioni gestore per altri processi. Quando un processo della console riceve uno dei segnali di controllo, vengono chiamate le relative funzioni gestore, partendo dall'ultima registrata, finché uno dei gestori non restituisce `TRUE`. Se nessuno dei gestori restituisce `TRUE`, viene chiamato il gestore predefinito.
 
-Per i processi della console, le combinazioni di tasti <kbd>CTRL</kbd> + <kbd>c</kbd> e <kbd>CTRL</kbd> + <kbd>interrompono</kbd> in genere vengono considerate come segnali (evento **CTRL \_ c \_** e **\_ \_ evento di rottura CTRL**). Quando una finestra della console con lo stato attivo riceve <kbd>CTRL</kbd> + <kbd>C</kbd> o <kbd>CTRL</kbd> + <kbd>INTERR</kbd>, il segnale viene in genere passato a tutti i processi che condividono tale console.
+Per i processi della console, le combinazioni di tasti <kbd>CTRL</kbd>+<kbd>C</kbd> e <kbd>CTRL</kbd>+<kbd>INTERR</kbd> in genere vengono considerate come segnali (**CTRL\_C\_EVENT** e **CTRL\_BREAK\_EVENT**). Quando una finestra della console con lo stato attivo della tastiera riceve <kbd>CTRL</kbd>+<kbd>C</kbd> o <kbd>CTRL</kbd>+<kbd>INTERR</kbd>, il segnale viene generalmente passato a tutti i processi che condividono tale console.
 
-<kbd>CTRL</kbd> + <kbd>Break</kbd> viene sempre considerato come un segnale, ma è <kbd>CTRL</kbd> + possibile modificare il comportamento tipico di CTRL<kbd>C</kbd> in tre modi che impediscono la chiamata delle funzioni del gestore:
+<kbd>CTRL</kbd>+<kbd>INTERR</kbd> viene sempre considerato come segnale, ma è possibile modificare il comportamento tipico di <kbd>CTRL</kbd>+<kbd>C</kbd> in tre modi che impediscono la chiamata delle funzioni gestore:
 
-- La funzione [**SetConsoleMode**](setconsolemode.md) può disabilitare la **modalità \_ Abilita \_ input elaborato** per il buffer di input di una console, quindi <kbd>CTRL</kbd> + <kbd>C</kbd> viene segnalato come input da tastiera anziché come segnale.
-- La chiamata di **SetConsoleCtrlHandler** con gli argomenti **null** e **true** fa in modo che il processo chiamante ignori i segnali <kbd>CTRL</kbd> + <kbd>C</kbd> . Questo attributo viene ereditato dai processi figlio, ma può essere abilitato o disabilitato da qualsiasi processo senza influire sui processi esistenti.
-- Se è in corso il debug di un processo della console e i segnali <kbd>CTRL</kbd> + <kbd>c</kbd> non sono stati disabilitati, il sistema genera un'eccezione di **\_ controllo dbg \_ C** . Questa eccezione viene generata solo per il vantaggio del debugger e un'applicazione non deve mai usare un gestore di eccezioni per gestirla. Se l'eccezione viene gestita dal debugger, un'applicazione non noterà la <kbd>combinazione di tasti CTRL</kbd> + <kbd>C</kbd>, con una sola eccezione: le attese avvisi vengono terminate. Se il debugger passa l'eccezione su non gestito, <kbd>CTRL</kbd> + <kbd>C</kbd> viene passato al processo della console e considerato come un segnale, come descritto in precedenza.
+- La funzione [**SetConsoleMode**](setconsolemode.md) può disabilitare la modalità **ENABLE\_PROCESSED\_INPUT** per il buffer di input di una console, in modo che <kbd>CTRL</kbd>+<kbd>C</kbd> venga segnalato come input di tastiera anziché come segnale.
+- Se si chiama **SetConsoleCtrlHandler** con gli argomenti **NULL** e **TRUE**, il processo chiamante ignora i segnali <kbd>CTRL</kbd>+<kbd>C</kbd>. Questo attributo viene ereditato dai processi figlio, ma può essere abilitato o disabilitato da qualsiasi processo senza influire sui processi esistenti.
+- Se è in corso il debug di un processo della console e i segnali <kbd>CTRL</kbd>+<kbd>C</kbd> segnali non sono stati disabilitati, il sistema genera un'eccezione **DBG\_CONTROL\_C**. Questa eccezione viene generata solo a vantaggio del debugger e un'applicazione non deve mai usare un gestore di eccezioni per gestirla. Se l'eccezione viene gestita dal debugger, un'applicazione non noterà la combinazione <kbd>CTRL</kbd>+<kbd>C</kbd>, con un'eccezione: le attese con avvisi vengono terminate. Se il debugger imposta l'eccezione su non gestita, <kbd>CTRL</kbd>+<kbd>C</kbd> viene passato al processo della console e considerato come un segnale, come indicato in precedenza.
 
-Un processo della console può utilizzare la funzione [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md) per inviare un segnale <kbd>CTRL</kbd> + <kbd>C</kbd> o <kbd>CTRL</kbd> + <kbd>break</kbd> a un gruppo di processi della console.
+Un processo della console può usare la funzione [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md) per inviare un segnale <kbd>CTRL</kbd>+<kbd>C</kbd> o <kbd>CTRL</kbd>+<kbd>INTERR</kbd> a un gruppo di processi della console.
 
-Il sistema genera l'evento di **\_ chiusura \_ CTRL**, l' **\_ \_ evento di disconnessione** CTRL e i segnali **\_ \_ evento di chiusura CTRL** quando l'utente chiude la console, si disconnette o arresta il sistema in modo che il processo abbia la possibilità di eseguire la pulizia prima della terminazione. Le funzioni console, o qualsiasi funzione di runtime del linguaggio C che chiama funzioni console, potrebbero non funzionare in modo affidabile durante l'elaborazione di uno dei tre segnali citati in precedenza. Il motivo è che è possibile che alcune o tutte le routine di pulitura della console interna siano state chiamate prima di eseguire il gestore del segnale di processo.
+Il sistema genera i segnali **CTRL\_CLOSE\_EVENT**, **CTRL\_LOGOFF\_EVENT** e **CTRL\_SHUTDOWN\_EVENT** quando l'utente chiude la console, si disconnette o arresta il sistema, per consentire al processo di eseguire la pulizia prima della terminazione. Le funzioni della console, o qualsiasi funzione di runtime C che chiama funzioni della console, potrebbero non funzionare in modo affidabile durante l'elaborazione di uno dei tre segnali citati in precedenza. Questo perché alcune o tutte le routine di pulitura della console interna potrebbero essere state chiamate prima dell'esecuzione del gestore di segnale del processo.
 
 **Windows 7, Windows 8, Windows 8.1 e Windows 10:**
 
-Se un'applicazione console carica la libreria gdi32.dll o user32.dll, la funzione [**HandlerRoutine**](handlerroutine.md) specificata quando si chiama **SetConsoleCtrlHandler** non viene chiamata per l' **\_ \_ evento di disconnessione CTRL** e per gli eventi di **\_ arresto \_ di CTRL** . Il sistema operativo riconosce i processi che caricano gdi32.dll o user32.dll come applicazioni Windows anziché come applicazioni console. Questo comportamento si verifica anche per le applicazioni console che non chiamano funzioni direttamente in gdi32.dll o user32.dll, ma chiamano funzioni quali le funzioni [Shell](https://msdn.microsoft.com/library/windows/desktop/bb776426) che eseguono chiamate a loro volta in gdi32.dll o user32.dll.
+Se un'applicazione console carica la libreria gdi32.dll o user32.dll, la funzione [**HandlerRoutine**](handlerroutine.md) specificata chiamando **SetConsoleCtrlHandler** non viene chiamata per gli eventi **CTRL\_LOGOFF\_EVENT** e **CTRL\_SHUTDOWN\_EVENT**. Il sistema operativo riconosce i processi che caricano gdi32.dll o user32.dll come applicazioni Windows anziché come applicazioni console. Questo comportamento si verifica anche per le applicazioni console che non chiamano direttamente le funzioni in gdi32.dll o user32.dll, ma chiamano funzioni come le [funzioni Shell](https://msdn.microsoft.com/library/windows/desktop/bb776426) che a loro volta chiamano le funzioni in gdi32.dll o user32.dll.
 
-Per ricevere eventi quando un utente si disconnette o il dispositivo si arresta in questi casi, creare una finestra nascosta nell'applicazione console e quindi gestire i messaggi della finestra [**WM \_ QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) e [**WM \_ ENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376889) che la finestra nascosta riceve. È possibile creare una finestra nascosta chiamando il metodo [**CreateWindowEx**](https://msdn.microsoft.com/library/windows/desktop/ms632680) con il parametro *dwExStyle* impostato su 0.
+Per ricevere eventi quando un utente si disconnette o il dispositivo si arresta in questi casi, creare una finestra nascosta nell'applicazione console e quindi gestire i messaggi [**WM\_QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) e [**WM\_ENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376889) ricevuti dalla finestra nascosta. È possibile creare una finestra nascosta chiamando il metodo [**CreateWindowEx**](https://msdn.microsoft.com/library/windows/desktop/ms632680) con il parametro *dwExStyle* impostato su 0.
 
 ## <a name="examples"></a>Esempi
 
-Per un esempio, vedere [registrazione di una funzione di gestione del controllo](registering-a-control-handler-function.md).
+Un esempio è disponibile in [Registrazione di una funzione gestore di controllo](registering-a-control-handler-function.md).
 
 ## <a name="requirements"></a>Requisiti
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
-| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
+| Intestazione | ConsoleApi.h (tramite WinCon.h, con Windows.h) |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Gestori di controllo della console](console-control-handlers.md)
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658)
 

@@ -1,6 +1,6 @@
 ---
-title: SetConsoleMode (funzione)
-description: Imposta la modalità di input del buffer di input di una console o la modalità di output di un buffer dello schermo della console.
+title: Funzione SetConsoleMode
+description: Imposta la modalità di input di un buffer di input della console o la modalità di output di un buffer dello schermo della console.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
@@ -32,14 +32,14 @@ api_type:
 ms.localizationpriority: high
 ms.openlocfilehash: 2af598f465be6e1a33f5a8f9a2c9abe98d6ed0d2
 ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96420300"
 ---
-# <a name="setconsolemode-function"></a>SetConsoleMode (funzione)
+# <a name="setconsolemode-function"></a>Funzione SetConsoleMode
 
-Imposta la modalità di input del buffer di input di una console o la modalità di output di un buffer dello schermo della console.
+Imposta la modalità di input di un buffer di input della console o la modalità di output di un buffer dello schermo della console.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -52,10 +52,10 @@ BOOL WINAPI SetConsoleMode(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleHandle* \[ in\]  
-Handle per il buffer di input della console o un buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleHandle* \[in\]  
+Handle per un buffer di input della console o per un buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
-*dwMode* \[ in\]  
+*dwMode* \[in\]  
 Modalità di input o output da impostare.
 
 [!INCLUDE [console-mode-flags](./includes/console-mode-flags.md)]
@@ -64,31 +64,31 @@ Modalità di input o output da impostare.
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 [!INCLUDE [console-mode-remarks](./includes/console-mode-remarks.md)]
 
-Per determinare la modalità corrente di un buffer di input della console o di un buffer dello schermo, usare la funzione [**GetConsoleMode**](getconsolemode.md) .
+Per determinare la modalità corrente di un buffer di input della console o di un buffer dello schermo, usare la funzione [**GetConsoleMode**](getconsolemode.md).
 
 ## <a name="examples"></a>Esempi
 
-Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).
+Per un esempio, vedere [Lettura di eventi del buffer di input](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Requisiti
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
-| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
+| Intestazione | ConsoleApi.h (tramite WinCon.h, con Windows.h) |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [Modalità della console](console-modes.md)
 
