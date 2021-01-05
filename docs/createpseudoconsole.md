@@ -19,12 +19,12 @@ api_location:
 - KernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: f10a77781d555a76fdfcea8c8f10ae6bc1f72047
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: b015f224684a53a8bb654f04b1797ac1af794fc3
+ms.sourcegitcommit: f16996b9c7deead9bcfa44954be93a6ba087abcb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038299"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97601478"
 ---
 # <a name="createpseudoconsole-function"></a>CreatePseudoConsole (funzione)
 
@@ -59,7 +59,7 @@ I possibili valori sono i seguenti:
 | Valore | Significato |
 |-|-|
 | **0** | Eseguire una creazione pseudoconsole standard. |
-| **PSEUDOCONSOLE_INHERIT_CURSOR** (DWORD) 1 | La sessione pseudoconsole creata tenterà di ereditare la posizione del cursore della console di paernt. |
+| **PSEUDOCONSOLE_INHERIT_CURSOR** (DWORD) 1 | La sessione pseudoconsole creata tenterà di ereditare la posizione del cursore della console padre. |
 
 *phPC* \[ out\]  
 Puntatore a una posizione che riceverà un handle per il nuovo dispositivo pseudoconsole.
@@ -68,7 +68,7 @@ Puntatore a una posizione che riceverà un handle per il nuovo dispositivo pseud
 
 Tipo: **HRESULT**
 
-Se questo metodo ha esito positivo, restituisce **S_OK** . In caso contrario, restituisce un codice di errore **HRESULT** .
+Se questo metodo ha esito positivo, restituisce **S_OK**. In caso contrario, restituisce un codice di errore **HRESULT** .
 
 ## <a name="remarks"></a>Commenti
 
@@ -84,7 +84,7 @@ L'handle creato da questa funzione deve essere chiuso con [ClosePseudoConsole](c
 
 Se `PSEUDOCONSOLE_INHERIT_CURSOR` si utilizza, l'applicazione chiamante deve essere preparata a rispondere alla richiesta per lo stato del cursore in modo asincrono in un thread in background tramite l'inoltro o l'interpretazione della richiesta di informazioni di cursore che verranno ricevute `hOutput` e in risposta `hInput` . In caso contrario, può causare il blocco dell'applicazione chiamante durante l'esecuzione di un'altra richiesta del sistema pseudoconsole.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Per una procedura dettagliata sull'uso di questa funzione per stabilire una sessione pseudoconsole, vedere [creazione di una sessione pseudoconsole](creating-a-pseudoconsole-session.md).
 
@@ -94,11 +94,11 @@ Per una procedura dettagliata sull'uso di questa funzione per stabilire una sess
 |-|-|
 | Client minimo supportato | Aggiornamento di Windows 10 ottobre 2018 (versione 1809) \[ solo app desktop\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2019\] |
-| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Intestazione | ConsoleApi.h (tramite WinCon.h, con Windows.h) |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Pseudoconsoles](pseudoconsoles.md)
 
