@@ -7,12 +7,12 @@ ms.topic: conceptual
 keywords: console, terminale, terminale virtuale, sequenze di escape, vt, vt100, api della console
 ms.prod: console
 ms.localizationpriority: high
-ms.openlocfilehash: 541300b50521909b22ceaccb595f1945fbfc7e6d
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: HT
+ms.openlocfilehash: 2af1b2e2760df42dc60a991dad1afacf27831ec5
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420180"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357811"
 ---
 # <a name="classic-console-apis-versus-virtual-terminal-sequences"></a>Confronto tra API di console classica e sequenze di terminale virtuale
 
@@ -81,7 +81,7 @@ Il supporto UTF-16 nella console può essere usato senza alcuna configurazione a
 Il supporto UTF-8 nella console può essere usato tramite la variante _A_ delle API della console per gli handle della console, dopo aver impostato la tabella codici su `65001` o `CP_UTF8` con i metodi [**SetConsoleOutputCP**](setconsoleoutputcp.md) e [**SetConsoleCP**](setconsolecp.md), a seconda dei casi. L'impostazione delle tabelle codici in anticipo è necessaria solo se il computer non ha scelto "Use Unicode UTF-8 for worldwide language support" (Usa Unicode UTF-8 per il supporto linguistico internazionale) nelle impostazioni per le applicazioni non Unicode nella sezione Area geografica del pannello di controllo.
 
 >[!NOTE]
-> Al momento, UTF-8 è supportato completamente nel flusso di output standard con i metodi [**WriteConsole**](writeconsole.md) e [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747). Il supporto per il flusso di input varia a seconda della modalità di input e continuerà a migliorare nel tempo. In particolare, le modalità **["cooked"](high-level-console-modes.md)** predefinite nell'input non supportano ancora completamente UTF-8. Lo stato corrente di questa attività è disponibile in [**microsoft/terminal#7777**](https://github.com/microsoft/terminal/issues/7777) su GitHub. La soluzione alternativa consiste nell'usare il formato UTF-16 traducibile algoritmicamente per leggere l'input tramite [**ReadConsoleW**](readconsole.md) o [**ReadConsoleInputW**](readconsoleinput.md) fino a quando non vengono risolti i problemi in attesa.
+> Al momento, UTF-8 è supportato completamente nel flusso di output standard con i metodi [**WriteConsole**](writeconsole.md) e [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile). Il supporto per il flusso di input varia a seconda della modalità di input e continuerà a migliorare nel tempo. In particolare, le modalità **["cooked"](high-level-console-modes.md)** predefinite nell'input non supportano ancora completamente UTF-8. Lo stato corrente di questa attività è disponibile in [**microsoft/terminal#7777**](https://github.com/microsoft/terminal/issues/7777) su GitHub. La soluzione alternativa consiste nell'usare il formato UTF-16 traducibile algoritmicamente per leggere l'input tramite [**ReadConsoleW**](readconsole.md) o [**ReadConsoleInputW**](readconsoleinput.md) fino a quando non vengono risolti i problemi in attesa.
 
 ## <a name="recommendations"></a>Consigli
 
@@ -101,9 +101,9 @@ Per stabilire l'ambiente iniziale, **è ancora necessario un subset limitato di 
 
 - I segnali e la gestione dei segnali continueranno a essere eseguiti con [**SetConsoleCtrlHandler**](setconsolectrlhandler.md), [**HandlerRoutine**](handlerroutine.md) e [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md).
 
-- La comunicazione con gli handle del dispositivo console può essere eseguita con [**WriteConsole**](writeconsole.md) e [**ReadConsole**](readconsole.md). Queste funzioni possono essere usate anche tramite i runtime del linguaggio di programmazione nei formati: - Runtime C (CRT): [I/O di flusso](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) come **printf**, **scanf**, **putc**, **getc** o [altri livelli di funzioni di I/O](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
-        - Libreria standard C++ (STL): [I/O di flusso](https://docs.microsoft.com/cpp/standard-library/iostream) come **cout** e **cin**.
-        - Runtime .NET: [System.Console](https://docs.microsoft.com/dotnet/api/system.console) come **Console.WriteLine**.
+- La comunicazione con gli handle del dispositivo console può essere eseguita con [**WriteConsole**](writeconsole.md) e [**ReadConsole**](readconsole.md). Queste funzioni possono essere usate anche tramite i runtime del linguaggio di programmazione nei formati: - Runtime C (CRT): [I/O di flusso](/cpp/c-runtime-library/stream-i-o) come **printf**, **scanf**, **putc**, **getc** o [altri livelli di funzioni di I/O](/cpp/c-runtime-library/input-and-output).
+        - Libreria standard C++ (STL): [I/O di flusso](/cpp/standard-library/iostream) come **cout** e **cin**.
+        - Runtime .NET: [System.Console](/dotnet/api/system.console) come **Console.WriteLine**.
 
 - Le applicazioni che devono essere a conoscenza delle modifiche alle dimensioni della finestra dovranno comunque usare [**ReadConsoleInput**](readconsoleinput.md) per riceverle interfogliate con gli eventi principali, in quanto la sola funzione **ReadConsole** le eliminerà.
 

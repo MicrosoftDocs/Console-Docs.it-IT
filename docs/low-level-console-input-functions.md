@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 41488614-ca7c-4207-b706-f7776423c7ba
-ms.openlocfilehash: c214a90147fae2fbf876746078ce0301af15b7ad
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: fc2969cb266479a0acdde890f4ad3710ca8d7e42
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038549"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357821"
 ---
 # <a name="low-level-console-input-functions"></a>Funzioni di input della console Low-Level
 
@@ -46,4 +46,4 @@ Di seguito sono riportate le descrizioni delle funzioni di input della console d
 | [**WriteConsoleInput**](writeconsoleinput.md) | Inserisce i record di input nel buffer di input dietro tutti i record in sospeso nel buffer. Il buffer di input aumenta in modo dinamico, se necessario, per mantenere il numero di record scritti. Per usare questa funzione, l'handle del buffer di input specificato deve avere il \_ diritto di accesso in scrittura generico. |
 | [**FlushConsoleInputBuffer**](flushconsoleinputbuffer.md) | Elimina tutti gli eventi non letti nel buffer di input. Per usare questa funzione, l'handle del buffer di input specificato deve avere il \_ diritto di accesso in scrittura generico. |
 
-Un thread del processo di un'applicazione può eseguire un'operazione di attesa per attendere che l'input sia disponibile in un buffer di input. Per avviare un'operazione di attesa, specificare un handle per il buffer di input in una chiamata a una delle [funzioni di attesa](https://msdn.microsoft.com/library/windows/desktop/ms687069). Queste funzioni possono restituire quando viene segnalato lo stato di uno o più oggetti. Lo stato di un handle di input della console diventa segnalato quando sono presenti record non letti nel buffer di input. Lo stato viene reimpostato su non segnalato quando il buffer di input diventa vuoto. Se non è disponibile alcun input, il thread chiamante entra in uno stato di attesa efficiente, consumando pochissimo tempo del processore mentre è in attesa che le condizioni dell'operazione di attesa vengano soddisfatte.
+Un thread del processo di un'applicazione può eseguire un'operazione di attesa per attendere che l'input sia disponibile in un buffer di input. Per avviare un'operazione di attesa, specificare un handle per il buffer di input in una chiamata a una delle [funzioni di attesa](/windows/win32/sync/wait-functions). Queste funzioni possono restituire quando viene segnalato lo stato di uno o più oggetti. Lo stato di un handle di input della console diventa segnalato quando sono presenti record non letti nel buffer di input. Lo stato viene reimpostato su non segnalato quando il buffer di input diventa vuoto. Se non è disponibile alcun input, il thread chiamante entra in uno stato di attesa efficiente, consumando pochissimo tempo del processore mentre è in attesa che le condizioni dell'operazione di attesa vengano soddisfatte.

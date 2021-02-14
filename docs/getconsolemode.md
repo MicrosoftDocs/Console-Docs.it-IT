@@ -29,12 +29,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 54667d92509687111cb562f517d488c8adbc2181
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 3f98797b0662dadcf696f76ffda5f42e759bf930
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038874"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357283"
 ---
 # <a name="getconsolemode-function"></a>GetConsoleMode (funzione)
 
@@ -51,8 +51,8 @@ BOOL WINAPI GetConsoleMode(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleHandle* \[ in\]  
-Handle per il buffer di input della console o il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleHandle* \[in\]  
+Handle per il buffer di input della console o il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *lpMode* \[ out\]  
 Puntatore a una variabile che riceve la modalità corrente del buffer specificato.
@@ -63,42 +63,42 @@ Puntatore a una variabile che riceve la modalità corrente del buffer specificat
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 [!INCLUDE [console-mode-remarks](./includes/console-mode-remarks.md)]
 
 Per modificare le modalità I/O di una console, chiamare la funzione [**SetConsoleMode**](setconsolemode.md) .
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
-Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).
+Un esempio è disponibile in [Lettura di eventi del buffer di input](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Requisiti
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
-| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
+| Intestazione | ConsoleApi.h (tramite WinCon.h, con Windows.h) |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
-[Modalità console](console-modes.md)
+[Modalità della console](console-modes.md)
 
 [**ReadConsole**](readconsole.md)
 
 [**ReadConsoleInput**](readconsoleinput.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetConsoleMode**](setconsolemode.md)
 
 [**WriteConsole**](writeconsole.md)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

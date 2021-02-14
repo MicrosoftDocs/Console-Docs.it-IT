@@ -14,12 +14,12 @@ MSHAttr:
 - PreferredLib:/library/windows/desktop
 ms.assetid: 84ec2559-cade-447e-8594-5b824d3d3e81
 ms.localizationpriority: high
-ms.openlocfilehash: 09de42ced585e4a644fbbcc04211d5cb6037c2af
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: HT
+ms.openlocfilehash: bf7993874c4f7c7031dbbcc9ce53a0610157eb75
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420280"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357921"
 ---
 # <a name="creation-of-a-console"></a>Creazione di una console
 
@@ -27,16 +27,16 @@ Il sistema crea una nuova console quando avvia un *processo della console*, un p
 
 Un processo può creare una console usando uno dei metodi seguenti:
 
-- Un processo dell'interfaccia utente grafica o della console può usare la funzione [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **CREATE\_NEW\_CONSOLE** per creare un processo della console con una nuova console. Per impostazione predefinita, un processo della console eredita la console padre e non vi è alcuna garanzia che l'input venga ricevuto dal processo per cui è stato progettato.
-- Un processo dell'interfaccia utente grafica o della console che non è attualmente collegato a una console può usare la funzione [**AllocConsole**](allocconsole.md) per creare una nuova console. Quando vengono creati, i processi dell'interfaccia utente grafica non sono collegati a una console. I processi della console non sono collegati a una console se vengono creati usando [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **DETACHED\_PROCESS**.
+- Un processo dell'interfaccia utente grafica o della console può usare la funzione [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) con **CREATE\_NEW\_CONSOLE** per creare un processo della console con una nuova console. Per impostazione predefinita, un processo della console eredita la console padre e non vi è alcuna garanzia che l'input venga ricevuto dal processo per cui è stato progettato.
+- Un processo dell'interfaccia utente grafica o della console che non è attualmente collegato a una console può usare la funzione [**AllocConsole**](allocconsole.md) per creare una nuova console. Quando vengono creati, i processi dell'interfaccia utente grafica non sono collegati a una console. I processi della console non sono collegati a una console se vengono creati usando [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) con **DETACHED\_PROCESS**.
 
 In genere, un processo usa [**AllocConsole**](allocconsole.md) per creare una console quando si verifica un errore che richiede l'interazione con l'utente. Un processo dell'interfaccia utente grafica, ad esempio, può creare una console quando si verifica un errore che impedisce di usare l'interfaccia grafica normale oppure un processo della console, che in genere non interagisce con l'utente, può creare una console per visualizzare un errore.
 
-Un processo può creare una console anche specificando il contrassegno **CREATE\_NEW\_CONSOLE** in una chiamata a [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425). Questo metodo crea una nuova console accessibile al processo figlio, ma non al processo padre. Console separate consentono ai processi padre e figlio di interagire con l'utente senza conflitti. Se questo contrassegno non viene specificato al momento della creazione di un processo della console, entrambi i processi vengono collegati alla stessa console e non è garantito che il processo corretto riceva l'input previsto. Le applicazioni possono impedire che si generi confusione creando processi figlio che non ereditano gli handle del buffer di input o abilitando solo un processo figlio alla volta per ereditare un handle del buffer di input, impedendo al processo padre di leggere l'input della console fino al completamento dell'elemento figlio.
+Un processo può creare una console anche specificando il contrassegno **CREATE\_NEW\_CONSOLE** in una chiamata a [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa). Questo metodo crea una nuova console accessibile al processo figlio, ma non al processo padre. Console separate consentono ai processi padre e figlio di interagire con l'utente senza conflitti. Se questo contrassegno non viene specificato al momento della creazione di un processo della console, entrambi i processi vengono collegati alla stessa console e non è garantito che il processo corretto riceva l'input previsto. Le applicazioni possono impedire che si generi confusione creando processi figlio che non ereditano gli handle del buffer di input o abilitando solo un processo figlio alla volta per ereditare un handle del buffer di input, impedendo al processo padre di leggere l'input della console fino al completamento dell'elemento figlio.
 
 La creazione di una nuova console comporta la creazione di una nuova finestra della console, nonché buffer dello schermo di I/O separati. Il processo associato alla nuova console usa la funzione [**GetStdHandle**](getstdhandle.md) per ottenere gli handle dei buffer di input e dello schermo della nuova console. Questi handle consentono al processo di accedere alla console.
 
-Quando un processo usa [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425), può specificare una struttura [**STARTUPINFO**](https://msdn.microsoft.com/library/windows/desktop/ms686331), i cui membri controllano le caratteristiche della prima nuova console (se presente) creata per il processo figlio. La struttura **STARTUPINFO**, specificata nella chiamata a **CreateProcess**, influisce su una console creata se è stato specificato il contrassegno **CREATE\_NEW\_CONSOLE**. Influisce, inoltre, su una console creata se il processo figlio usa successivamente [**AllocConsole**](allocconsole.md). È possibile specificare le caratteristiche della console seguenti:
+Quando un processo usa [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa), può specificare una struttura [**STARTUPINFO**](/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa), i cui membri controllano le caratteristiche della prima nuova console (se presente) creata per il processo figlio. La struttura **STARTUPINFO**, specificata nella chiamata a **CreateProcess**, influisce su una console creata se è stato specificato il contrassegno **CREATE\_NEW\_CONSOLE**. Influisce, inoltre, su una console creata se il processo figlio usa successivamente [**AllocConsole**](allocconsole.md). È possibile specificare le caratteristiche della console seguenti:
 
 - Dimensioni della nuova finestra della console, in celle di tipo carattere
 - Posizione della nuova finestra della console, in coordinate pixel dello schermo
@@ -44,9 +44,9 @@ Quando un processo usa [**CreateProcess**](https://msdn.microsoft.com/library/wi
 - Attributi del colore di sfondo e di testo del buffer dello schermo della nuova console
 - Nome visualizzato per la barra del titolo della finestra della nuova console
 
-Il sistema usa valori predefiniti se non vengono specificati i valori di [**STARTUPINFO**](https://msdn.microsoft.com/library/windows/desktop/ms686331). Un processo figlio può usare la funzione [**GetStartupInfo**](https://msdn.microsoft.com/library/windows/desktop/ms683230) per determinare i valori nella relativa struttura **STARTUPINFO**.
+Il sistema usa valori predefiniti se non vengono specificati i valori di [**STARTUPINFO**](/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa). Un processo figlio può usare la funzione [**GetStartupInfo**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-getstartupinfow) per determinare i valori nella relativa struttura **STARTUPINFO**.
 
-Un processo non può modificare la posizione della finestra della console sullo schermo, ma sono disponibili le funzioni della console seguenti per impostare o recuperare le altre proprietà specificate nella struttura [**STARTUPINFO**](https://msdn.microsoft.com/library/windows/desktop/ms686331).
+Un processo non può modificare la posizione della finestra della console sullo schermo, ma sono disponibili le funzioni della console seguenti per impostare o recuperare le altre proprietà specificate nella struttura [**STARTUPINFO**](/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
 
 | Funzione | Descrizione |
 |-|-|

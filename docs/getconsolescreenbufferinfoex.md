@@ -27,12 +27,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 5f4b0f11821b7d5b61c61d4ab8f9774c4a69eec0
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 482aaefbeed22475f6f9301d13f480ba5a416fa9
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037939"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358901"
 ---
 # <a name="getconsolescreenbufferinfoex-function"></a>GetConsoleScreenBufferInfoEx (funzione)
 
@@ -49,8 +49,8 @@ BOOL WINAPI GetConsoleScreenBufferInfoEx(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *lpConsoleScreenBufferInfoEx* \[ out\]  
 Struttura [**\_ INFOEX del \_ buffer \_ dello schermo della console**](console-screen-buffer-infoex.md) che riceve le informazioni sul buffer dello schermo della console richieste.
@@ -59,9 +59,9 @@ Struttura [**\_ INFOEX del \_ buffer \_ dello schermo della console**](console-s
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Il rettangolo restituito nel membro **srWindow** della struttura [**INFOEX del \_ \_ buffer dello \_ schermo della console**](console-screen-buffer-infoex.md) può essere modificato e quindi passato alla funzione [**SetConsoleWindowInfo**](setconsolewindowinfo.md) per scorrere il buffer dello schermo della console nella finestra, per modificare le dimensioni della finestra o entrambi.
 
@@ -77,12 +77,12 @@ Tutte le coordinate restituite nella struttura [**\_ \_ \_ INFOEX buffer dello s
 | Client minimo supportato | \[Solo app desktop di Windows Vista\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2008\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**\_INFOEX buffer dello schermo della console \_ \_**](console-screen-buffer-infoex.md)
 

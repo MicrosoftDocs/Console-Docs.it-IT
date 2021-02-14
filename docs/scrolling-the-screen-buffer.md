@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: c8404e78-9807-4bed-bc12-25377fa96151
-ms.openlocfilehash: 1582b6232461469e10048ed8711c766a6821264f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 4c55a40f43827deeacfd1302d507732ec9bcc248
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037599"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358661"
 ---
 # <a name="scrolling-the-screen-buffer"></a>Scorrimento del buffer dello schermo
 
@@ -32,14 +32,14 @@ Il rettangolo della finestra può essere modificato in modo da visualizzare dive
 
   ![Panoramica della finestra buffer dello schermo intorno a un buffer di grandi dimensioni](images/cscon-01.png)
 
-- Quando si usa la funzione [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) per scrivere in un buffer dello schermo con wrapping alla modalità di output End-of-line (EOL) abilitata, il rettangolo della finestra viene spostato automaticamente, quindi il cursore viene sempre visualizzato.
+- Quando si usa la funzione [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) per scrivere in un buffer dello schermo con wrapping alla modalità di output End-of-line (EOL) abilitata, il rettangolo della finestra viene spostato automaticamente, quindi il cursore viene sempre visualizzato.
 - Quando la funzione [**SetConsoleCursorPosition**](setconsolecursorposition.md) specifica una nuova posizione del cursore all'esterno dei limiti del rettangolo della finestra corrente, il rettangolo della finestra viene spostato automaticamente per visualizzare il cursore.
 - Quando l'utente modifica la dimensione della finestra della console o usa le barre di scorrimento della finestra, il rettangolo della finestra del buffer dello schermo attivo può cambiare. Questa modifica non viene segnalata come un evento di ridimensionamento della finestra nel buffer di input.
 
 In ognuna di queste situazioni, il rettangolo della finestra si sposta per visualizzare una parte diversa del buffer dello schermo della console, ma il contenuto del buffer dello schermo della console rimane nella stessa posizione. Le situazioni seguenti possono causare lo spostamento del contenuto del buffer dello schermo della console:
 
 - Quando viene chiamata la funzione [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) , viene copiato un blocco rettangolare da una parte di un buffer dello schermo a un altro.
-- Quando si usa [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) per scrivere in un buffer dello schermo con wrapping in modalità di output EOL abilitata, il contenuto del buffer dello schermo della console scorre automaticamente quando viene rilevata la fine del buffer dello schermo della console. Questo scorrimento elimina la riga superiore del buffer dello schermo della console.
+- Quando si usa [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) per scrivere in un buffer dello schermo con wrapping in modalità di output EOL abilitata, il contenuto del buffer dello schermo della console scorre automaticamente quando viene rilevata la fine del buffer dello schermo della console. Questo scorrimento elimina la riga superiore del buffer dello schermo della console.
 
 [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) specifica il rettangolo del buffer dello schermo della console spostato e le nuove coordinate in alto a sinistra in cui viene copiato il rettangolo. Questa funzione può scorrere una parte o l'intero contenuto del buffer dello schermo della console.
 
@@ -47,4 +47,4 @@ Nella figura viene mostrata un'operazione [**ScrollConsoleScreenBuffer**](scroll
 
 ![finestra buffer dello scorrimento della finestra del contenuto fuori dalla parte superiore per eliminare](images/cscon-02.png)
 
-Gli effetti di [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) possono essere limitati specificando un rettangolo di ritaglio facoltativo, in modo che il contenuto del buffer dello schermo della console all'esterno del rettangolo di ritaglio sia invariato. L'effetto del ritaglio consiste nel creare una finestra secondaria (rettangolo di ritaglio) il cui contenuto viene spostato senza influire sul resto del buffer dello schermo della console. Per un esempio che usa **ScrollConsoleScreenBuffer** , vedere [scorrimento del contenuto di un buffer dello schermo](scrolling-a-screen-buffer-s-contents.md).
+Gli effetti di [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) possono essere limitati specificando un rettangolo di ritaglio facoltativo, in modo che il contenuto del buffer dello schermo della console all'esterno del rettangolo di ritaglio sia invariato. L'effetto del ritaglio consiste nel creare una finestra secondaria (rettangolo di ritaglio) il cui contenuto viene spostato senza influire sul resto del buffer dello schermo della console. Per un esempio che usa **ScrollConsoleScreenBuffer**, vedere [scorrimento del contenuto di un buffer dello schermo](scrolling-a-screen-buffer-s-contents.md).

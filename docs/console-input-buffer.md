@@ -13,18 +13,18 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 6e536658-8a27-478e-82ee-d1e11f351301
-ms.openlocfilehash: 9b210e07fd2531b2f58130f4b96ad31a374923f4
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: d5d3604d3d4f2738af01ae1bc051c10af6249c62
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039209"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358111"
 ---
 # <a name="console-input-buffer"></a>Buffer di input della console
 
 Ogni console dispone di un buffer di input che contiene una coda di record di eventi di input. Quando la finestra di una console dispone dello stato attivo della tastiera, una console formatta ogni evento di input (ad esempio, una singola sequenza di tasti, un movimento del mouse o un clic del pulsante del mouse) come record di input che inserisce nel buffer di input della console.
 
-Le applicazioni possono accedere indirettamente al buffer di input di una console usando le [funzioni di i/O della console di alto livello](high-level-console-input-and-output-functions.md)o direttamente usando le [funzioni di input della console di basso livello](low-level-console-input-functions.md). Le funzioni di input di alto livello filtrano ed elaborano i dati nel buffer di input, restituendo solo un flusso di caratteri di input. Le funzioni di input di basso livello consentono alle applicazioni di leggere i record di input direttamente dal buffer di input di una console o di inserire record di input nel buffer di input. Per aprire un handle per il buffer di input di una console, specificare il valore **CONIN $** in una chiamata alla funzione [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) .
+Le applicazioni possono accedere indirettamente al buffer di input di una console usando le [funzioni di i/O della console di alto livello](high-level-console-input-and-output-functions.md)o direttamente usando le [funzioni di input della console di basso livello](low-level-console-input-functions.md). Le funzioni di input di alto livello filtrano ed elaborano i dati nel buffer di input, restituendo solo un flusso di caratteri di input. Le funzioni di input di basso livello consentono alle applicazioni di leggere i record di input direttamente dal buffer di input di una console o di inserire record di input nel buffer di input. Per aprire un handle per il buffer di input di una console, specificare il valore **CONIN $** in una chiamata alla funzione [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) .
 
 Un record di input è una struttura che contiene informazioni sul tipo di evento che si è verificato (tastiera, mouse, ridimensionamento della finestra, stato attivo o evento di menu), oltre a dettagli specifici sull'evento. Il membro **eventType** in una struttura di [**\_ record di input**](input-record-str.md) indica quale tipo di evento è contenuto nel record.
 

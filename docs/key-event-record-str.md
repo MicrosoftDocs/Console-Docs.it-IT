@@ -28,12 +28,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 0a2ba8ecf8b07a83db54642c2399bb93d99b7aa2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: bcc58b90e71b848e3b6e4b0bf5ba162323830529
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039529"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357801"
 ---
 # <a name="key_event_record-structure"></a>Struttura del record dell' \_ evento chiave \_
 
@@ -58,13 +58,13 @@ typedef struct _KEY_EVENT_RECORD {
 ## <a name="members"></a>Members
 
 **bKeyDown**  
-Se il tasto è premuto, questo membro è **true** . In caso contrario, questo membro è **false** (la chiave viene rilasciata).
+Se il tasto è premuto, questo membro è **true**. In caso contrario, questo membro è **false** (la chiave viene rilasciata).
 
 **wRepeatCount**  
 Il numero di ripetizioni, che indica che una chiave viene mantenuta inattiva. Ad esempio, quando un tasto è disattivato, è possibile che si ottengano cinque eventi con questo membro uguale a 1, un evento con questo membro uguale a 5 o più eventi con questo membro maggiore o uguale a 1.
 
 **wVirtualKeyCode**  
-[Codice a chiave virtuale](https://msdn.microsoft.com/library/windows/desktop/dd375731(v=vs.85).aspx) che identifica la chiave specificata in modo indipendente dal dispositivo.
+[Codice a chiave virtuale](/windows/win32/inputdev/virtual-key-codes) che identifica la chiave specificata in modo indipendente dal dispositivo.
 
 **wVirtualScanCode**  
 Codice di analisi virtuale della chiave specificata che rappresenta il valore dipendente dal dispositivo generato dall'hardware della tastiera.
@@ -97,18 +97,18 @@ Stato delle chiavi del controllo. Il membro può essere costituito da uno o più
 
 Le chiavi avanzate per le tastiere IBM® 101 e 102-Key sono i tasti INS, CANC, HOME, END, PGSU, PGGIÙ e Direction nei cluster a sinistra del tastierino; e la divisione (/) e immettere le chiavi nella tastiera.
 
-Gli eventi di input da tastiera vengono generati quando viene premuto o rilasciato un tasto qualsiasi, incluse le chiavi del controllo. Tuttavia, quando il tasto ALT viene premuto e rilasciato senza essere combinato con un altro carattere, ha un significato speciale per il sistema e non viene passato all'applicazione. Inoltre, la combinazione di tasti CTRL + C non viene passata se l'handle di input è in modalità elaborata ( **Abilita \_ \_ input elaborato** ).
+Gli eventi di input da tastiera vengono generati quando viene premuto o rilasciato un tasto qualsiasi, incluse le chiavi del controllo. Tuttavia, quando il tasto ALT viene premuto e rilasciato senza essere combinato con un altro carattere, ha un significato speciale per il sistema e non viene passato all'applicazione. Inoltre, la combinazione di tasti CTRL + C non viene passata se l'handle di input è in modalità elaborata (**Abilita \_ \_ input elaborato**).
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
-Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).
+Un esempio è disponibile in [Lettura di eventi del buffer di input](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Requisiti
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | WinConTypes. h (tramite WinCon. h, Includi Windows. h) |
 
 ## <a name="see-also"></a>Vedi anche

@@ -28,18 +28,18 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 03925af2668774a36de33bfe6ea5fcdc1b475d5b
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: b08f4b0b628f4d20029b81873b4fc25077a11029
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039319"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358561"
 ---
 # <a name="setconsoletextattribute-function"></a>SetConsoleTextAttribute (funzione)
 
 [!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-Imposta gli attributi dei caratteri scritti nel buffer dello schermo della console tramite la funzione [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o [**WriteConsole**](writeconsole.md) o con l'eco della funzione [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) o [**ReadConsole**](readconsole.md) . Questa funzione influiscono sul testo scritto dopo la chiamata di funzione.
+Imposta gli attributi dei caratteri scritti nel buffer dello schermo della console tramite la funzione [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) o [**WriteConsole**](writeconsole.md) o con l'eco della funzione [**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile) o [**ReadConsole**](readconsole.md) . Questa funzione influiscono sul testo scritto dopo la chiamata di funzione.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -52,8 +52,8 @@ BOOL WINAPI SetConsoleTextAttribute(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *wAttributes* \[ in\]  
 [Attributi carattere](console-screen-buffers.md#character-attributes).
@@ -62,9 +62,9 @@ Handle per il buffer dello schermo della console. L'handle deve avere il diritto
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Per determinare gli attributi di colore correnti di un buffer dello schermo, chiamare la funzione [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) .
 
@@ -79,15 +79,15 @@ Per un esempio, vedere [uso delle funzioni di input e output di High-Level](usin
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [Buffer dello schermo della console](console-screen-buffers.md)
 
@@ -95,8 +95,8 @@ Per un esempio, vedere [uso delle funzioni di input e output di High-Level](usin
 
 [**ReadConsole**](readconsole.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**WriteConsole**](writeconsole.md)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

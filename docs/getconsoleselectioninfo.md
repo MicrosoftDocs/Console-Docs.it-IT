@@ -25,12 +25,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 2f1052940b468455121cc363317c2b7cfa8246b3
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: e10bc2f2c82091311a2c050498748d4b43b1cd80
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038849"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358931"
 ---
 # <a name="getconsoleselectioninfo-function"></a>GetConsoleSelectionInfo (funzione)
 
@@ -55,11 +55,11 @@ Puntatore a una struttura [**di \_ \_ informazioni di selezione della console**]
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
-Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0500 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0500 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
@@ -70,12 +70,12 @@ Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ Wi
 | Client minimo supportato | \[Solo app desktop Windows XP\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2003\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [Selezione nella console](console-selection.md)
 

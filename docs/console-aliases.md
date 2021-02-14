@@ -12,12 +12,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 8169708b-83da-47ef-94be-eca3ca7d0a5b
-ms.openlocfilehash: b31ae10faf2c8500b0100d1a4cbc126014bf8790
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 10ee932ba8c09b8e28092d4289b7da64da749b76
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037279"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357831"
 ---
 # <a name="console-aliases"></a>Alias di console
 
@@ -25,7 +25,7 @@ ms.locfileid: "93037279"
 
 Gli alias di console vengono usati per eseguire il mapping di stringhe di origine alle stringhe di destinazione. Ad esempio, è possibile definire un alias console che esegue il mapping di "test" a "CD an \\ \_ \_ Long \_ path \\ test". Quando si digita "test" nella riga di comando, il sottosistema della console espande l'alias ed esegue il comando CD specificato.
 
-Per definire un alias di console, usare [**Doskey.exe**](https://docs.microsoft.com/windows-server/administration/windows-commands/doskey) per creare una macro oppure usare la funzione [**AddConsoleAlias**](addconsolealias.md) . Nell'esempio seguente viene usato `Doskey.exe`:
+Per definire un alias di console, usare [**Doskey.exe**](/windows-server/administration/windows-commands/doskey) per creare una macro oppure usare la funzione [**AddConsoleAlias**](addconsolealias.md) . Nell'esempio seguente viene usato `Doskey.exe`:
 
 **test DOSKEY = CD \\** **\\ test** <em>di \_ \_ \_ percorso molto lungo</em>
 
@@ -37,7 +37,7 @@ AddConsoleAlias( TEXT("test"),
                  TEXT("cmd.exe"));
 ```
 
-Per aggiungere parametri a una macro alias della console usando `Doskey.exe` , usare i parametri batch `$1` tramite `$9` . Per ulteriori informazioni sui codici speciali che possono essere utilizzati nelle definizioni delle macro DOSKEY, vedere la guida della riga di comando per `Doskey.exe` o [DOSKEY](https://go.microsoft.com/fwlink/p/?linkid=196265) in TechNet.
+Per aggiungere parametri a una macro alias della console usando `Doskey.exe` , usare i parametri batch `$1` tramite `$9` . Per ulteriori informazioni sui codici speciali che possono essere utilizzati nelle definizioni delle macro DOSKEY, vedere la guida della riga di comando per `Doskey.exe` o [DOSKEY](/previous-versions/windows/it-pro/windows-xp/bb490894(v=technet.10)) in TechNet.
 
 Tutte le istanze di un file eseguibile in esecuzione nella stessa finestra della console condividono qualsiasi alias della console definito. Più istanze dello stesso file eseguibile in esecuzione in finestre della console diverse non condividono gli alias della console. Diversi file eseguibili in esecuzione nella stessa finestra della console non condividono gli alias della console.
 

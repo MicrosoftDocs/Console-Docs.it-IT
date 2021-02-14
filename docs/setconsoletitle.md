@@ -44,12 +44,12 @@ api_location:
 - API-MS-Win-Core-Kernel32-Legacy-L1-1-5.dll
 api_type:
 - DllExport
-ms.openlocfilehash: fa4f79925af870f3d345f384dab52ff4b98c182c
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 5955bba0c7b317dbcdbc9593b60bfb3092376dc1
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037035"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358541"
 ---
 # <a name="setconsoletitle-function"></a>SetConsoleTitle (funzione)
 
@@ -74,9 +74,9 @@ Stringa da visualizzare nella barra del titolo della finestra della console. Le 
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Al termine del processo, il sistema ripristina il titolo originale della console.
 
@@ -127,16 +127,16 @@ int main( void )
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **SetConsoleTitleW** (Unicode) e **SetConsoleTitleA** (ANSI) |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**GetConsoleOriginalTitle**](getconsoleoriginaltitle.md)
 

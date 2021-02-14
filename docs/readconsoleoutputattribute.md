@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: f64e39b7b68e24e6c2aa7e9704c285bbbbc234f0
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: bf140d9f6721196caa5f62a064ed434554067d62
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039509"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358701"
 ---
 # <a name="readconsoleoutputattribute-function"></a>ReadConsoleOutputAttribute (funzione)
 
@@ -55,8 +55,8 @@ BOOL WINAPI ReadConsoleOutputAttribute(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *lpAttribute* \[ out\]  
 Puntatore a un buffer che riceve gli attributi utilizzati dal buffer dello schermo della console.
@@ -76,9 +76,9 @@ Puntatore a una variabile che riceve il numero di attributi effettivamente letti
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Se il numero di attributi da leggere da si estende oltre la fine della riga del buffer dello schermo specificata, gli attributi vengono letti dalla riga successiva. Se il numero di attributi da leggere da si estende oltre la fine del buffer dello schermo della console, vengono letti gli attributi fino alla fine del buffer dello schermo della console.
 
@@ -88,15 +88,15 @@ Se il numero di attributi da leggere da si estende oltre la fine della riga del 
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**COORD**](coord-str.md)
 

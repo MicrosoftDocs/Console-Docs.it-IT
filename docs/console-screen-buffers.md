@@ -14,25 +14,25 @@ MSHAttr:
 - PreferredLib:/library/windows/desktop
 ms.assetid: f94995fc-5f5f-4fcd-969d-7e10020634c2
 ms.localizationpriority: high
-ms.openlocfilehash: 4c5740be3b60d54f9e7b586b41e962a4102222a0
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: HT
+ms.openlocfilehash: 7d617b48676c0e4272d11dea3c1bd990f4334d11
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420200"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358090"
 ---
 # <a name="console-screen-buffers"></a>Buffer dello schermo della console
 
 Un *buffer dello schermo* è una matrice bidimensionale di dati di tipo carattere e colore per l'output in una finestra della console. Una console può avere più buffer dello schermo. Il *buffer dello schermo attivo* è quello visualizzato sullo schermo.
 
-Il sistema crea un buffer dello schermo ogni volta che viene creata una nuova console. Per aprire un handle per un buffer dello schermo attivo della console, specificare il valore **CONOUT$** in una chiamata alla funzione [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858). Per creare buffer dello schermo aggiuntivi per la relativa console, un processo può usare la funzione [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md). Un nuovo buffer dello schermo non è attivo fino a quando non viene specificato il relativo handle in una chiamata alla funzione [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md). È tuttavia possibile accedere ai buffer dello schermo per la lettura e la scrittura se sono attivi o inattivi.
+Il sistema crea un buffer dello schermo ogni volta che viene creata una nuova console. Per aprire un handle per un buffer dello schermo attivo della console, specificare il valore **CONOUT$** in una chiamata alla funzione [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea). Per creare buffer dello schermo aggiuntivi per la relativa console, un processo può usare la funzione [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md). Un nuovo buffer dello schermo non è attivo fino a quando non viene specificato il relativo handle in una chiamata alla funzione [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md). È tuttavia possibile accedere ai buffer dello schermo per la lettura e la scrittura se sono attivi o inattivi.
 
 Ogni buffer dello schermo presenta una matrice bidimensionale di record di informazioni sui caratteri. I dati per ogni carattere vengono archiviati in una struttura [**CHAR\_INFO**](char-info-str.md) che specifica il carattere Unicode o ANSI e i colori di primo piano e di sfondo in cui viene visualizzato tale carattere.
 
 Per ogni buffer dello schermo, è possibile impostare una serie di proprietà associate a un buffer dello schermo in modo indipendente. Ciò significa che la modifica del buffer dello schermo attivo può avere un effetto significativo sull'aspetto della finestra della console. Le proprietà associate a un buffer dello schermo includono:
 
 - Dimensioni del buffer dello schermo, in righe e colonne di tipo carattere.
-- Attributi di testo (colori di primo piano e di sfondo per la visualizzazione di testo che deve essere scritto dalla funzione [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o [**WriteConsole**](writeconsole.md)).
+- Attributi di testo (colori di primo piano e di sfondo per la visualizzazione di testo che deve essere scritto dalla funzione [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) o [**WriteConsole**](writeconsole.md)).
 - Dimensioni e posizione della finestra (area rettangolare del buffer dello schermo della console visualizzata nella finestra della console).
 - Posizione, aspetto e visibilità del cursore.
 - Modalità di output (**ENABLE\_PROCESSED\_OUTPUT** e **ENABLE\_WRAP\_AT\_EOL\_OUTPUT**). Per altre informazioni sulle modalità di output della console, vedere [Modalità della console di alto livello](high-level-console-modes.md).
@@ -77,7 +77,7 @@ Gli attributi di tipo carattere possono essere divisi in due classi: colore e DB
 | **COMMON\_LVB\_REVERSE\_VIDEO** | Attributi di sfondo e primo piano inversi. |
 | **COMMON\_LVB\_UNDERSCORE** | Sottolineatura. |
 
-Gli attributi di primo piano specificano il colore del testo. Gli attributi di sfondo specificano il colore usato per riempire lo sfondo della cella. Gli altri attributi vengono usati con [DBCS](https://msdn.microsoft.com/library/windows/desktop/dd317794) (Double Byte Character Set).
+Gli attributi di primo piano specificano il colore del testo. Gli attributi di sfondo specificano il colore usato per riempire lo sfondo della cella. Gli altri attributi vengono usati con [DBCS](/windows/win32/intl/double-byte-character-sets) (Double Byte Character Set).
 
 Un'applicazione può combinare le costanti di primo piano e di sfondo per ottenere colori diversi. Ad esempio, la combinazione seguente restituisce un testo in colore ciano acceso su uno sfondo blu.
 

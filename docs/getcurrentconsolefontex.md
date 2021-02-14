@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e499cdb51a5ca71948dd40ebd3d4d151f2d71a8a
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: e7932d286723886f671be051294fcffb23155bf6
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038729"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358881"
 ---
 # <a name="getcurrentconsolefontex-function"></a>GetCurrentConsoleFontEx (funzione)
 
@@ -49,11 +49,11 @@ BOOL WINAPI GetCurrentConsoleFontEx(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *bMaximumWindow* \[ in\]  
-Se questo parametro è **true** , vengono recuperate le informazioni relative al tipo di carattere per la dimensione massima della finestra. Se questo parametro è **false** , vengono recuperate le informazioni relative al tipo di carattere per le dimensioni correnti della finestra.
+Se questo parametro è **true**, vengono recuperate le informazioni relative al tipo di carattere per la dimensione massima della finestra. Se questo parametro è **false**, vengono recuperate le informazioni relative al tipo di carattere per le dimensioni correnti della finestra.
 
 *lpConsoleCurrentFontEx* \[ out\]  
 Puntatore a una struttura [**\_ \_ INFOEX del tipo di carattere della console**](console-font-infoex.md) che riceve le informazioni sul tipo di carattere richieste.
@@ -62,7 +62,7 @@ Puntatore a una struttura [**\_ \_ INFOEX del tipo di carattere della console**]
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 [!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
@@ -73,11 +73,11 @@ Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere inf
 | Client minimo supportato | \[Solo app desktop di Windows Vista\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2008\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**\_INFOEX carattere \_ console**](console-font-infoex.md)

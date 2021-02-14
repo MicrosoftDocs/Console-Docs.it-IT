@@ -29,12 +29,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 75570acba7d8572d1bd3f132ac379598d82ec73f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: fd581c1f11f457054257e1e36e55b726f48b34fb
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038019"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358461"
 ---
 # <a name="getconsolecp-function"></a>GetConsoleCP (funzione)
 
@@ -52,13 +52,13 @@ Questa funzione non ha parametri.
 
 ## <a name="return-value"></a>Valore restituito
 
-Il valore restituito è un codice che identifica la tabella codici. Per un elenco di identificatori, vedere [identificatori della tabella codici](https://msdn.microsoft.com/library/windows/desktop/dd317756).
+Il valore restituito è un codice che identifica la tabella codici. Per un elenco di identificatori, vedere [identificatori della tabella codici](/windows/win32/intl/code-page-identifiers).
 
-Se il valore restituito è zero, la funzione ha avuto esito negativo. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se il valore restituito è zero, la funzione ha avuto esito negativo. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
-Una tabella codici esegue il mapping di 256 codici carattere a singoli caratteri. Diverse tabelle codici contengono caratteri speciali differenti, in genere personalizzati per un linguaggio o per un gruppo di linguaggi. Per recuperare altre informazioni su una tabella codici, incluso il relativo nome, vedere la funzione [**GetCPInfoEx**](https://msdn.microsoft.com/library/windows/desktop/dd318081) .
+Una tabella codici esegue il mapping di 256 codici carattere a singoli caratteri. Diverse tabelle codici contengono caratteri speciali differenti, in genere personalizzati per un linguaggio o per un gruppo di linguaggi. Per recuperare altre informazioni su una tabella codici, incluso il relativo nome, vedere la funzione [**GetCPInfoEx**](/windows/win32/api/winnls/nf-winnls-getcpinfoexa) .
 
 Per impostare la tabella codici di input di una console, usare la funzione [**SetConsoleCP**](setconsolecp.md) . Per impostare ed eseguire una query sulla tabella codici di output di una console, usare le funzioni [**SetConsoleOutputCP**](setconsoleoutputcp.md) e [**GetConsoleOutputCP**](getconsoleoutputcp.md) .
 
@@ -66,17 +66,17 @@ Per impostare la tabella codici di input di una console, usare la funzione [**Se
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
-| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
+| Intestazione | ConsoleApi.h (tramite WinCon.h, con Windows.h) |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Tabelle codici della console](console-code-pages.md)
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**GetConsoleOutputCP**](getconsoleoutputcp.md)
 

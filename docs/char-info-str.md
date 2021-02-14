@@ -28,14 +28,14 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: b07938d6ac58744533711c91a04b1a0188f7daf6
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a16fb23d148f75480437211204a0fd7c1f161bfe
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037379"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357851"
 ---
-# <a name="char_info-structure"></a>\_Struttura info char
+# `CHAR\_INFO structure`
 
 [!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
@@ -70,18 +70,18 @@ Attributi carattere. Questo membro può essere zero o una qualsiasi combinazione
 | Valore | Significato |
 |-|-|
 | **FOREGROUND_BLUE**`0x0001` | Il colore del testo contiene il blu. |
-| **FOREGROUND_GREEN**`0x0002` | Il colore del testo contiene verde. |
-| **FOREGROUND_RED**`0x0004` | Il colore del testo contiene rosso. |
-| **FOREGROUND_INTENSITY**`0x0008` | Il colore del testo viene intensificato. |
-| **BACKGROUND_BLUE**`0x0010` | Il colore di sfondo contiene blu. |
-| **BACKGROUND_GREEN**`0x0020` | Il colore di sfondo contiene verde. |
-| **BACKGROUND_RED**`0x0040` | Il colore di sfondo contiene rosso. |
-| **BACKGROUND_INTENSITY**`0x0080` | Il colore di sfondo viene intensificato. |
-| **COMMON_LVB_LEADING_BYTE**`0x0100` | Byte iniziali. |
+| **FOREGROUND_GREEN**`0x0002` | Il colore del testo contiene il verde. |
+| **FOREGROUND_RED**`0x0004` | Il colore del testo contiene il rosso. |
+| **FOREGROUND_INTENSITY**`0x0008` | Il colore del testo è accentuato. |
+| **BACKGROUND_BLUE**`0x0010` | Il colore di sfondo contiene il blu. |
+| **BACKGROUND_GREEN**`0x0020` | Il colore di sfondo contiene il verde. |
+| **BACKGROUND_RED**`0x0040` | Il colore di sfondo contiene il rosso. |
+| **BACKGROUND_INTENSITY**`0x0080` | Il colore di sfondo è accentuato. |
+| **COMMON_LVB_LEADING_BYTE**`0x0100` | Byte iniziale. |
 | **COMMON_LVB_TRAILING_BYTE**`0x0200` | Byte finale. |
 | **COMMON_LVB_GRID_HORIZONTAL**`0x0400` | Orizzontale superiore. |
-| **COMMON_LVB_GRID_LVERTICAL**`0x0800` | Sinistra verticale. |
-| **COMMON_LVB_GRID_RVERTICAL**`0x1000` | Diritto verticale. |
+| **COMMON_LVB_GRID_LVERTICAL**`0x0800` | Verticale sinistro. |
+| **COMMON_LVB_GRID_RVERTICAL**`0x1000` | Verticale destro. |
 | **COMMON_LVB_REVERSE_VIDEO**`0x4000` | Inverso in primo piano e in background. |
 | **COMMON_LVB_UNDERSCORE**`0x8000` | Sottolineatura. |
 
@@ -93,8 +93,8 @@ Per un esempio, vedere [scorrimento del contenuto di un buffer dello schermo](sc
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | WinCon. h (include Windows. h) |
 
 ## <a name="see-also"></a>Vedi anche

@@ -38,12 +38,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 9052f15b36e16dd2ddf7fe46d3d201aa21403f91
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 8ae6bb36007ede4015c91dfd4fe2a8ba8c898465
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039499"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358311"
 ---
 # <a name="peekconsoleinput-function"></a>PeekConsoleInput (funzione)
 
@@ -63,7 +63,7 @@ BOOL WINAPI PeekConsoleInput(
 ## <a name="parameters"></a>Parametri
 
 *hConsoleInput* \[ in\]  
-Handle per il buffer di input della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+Handle per il buffer di input della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *lpBuffer* \[ out\]  
 Puntatore a una matrice di strutture [**di \_ record di input**](input-record-str.md) che riceve i dati del buffer di input.
@@ -78,9 +78,9 @@ Puntatore a una variabile che riceve il numero di record di input letti.
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Se il numero di record richiesti supera il numero di record disponibili nel buffer, viene letto il numero disponibile. Se non sono disponibili dati, la funzione restituisce immediatamente il risultato.
 
@@ -90,16 +90,16 @@ Se il numero di record richiesti supera il numero di record disponibili nel buff
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
-| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
+| Intestazione | ConsoleApi.h (tramite WinCon.h, con Windows.h) |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **PeekConsoleInputW** (Unicode) e **PeekConsoleInputA** (ANSI) |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**ReadConsoleInput**](readconsoleinput.md)
 

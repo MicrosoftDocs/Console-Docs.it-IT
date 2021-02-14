@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 618661b8c59506e2ba5e1f2b2b283ccf823b831a
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 3c2dcce41994929292253793fe94512ab7bc5a01
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039379"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357651"
 ---
 # <a name="setconsolehistoryinfo-function"></a>SetConsoleHistoryInfo (funzione)
 
@@ -54,11 +54,11 @@ Puntatore a una struttura [**di \_ \_ informazioni della cronologia della consol
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
-Se il processo chiamante non è un processo console, la funzione ha esito negativo e imposta l'ultimo codice di errore su **\_ accesso \_ negato** .
+Se il processo chiamante non è un processo console, la funzione ha esito negativo e imposta l'ultimo codice di errore su **\_ accesso \_ negato**.
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
@@ -69,12 +69,12 @@ Se il processo chiamante non è un processo console, la funzione ha esito negati
 | Client minimo supportato | \[Solo app desktop di Windows Vista\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2008\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**\_informazioni cronologia \_ console**](console-history-info.md)
 

@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 7eb27a383a0bdbfc985188eb477ab9a878f33274
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 72545409bfff6485a4e454d9a004f7f9fa0161e3
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039439"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357751"
 ---
 # <a name="setconsoleactivescreenbuffer-function"></a>SetConsoleActiveScreenBuffer (funzione)
 
@@ -51,16 +51,16 @@ BOOL WINAPI SetConsoleActiveScreenBuffer(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
+*hConsoleOutput* \[in\]  
 Handle per il buffer dello schermo della console.
 
 ## <a name="return-value"></a>Valore restituito
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Una console può avere più buffer dello schermo. **SetConsoleActiveScreenBuffer** determina quale viene visualizzato. È possibile scrivere in un buffer dello schermo inattivo e quindi usare **SetConsoleActiveScreenBuffer** per visualizzare il contenuto del buffer.
 
@@ -74,15 +74,15 @@ Per un esempio, vedere [lettura e scrittura di blocchi di caratteri e attributi]
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [Buffer dello schermo della console](console-screen-buffers.md)
 

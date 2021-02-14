@@ -38,12 +38,12 @@ api_location:
 - Kernel32Legacy.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 23b52ba1d5dde40ef842297249fdd2f87cebcb12
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 6a4c4634316442ac2b03602b6c931b05385d77df
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037879"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358331"
 ---
 # <a name="getconsoletitle-function"></a>GetConsoleTitle (funzione)
 
@@ -72,7 +72,7 @@ Dimensioni del buffer a cui punta il parametro *lpConsoleTitle* , in caratteri.
 
 Se la funzione ha esito positivo, il valore restituito è la lunghezza del titolo della finestra della console, in caratteri.
 
-Se la funzione ha esito negativo, il valore restituito è zero e [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) restituisce il codice di errore.
+Se la funzione ha esito negativo, il valore restituito è zero e [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) restituisce il codice di errore.
 
 ## <a name="remarks"></a>Commenti
 
@@ -91,16 +91,16 @@ Per un esempio, vedere [**SetConsoleTitle**](setconsoletitle.md).
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **GetConsoleTitleW** (Unicode) e **GetConsoleTitleA** (ANSI) |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**GetConsoleOriginalTitle**](getconsoleoriginaltitle.md)
 

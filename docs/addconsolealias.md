@@ -32,12 +32,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 2f2396122e693ab76ddf4e4e0bcdb2d38a2c042b
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 9ff901615fa2a17ee9902bd028a2f63ee6b7a4b4
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037554"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357871"
 ---
 # <a name="addconsolealias-function"></a>AddConsoleAlias (funzione)
 
@@ -58,23 +58,23 @@ BOOL WINAPI AddConsoleAlias(
 ## <a name="parameters"></a>Parametri
 
 *Origine* \[ dati in\]  
-Alias della console di cui eseguire il mapping al testo specificato dalla *destinazione* .
+Alias della console di cui eseguire il mapping al testo specificato dalla *destinazione*.
 
 *Destinazione* \[ in\]  
-Testo da sostituire con l' *origine* . Se questo parametro è **null** , l'alias della console verrà rimosso.
+Testo da sostituire con l' *origine*. Se questo parametro è **null**, l'alias della console verrà rimosso.
 
 *Exename* \[ in\]  
 Nome del file eseguibile per cui definire l'alias della console.
 
 ## <a name="return-value"></a>Valore restituito
 
-Se la funzione ha esito positivo, il valore restituito è **true** .
+Se la funzione ha esito positivo, il valore restituito è **true**.
 
-Se la funzione ha esito negativo, il valore restituito è **false** . Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è **false**. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
-Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
@@ -86,10 +86,10 @@ Per un esempio, vedere [alias di console](console-aliases.md).
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **AddConsoleAliasW** (Unicode) e **AddConsoleAliasA** (ANSI) |
 
@@ -97,7 +97,7 @@ Per un esempio, vedere [alias di console](console-aliases.md).
 
 [Alias di console](console-aliases.md)
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**GetConsoleAlias**](getconsolealias.md)
 

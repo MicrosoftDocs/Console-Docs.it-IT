@@ -25,12 +25,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 93121864c8754b281b92051a5e4a174b2d5956a3
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: f9cbe94fff616a93d835f47b618a28bb9f521891
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037099"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358491"
 ---
 # <a name="small_rect-structure"></a>\_Struttura Rect piccola
 
@@ -58,7 +58,7 @@ Coordinata y dell'angolo superiore sinistro del rettangolo.
 **Ok**  
 Coordinata x dell'angolo inferiore destro del rettangolo.
 
-**In basso**  
+**Ultimo**  
 Coordinata y dell'angolo inferiore destro del rettangolo.
 
 ## <a name="remarks"></a>Commenti
@@ -73,12 +73,12 @@ Per un esempio, vedere [scorrimento del contenuto di un buffer dello schermo](sc
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | WinConTypes. h (tramite WinCon. h, Includi Windows. h) |
 
 ## <a name="see-also"></a>Vedi anche
 
-[**RECT**](https://msdn.microsoft.com/library/windows/desktop/dd162897)
+[**RECT**](/previous-versions//dd162897(v=vs.85))
 
-[**RECTL**](https://msdn.microsoft.com/library/windows/desktop/dd162907)
+[**RECTL**](/previous-versions//dd162907(v=vs.85))

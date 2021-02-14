@@ -37,12 +37,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 38778931522dff8d1d000bb6f0ce13c2849d76db
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 06e784ebaebde2ed68ed17f75f4e54932aa463f5
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039489"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358721"
 ---
 # <a name="readconsoleinput-function"></a>ReadConsoleInput (funzione)
 
@@ -62,7 +62,7 @@ BOOL WINAPI ReadConsoleInput(
 ## <a name="parameters"></a>Parametri
 
 *hConsoleInput* \[ in\]  
-Handle per il buffer di input della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+Handle per il buffer di input della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *lpBuffer* \[ out\]  
 Puntatore a una matrice di strutture [**di \_ record di input**](input-record-str.md) che riceve i dati del buffer di input.
@@ -77,36 +77,36 @@ Puntatore a una variabile che riceve il numero di record di input letti.
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Se il numero di record richiesti nel parametro *nLength* supera il numero di record disponibili nel buffer, viene letto il numero disponibile. La funzione non restituisce alcun risultato finché non viene letto almeno un record di input.
 
-Un processo può specificare un handle del buffer di input della console in una delle [funzioni di attesa](https://msdn.microsoft.com/library/windows/desktop/ms687069) per determinare quando l'input della console non è stato letto. Quando il buffer di input non è vuoto, viene segnalato lo stato di un handle del buffer di input della console.
+Un processo può specificare un handle del buffer di input della console in una delle [funzioni di attesa](/windows/win32/sync/wait-functions) per determinare quando l'input della console non è stato letto. Quando il buffer di input non è vuoto, viene segnalato lo stato di un handle del buffer di input della console.
 
 Per determinare il numero di record di input non letti nel buffer di input di una console, usare la funzione [**GetNumberOfConsoleInputEvents**](getnumberofconsoleinputevents.md) . Per leggere i record di input da un buffer di input della console senza influire sul numero di record non letti, usare la funzione [**PeekConsoleInput**](peekconsoleinput.md) . Per rimuovere tutti i record non letti nel buffer di input di una console, usare la funzione [**FlushConsoleInputBuffer**](flushconsoleinputbuffer.md) .
 
 [!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
-Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-buffer-events.md).
+Un esempio è disponibile in [Lettura di eventi del buffer di input](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Requisiti
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
-| Intestazione | ConsoleApi. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
+| Intestazione | ConsoleApi.h (tramite WinCon.h, con Windows.h) |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **ReadConsoleInputW** (Unicode) e **ReadConsoleInputA** (ANSI) |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**FlushConsoleInputBuffer**](flushconsoleinputbuffer.md)
 
@@ -120,7 +120,7 @@ Per un esempio, vedere [lettura degli eventi del buffer di input](reading-input-
 
 [**ReadConsole**](readconsole.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetConsoleCP**](setconsolecp.md)
 

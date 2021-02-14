@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 98d56bb1-83d2-40aa-adac-fc2e8beab337
-ms.openlocfilehash: 931e882306c1aaff521b7b78c2b99cf1a5479da1
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 0ab9152c2be3f7487f43aee2a0a5c19766a433be
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039249"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358251"
 ---
 # <a name="console-code-pages"></a>Tabelle codici della console
 
@@ -28,7 +28,7 @@ Associate a ogni console sono due tabelle codici: una per l'input e una per l'ou
 
 Gli identificatori delle tabelle codici disponibili nel computer locale vengono archiviati nel registro di sistema con la seguente chiave: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage`
 
-Per informazioni sull'utilizzo delle funzioni del registro di sistema per determinare le tabelle codici disponibili, vedere [**Registro di sistema**](https://msdn.microsoft.com/library/windows/desktop/ms724871).
+Per informazioni sull'utilizzo delle funzioni del registro di sistema per determinare le tabelle codici disponibili, vedere [**Registro di sistema**](/windows/win32/sysinfo/registry).
 
 > [!TIP]
-> Per tutte le applicazioni da riga di comando nuove e aggiornate è consigliabile evitare le tabelle codici e utilizzare **[Unicode](https://docs.microsoft.com/windows/win32/intl/unicode)** . Il testo in formato UTF-16 può essere inviato *alla famiglia* di API della console. Il testo formattato UTF-8 può essere inviato a *una* famiglia di API console dopo aver verificato che la tabella codici sia impostata per la prima volta su **[65001 (CP_UTF8)](https://docs.microsoft.com/windows/win32/intl/code-page-identifiers)** con le funzioni [**SetConsoleCP**](setconsolecp.md) e [**SetConsoleOutputCP**](setconsoleoutputcp.md) .
+> Per tutte le applicazioni da riga di comando nuove e aggiornate è consigliabile evitare le tabelle codici e utilizzare **[Unicode](/windows/win32/intl/unicode)**. Il testo in formato UTF-16 può essere inviato *alla famiglia* di API della console. Il testo formattato UTF-8 può essere inviato a *una* famiglia di API console dopo aver verificato che la tabella codici sia impostata per la prima volta su **[65001 (CP_UTF8)](/windows/win32/intl/code-page-identifiers)** con le funzioni [**SetConsoleCP**](setconsolecp.md) e [**SetConsoleOutputCP**](setconsoleoutputcp.md) .

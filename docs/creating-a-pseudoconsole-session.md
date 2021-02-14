@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.prod: console
 keywords: console, applicazioni in modalità carattere, applicazioni da riga di comando, applicazioni di terminale, api della console, pseudoconsole, windows pty, pseudo console
 ms.localizationpriority: high
-ms.openlocfilehash: 8cd057d3e74659fdeff6c569ddb053c881af1de8
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: HT
+ms.openlocfilehash: c1a83b308e4d9a23fdb6b2778561030e619dfdb3
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420230"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357931"
 ---
 # <a name="creating-a-pseudoconsole-session"></a>Creazione di una sessione di pseudoconsole
 
 Windows Pseudoconsole, talvolta denominato anche pseudoconsole, ConPTY o Windows PTY, è un meccanismo progettato per la creazione di un host esterno per le attività di sottosistema in modalità carattere che sostituiscono la parte di interattività utente della finestra predefinita dell'host della console.
 
-L'hosting di una sessione di pseudoconsole è leggermente diverso rispetto a quello di una sessione di console tradizionale. Mentre le sessioni di console tradizionali vengono avviate automaticamente quando il sistema operativo riconosce l'imminente esecuzione di un'applicazione in modalità carattere, l'hosting di una sessione di pseudoconsole e dei rispettivi canali di comunicazione richiede che questi vengano creati dall'applicazione di hosting prima della creazione del processo con l'applicazione figlio in modalità carattere. Il processo figlio verrà comunque creato tramite la funzione [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425), ma con alcune informazioni aggiuntive che consentiranno al sistema operativo di mettere a punto l'ambiente appropriato.
+L'hosting di una sessione di pseudoconsole è leggermente diverso rispetto a quello di una sessione di console tradizionale. Mentre le sessioni di console tradizionali vengono avviate automaticamente quando il sistema operativo riconosce l'imminente esecuzione di un'applicazione in modalità carattere, l'hosting di una sessione di pseudoconsole e dei rispettivi canali di comunicazione richiede che questi vengano creati dall'applicazione di hosting prima della creazione del processo con l'applicazione figlio in modalità carattere. Il processo figlio verrà comunque creato tramite la funzione [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa), ma con alcune informazioni aggiuntive che consentiranno al sistema operativo di mettere a punto l'ambiente appropriato.
 
 Altre informazioni di carattere generale su questo sistema sono disponibili nel [post di blog relativo all'annuncio iniziale](https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/).
 
@@ -26,7 +26,7 @@ Esempi completi di utilizzo della pseudoconsole sono disponibili nel repository 
 
 ## <a name="preparing-the-communication-channels"></a>Preparazione dei canali di comunicazione
 
-Il primo passaggio prevede la creazione di una coppia di canali di comunicazione sincrona che verranno messi a disposizione durante la creazione della sessione di pseudoconsole per la comunicazione bidirezionale con l'applicazione ospitata. Questi canali vengono elaborati dal sistema di pseudoconsole tramite [**ReadFile**](https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-readfile) e [**WriteFile**](https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-writefile) con [I/O sincrono](https://docs.microsoft.com/windows/desktop/Sync/synchronization-and-overlapped-input-and-output). Sono accettati anche handle di file o dispositivi di I/O, ad esempio un flusso di file o una pipe, a condizione che non sia necessaria una struttura [**OVERLAPPED**](https://docs.microsoft.com/windows/desktop/api/minwinbase/ns-minwinbase-_overlapped) per la comunicazione asincrona.
+Il primo passaggio prevede la creazione di una coppia di canali di comunicazione sincrona che verranno messi a disposizione durante la creazione della sessione di pseudoconsole per la comunicazione bidirezionale con l'applicazione ospitata. Questi canali vengono elaborati dal sistema di pseudoconsole tramite [**ReadFile**](/windows/desktop/api/fileapi/nf-fileapi-readfile) e [**WriteFile**](/windows/desktop/api/fileapi/nf-fileapi-writefile) con [I/O sincrono](/windows/desktop/Sync/synchronization-and-overlapped-input-and-output). Sono accettati anche handle di file o dispositivi di I/O, ad esempio un flusso di file o una pipe, a condizione che non sia necessaria una struttura [**OVERLAPPED**](/windows/desktop/api/minwinbase/ns-minwinbase-_overlapped) per la comunicazione asincrona.
 
 > [!WARNING]
 >Per evitare race condition e deadlock, inoltre, è consigliabile che ogni canale di comunicazione venga gestito in un thread separato in grado di mantenere lo stato del buffer client e la coda di messaggistica all'interno dell'applicazione. Se si gestissero tutte le attività della pseudoconsole sullo stesso thread, infatti, potrebbe verificarsi un deadlock in cui uno dei buffer di comunicazione si riempie e resta in attesa di un'azione dell'utente mentre tenta di inviare una richiesta di blocco su un altro canale.
@@ -43,7 +43,7 @@ Durante la creazione di un pseudoconsole, infine, viene fornito un campo Flags p
 
 A questo punto, è disponibile un solo flag speciale per richiedere l'ereditarietà della posizione del cursore da una sessione della console già collegata al chiamante dell'API della pseudoconsole. L'utilizzo di questo flag è destinato tuttavia a scenari più avanzati in cui un'applicazione host che prepara una sessione di pseudoconsole è anche un'applicazione in modalità carattere client di un altro ambiente console.
 
-Di seguito è riportato un frammento di codice di esempio in cui viene usato il comando [**CreatePipe**](https://msdn.microsoft.com/library/windows/desktop/aa365152(v=vs.85).aspx) per mettere a punto una coppia di canali di comunicazione e creare la pseudoconsole.
+Di seguito è riportato un frammento di codice di esempio in cui viene usato il comando [**CreatePipe**](/windows/win32/api/namedpipeapi/nf-namedpipeapi-createpipe) per mettere a punto una coppia di canali di comunicazione e creare la pseudoconsole.
 
 ```C
 
@@ -84,17 +84,17 @@ HRESULT SetUpPseudoConsole(COORD size)
 > [!NOTE]
 >Questo frammento di codice è incompleto e viene usato esclusivamente a titolo dimostrativo di questa chiamata specifica. Sarà necessario gestire il ciclo di vita degli oggetti **HANDLE** in modo appropriato. In caso contrario, è possibile che si verifichino scenari di deadlock, soprattutto con chiamate di I/O sincrone.
 
-Al termine della chiamata [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con cui si crea l'applicazione in modalità carattere client collegata alla pseudoconsole, gli handle specificati durante la creazione devono essere liberati dal processo. In questo modo si riduce il conteggio dei riferimenti nell'oggetto dispositivo sottostante e si consente alle operazioni di I/O di rilevare correttamente un canale interrotto nel momento in cui la sessione pseudoconsole chiude la copia degli handle.
+Al termine della chiamata [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) con cui si crea l'applicazione in modalità carattere client collegata alla pseudoconsole, gli handle specificati durante la creazione devono essere liberati dal processo. In questo modo si riduce il conteggio dei riferimenti nell'oggetto dispositivo sottostante e si consente alle operazioni di I/O di rilevare correttamente un canale interrotto nel momento in cui la sessione pseudoconsole chiude la copia degli handle.
 
 ## <a name="preparing-for-creation-of-the-child-process"></a>Preparazione per la creazione del processo figlio
 
-La fase successiva prevede la preparazione della struttura [**STARTUPINFOEX**](https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-_startupinfoexw) che consente la comunicazione di informazioni sulla pseudoconsole durante l'avvio del processo figlio.
+La fase successiva prevede la preparazione della struttura [**STARTUPINFOEX**](/windows/desktop/api/winbase/ns-winbase-_startupinfoexw) che consente la comunicazione di informazioni sulla pseudoconsole durante l'avvio del processo figlio.
 
 Questa struttura offre infatti la possibilità di fornire informazioni di avvio complesse, inclusi attributi per la creazione di processi e thread.
 
-Usare [**InitializeProcThreadAttributeList**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-initializeprocthreadattributelist) in modalità doppia chiamata per calcolare il numero di byte necessari per contenere l'elenco, allocare la memoria necessaria e quindi chiamare di nuovo specificando il puntatore di memoria opaco per impostarlo come elenco di attributi.
+Usare [**InitializeProcThreadAttributeList**](/windows/desktop/api/processthreadsapi/nf-processthreadsapi-initializeprocthreadattributelist) in modalità doppia chiamata per calcolare il numero di byte necessari per contenere l'elenco, allocare la memoria necessaria e quindi chiamare di nuovo specificando il puntatore di memoria opaco per impostarlo come elenco di attributi.
 
-Chiamare quindi [**UpdateProcThreadAttribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) passando l'elenco degli attributi inizializzato con il flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE**, l'handle della pseudoconsole e le relative dimensioni.
+Chiamare quindi [**UpdateProcThreadAttribute**](/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) passando l'elenco degli attributi inizializzato con il flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE**, l'handle della pseudoconsole e le relative dimensioni.
 
 ```C
 
@@ -145,7 +145,7 @@ HRESULT PrepareStartupInformation(HPCON hpc, STARTUPINFOEX* psi)
 
 ## <a name="creating-the-hosted-process"></a>Creazione del processo ospitato
 
-A questo punto, chiamare [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) passando la struttura [**STARTUPINFOEX**](https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-_startupinfoexw) contestualmente al percorso del file eseguibile e a eventuali informazioni di configurazione aggiuntive. È importante impostare il flag **EXTENDED_STARTUPINFO_PRESENT** quando si chiama per informare il sistema che il riferimento alla pseudoconsole è contenuto nelle informazioni estese.
+A questo punto, chiamare [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) passando la struttura [**STARTUPINFOEX**](/windows/desktop/api/winbase/ns-winbase-_startupinfoexw) contestualmente al percorso del file eseguibile e a eventuali informazioni di configurazione aggiuntive. È importante impostare il flag **EXTENDED_STARTUPINFO_PRESENT** quando si chiama per informare il sistema che il riferimento alla pseudoconsole è contenuto nelle informazioni estese.
 
 ```C
 HRESULT SetUpPseudoConsole(COORD size)
@@ -226,7 +226,7 @@ void OnWindowResize(Event e)
 
 ## <a name="ending-the-pseudoconsole-session"></a>Conclusione della sessione della pseudoconsole
 
-Per terminare la sessione, chiamare la funzione [**ClosePseudoConsole**](closepseudoconsole.md) con l'handle usato per la creazione della pseudoconsole originale. Eventuali applicazioni in modalità carattere client collegate, ad esempio quelle create con il comando [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425), verranno terminate nel momento in cui viene chiusa la sessione. Se l'elemento figlio originale era un'applicazione di tipo Shell da cui vengono creati altri processi, verranno terminati anche tutti gli eventuali processi collegati presenti nell'albero.
+Per terminare la sessione, chiamare la funzione [**ClosePseudoConsole**](closepseudoconsole.md) con l'handle usato per la creazione della pseudoconsole originale. Eventuali applicazioni in modalità carattere client collegate, ad esempio quelle create con il comando [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa), verranno terminate nel momento in cui viene chiusa la sessione. Se l'elemento figlio originale era un'applicazione di tipo Shell da cui vengono creati altri processi, verranno terminati anche tutti gli eventuali processi collegati presenti nell'albero.
 
 > [!WARNING]
 >La chiusura della sessione presenta diversi effetti collaterali che possono determinare una condizione di deadlock se la pseudoconsole viene usata in modalità sincrona a thread singolo. L'operazione di chiusura della sessione di pseudoconsole può generare un aggiornamento finale dei frame per `hOutput`, che deve essere rimosso dal buffer del canale di comunicazione. Se, inoltre, è stato selezionato `PSEUDOCONSOLE_INHERIT_CURSOR` durante la creazione della pseudoconsole, il tentativo di chiudere la pseudoconsole senza rispondere al messaggio di query sull'ereditarietà del cursore (ricevuto su `hOutput` e a cui è stata inviata una risposta tramite `hInput`) può generare un'altra condizione di deadlock. È questo il motivo per cui è consigliabile che i canali di comunicazione della pseudoconsole vengano gestiti su singoli thread e rimangano svuotati ed elaborati fino a quando non vengono interrotti dall'applicazione client in uscita o dal completamento delle attività di disinstallazione durante la chiamata della funzione [**ClosePseudoConsole**](closepseudoconsole.md).

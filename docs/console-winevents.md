@@ -42,26 +42,26 @@ api_location:
 - Winuser.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 2c5d641140316089b38b836bf3fba7534ccd5600
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 2cd48537ef79f09024a55b32a98e2aa85fe76f62
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038329"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358051"
 ---
 # <a name="console-winevents"></a>WinEvents console
 
 > [!IMPORTANT]
-> WinEvents fanno parte del Framework legacy di **[Microsoft Active Accessibility](https://docs.microsoft.com/windows/win32/winauto/microsoft-active-accessibility)** . Lo sviluppo con questi eventi è fortemente sconsigliato rispetto al Framework di **[automazione interfaccia utente Microsoft](https://docs.microsoft.com/windows/win32/winauto/entry-uiauto-win32)** , che fornisce una suite di interfacce più solida e completa per le applicazioni di accessibilità e automazione per interagire con la console. 
+> WinEvents fanno parte del Framework legacy di **[Microsoft Active Accessibility](/windows/win32/winauto/microsoft-active-accessibility)** . Lo sviluppo con questi eventi è fortemente sconsigliato rispetto al Framework di **[automazione interfaccia utente Microsoft](/windows/win32/winauto/entry-uiauto-win32)** , che fornisce una suite di interfacce più solida e completa per le applicazioni di accessibilità e automazione per interagire con la console. 
 
 > [!WARNING]
 > La registrazione per questi eventi è un'attività globale che avrà un notevole effetto sulle prestazioni di tutte le applicazioni da riga di comando in esecuzione su un sistema nello stesso momento, inclusi i servizi e le utilità in background. Il Framework di **automazione interfaccia utente Microsoft** è specifico della sessione della console ed è in questo limite.
 
-Le costanti di evento seguenti vengono usate nel parametro *Event* della funzione di callback [*WinEventProc*](https://msdn.microsoft.com/library/windows/desktop/dd373885(v=vs.85).aspx) . Per ulteriori informazioni, vedere [winEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).
+Le costanti di evento seguenti vengono usate nel parametro *Event* della funzione di callback [*WinEventProc*](/windows/win32/api/winuser/nc-winuser-wineventproc) . Per ulteriori informazioni, vedere [winEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).
 
 | Costante/valore | Descrizione |
 |-|-|
-| **EVENT_CONSOLE_CARET** 0x4001 | Il punto di inserimento della console è stato spostato. Il parametro *idObject* è uno o più dei valori seguenti: **CONSOLE_CARET_SELECTION** o **CONSOLE_CARET_VISIBLE** . Il parametro *idChild* è una struttura **[Coord](coord-str.md)** che specifica la posizione corrente del cursore. |
+| **EVENT_CONSOLE_CARET** 0x4001 | Il punto di inserimento della console è stato spostato. Il parametro *idObject* è uno o più dei valori seguenti: **CONSOLE_CARET_SELECTION** o **CONSOLE_CARET_VISIBLE**. Il parametro *idChild* è una struttura **[Coord](coord-str.md)** che specifica la posizione corrente del cursore. |
 | **EVENT_CONSOLE_END_APPLICATION** 0x4007 | Un processo console è stato terminato. Il parametro *idObject* contiene l'identificatore di processo del processo terminato. |
 | **EVENT_CONSOLE_LAYOUT** 0x4005 | Il layout della console è stato modificato. |
 | **EVENT_CONSOLE_START_APPLICATION** 0x4006 | È stato avviato un nuovo processo console. Il parametro *idObject* contiene l'identificatore di processo del processo appena creato. Se l'applicazione è un'applicazione a 16 bit, il parametro *idChild* è **CONSOLE_APPLICATION_16BIT** e *idObject* è l'identificatore del processo della sessione NTVDM associata alla console. |
@@ -73,6 +73,6 @@ Le costanti di evento seguenti vengono usate nel parametro *Event* della funzion
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | Winuser. h |

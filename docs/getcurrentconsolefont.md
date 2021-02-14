@@ -25,12 +25,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: b394f116a75e3c8fb7fddbdc3335e89fbca96652
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 93f22e1b1d1fa6d60e5d97b7650809d19e01f03c
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037859"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357261"
 ---
 # <a name="getcurrentconsolefont-function"></a>GetCurrentConsoleFont (funzione)
 
@@ -50,11 +50,11 @@ BOOL WINAPI GetCurrentConsoleFont(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *bMaximumWindow* \[ in\]  
-Se questo parametro è **true** , vengono recuperate le informazioni relative al tipo di carattere per la dimensione massima della finestra. Se questo parametro è **false** , vengono recuperate le informazioni relative al tipo di carattere per le dimensioni correnti della finestra.
+Se questo parametro è **true**, vengono recuperate le informazioni relative al tipo di carattere per la dimensione massima della finestra. Se questo parametro è **false**, vengono recuperate le informazioni relative al tipo di carattere per le dimensioni correnti della finestra.
 
 *lpConsoleCurrentFont* \[ out\]  
 Puntatore a una struttura [**di \_ \_ informazioni sul tipo di carattere della console**](console-font-info-str.md) che riceve le informazioni sul tipo di carattere richieste.
@@ -63,11 +63,11 @@ Puntatore a una struttura [**di \_ \_ informazioni sul tipo di carattere della c
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
-Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0500 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0500 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
@@ -78,12 +78,12 @@ Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ Wi
 | Client minimo supportato | \[Solo app desktop Windows XP\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2003\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [Buffer dello schermo della console](console-screen-buffers.md)
 

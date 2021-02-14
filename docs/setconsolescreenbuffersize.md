@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 46c412ccb41ac17a8e7cf327c80d7f8330738d65
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 66c8eee2b3c4cd50e74ac17404dd30c571e47f96
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039329"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357581"
 ---
 # <a name="setconsolescreenbuffersize-function"></a>SetConsoleScreenBufferSize (funzione)
 
@@ -52,17 +52,17 @@ BOOL WINAPI SetConsoleScreenBufferSize(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *dwSize* \[ in\]  
-Struttura [**Coord**](coord-str.md) che specifica la nuova dimensione del buffer dello schermo della console, in righe e colonne di tipo carattere. La larghezza e l'altezza specificate non possono essere minori della larghezza e dell'altezza della finestra del buffer dello schermo della console. Anche le dimensioni specificate non possono essere inferiori alle dimensioni minime consentite dal sistema. Questo valore minimo dipende dalle dimensioni correnti del carattere per la console (selezionate dall'utente) e dai valori **\_ CYMIN** **SM \_ CXMIN** e SM restituiti dalla funzione [**GetSystemMetrics**](https://msdn.microsoft.com/library/windows/desktop/ms724385) .
+Struttura [**Coord**](coord-str.md) che specifica la nuova dimensione del buffer dello schermo della console, in righe e colonne di tipo carattere. La larghezza e l'altezza specificate non possono essere minori della larghezza e dell'altezza della finestra del buffer dello schermo della console. Anche le dimensioni specificate non possono essere inferiori alle dimensioni minime consentite dal sistema. Questo valore minimo dipende dalle dimensioni correnti del carattere per la console (selezionate dall'utente) e dai valori **\_ CYMIN** **SM \_ CXMIN** e SM restituiti dalla funzione [**GetSystemMetrics**](/windows/win32/api/winuser/nf-winuser-getsystemmetrics) .
 
 ## <a name="return-value"></a>Valore restituito
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Osservazioni
 
@@ -72,15 +72,15 @@ Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere inf
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [Buffer di input della console](console-input-buffer.md)
 

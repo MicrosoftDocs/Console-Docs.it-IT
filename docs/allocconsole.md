@@ -30,12 +30,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: c63c9a176c0d8ca2ef4342f7bee1b427eae00014
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: HT
+ms.openlocfilehash: 3b48570424a4c60a56094f5c41934f9946f67203
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420170"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357861"
 ---
 # <a name="allocconsole-function"></a>AllocConsole (funzione)
 
@@ -55,7 +55,7 @@ Questa funzione non ha parametri.
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Osservazioni
 
@@ -65,7 +65,7 @@ Se il processo chiamante crea un processo figlio, l'elemento figlio eredita la n
 
 La funzione **AllocConsole** inizializza l'input standard, l'output standard e gli handle di errore standard per la nuova console. L'handle di input standard è un handle per il buffer di input della console, gli handle di output standard e di errore standard sono handle per il buffer dello schermo della console. Per recuperare questi handle usare la funzione [**GetStdHandle**](getstdhandle.md).
 
-Questa funzione viene utilizzata principalmente da un'applicazione interfaccia utente grafica (GUI) per creare una finestra della console. Le applicazioni GUI vengono inizializzate senza una console. Le applicazioni console vengono inizializzate con una console a meno che non vengano create come processi scollegati (chiamando la funzione [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con il flag **DETACHED\_PROCESS**).
+Questa funzione viene utilizzata principalmente da un'applicazione interfaccia utente grafica (GUI) per creare una finestra della console. Le applicazioni GUI vengono inizializzate senza una console. Le applicazioni console vengono inizializzate con una console a meno che non vengano create come processi scollegati (chiamando la funzione [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) con il flag **DETACHED\_PROCESS**).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -85,7 +85,7 @@ Questa funzione viene utilizzata principalmente da un'applicazione interfaccia u
 
 [**AttachConsole**](attachconsole.md)
 
-[**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425)
+[**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa)
 
 [**FreeConsole**](freeconsole.md)
 

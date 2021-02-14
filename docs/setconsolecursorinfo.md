@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 4bbb14dd501d483f35fbce5e1a729eaf002b1579
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 565ed3bda8bd864fb52aac0106f01cee96eb78ba
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039399"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357691"
 ---
 # <a name="setconsolecursorinfo-function"></a>SetConsoleCursorInfo (funzione)
 
@@ -52,8 +52,8 @@ BOOL WINAPI SetConsoleCursorInfo(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ lettura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_READ**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
 *lpConsoleCursorInfo* \[ in\]  
 Puntatore a una struttura [**di \_ \_ informazioni del cursore della console**](console-cursor-info-str.md) che fornisce le nuove specifiche per il cursore del buffer dello schermo della console.
@@ -62,9 +62,9 @@ Puntatore a una struttura [**di \_ \_ informazioni del cursore della console**](
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Quando il cursore di un buffer dello schermo è visibile, l'aspetto può variare, a partire dal riempimento completo di una cella di tipo carattere per essere visualizzata come linea orizzontale nella parte inferiore della cella. Il membro **dwSize** della struttura [**di \_ \_ informazioni del cursore della console**](console-cursor-info-str.md) specifica la percentuale di una cella di tipo carattere compilata dal cursore. Se questo membro è minore di 1 o maggiore di 100, **SetConsoleCursorInfo** ha esito negativo.
 
@@ -75,15 +75,15 @@ Quando il cursore di un buffer dello schermo è visibile, l'aspetto può variare
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [Buffer dello schermo della console](console-screen-buffers.md)
 

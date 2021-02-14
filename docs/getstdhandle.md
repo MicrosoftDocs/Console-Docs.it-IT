@@ -31,12 +31,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: 42857417cedb661014de869536b798d29c9eb884
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: HT
+ms.openlocfilehash: 0804e12ff7510cd41bec66e1a45f8a31add7c17a
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420210"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358751"
 ---
 # <a name="getstdhandle-function"></a>GetStdHandle (funzione)
 
@@ -65,21 +65,21 @@ Il dispositivo standard. Questo parametro può avere uno dei valori seguenti.
 
 Se la funzione ha esito positivo, il valore restituito è un handle per il dispositivo specificato o un handle reindirizzato impostato da una chiamata precedente su [**SetStdHandle**](setstdhandle.md). L'handle dispone dei diritti di accesso **GENERIC\_READ** e **GENERIC\_WRITE**, a meno che l'applicazione non abbia usato **SetStdHandle** per impostare un handle standard con un livello di accesso inferiore.
 
-Se la funzione ha esito negativo, il valore restituito è **INVALID\_HANDLE\_VALUE**. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è **INVALID\_HANDLE\_VALUE**. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 Se a un'applicazione non sono associati handle standard, ad esempio un servizio in esecuzione su un desktop interattivo, e non sono stati reindirizzati, il valore restituito sarà **NULL**.
 
 ## <a name="remarks"></a>Osservazioni
 
-Gli handle restituiti da **GetStdHandle** possono essere usati dalle applicazioni che devono leggere o scrivere nella console. Al momento della creazione di una console, l'handle di input standard è un handle per il buffer di input della console e gli handle di output standard e di errore standard sono handle del buffer dello schermo attivo della console. Questi handle possono essere usati dalle funzioni [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) e [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o da qualsiasi funzione della console che accede al buffer di input della console o a un buffer dello schermo, ad esempio [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md) o [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md).
+Gli handle restituiti da **GetStdHandle** possono essere usati dalle applicazioni che devono leggere o scrivere nella console. Al momento della creazione di una console, l'handle di input standard è un handle per il buffer di input della console e gli handle di output standard e di errore standard sono handle del buffer dello schermo attivo della console. Questi handle possono essere usati dalle funzioni [**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile) e [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) o da qualsiasi funzione della console che accede al buffer di input della console o a un buffer dello schermo, ad esempio [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md) o [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md).
 
-Gli handle standard di un processo possono essere reindirizzati da una chiamata a [**SetStdHandle**](setstdhandle.md), nel qual caso **GetStdHandle** restituisce l'handle reindirizzato. Se gli handle standard sono stati reindirizzati, è possibile specificare il valore `CONIN$` in una chiamata alla funzione [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) per ottenere un handle per il buffer di input di una console. Analogamente, è possibile specificare il valore `CONOUT$` per ottenere un handle per il buffer dello schermo attivo di una console.
+Gli handle standard di un processo possono essere reindirizzati da una chiamata a [**SetStdHandle**](setstdhandle.md), nel qual caso **GetStdHandle** restituisce l'handle reindirizzato. Se gli handle standard sono stati reindirizzati, è possibile specificare il valore `CONIN$` in una chiamata alla funzione [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) per ottenere un handle per il buffer di input di una console. Analogamente, è possibile specificare il valore `CONOUT$` per ottenere un handle per il buffer dello schermo attivo di una console.
 
-Gli handle standard di un processo all'immissione del metodo principale sono determinati dalla configurazione del flag [ **/SUBSYSTEM**](https://docs.microsoft.com/cpp/build/reference/subsystem-specify-subsystem) passato al linker al momento della compilazione dell'applicazione. Se si specifica **/SUBSYSTEM:CONSOLE**, si richiede al sistema operativo di riempire gli handle con una sessione della console all'avvio, se il padre non ha già riempito la tabella di handle standard mediante ereditarietà. Viceversa, **/SUBSYSTEM:WINDOWS** implica che l'applicazione non necessita di una console e probabilmente non userà gli handle standard. Altre informazioni sull'ereditarietà degli handle sono disponibili nella documentazione relativa a [**STARTF\_USESTDHANDLES**](https://docs.microsoft.com/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
+Gli handle standard di un processo all'immissione del metodo principale sono determinati dalla configurazione del flag [ **/SUBSYSTEM**](/cpp/build/reference/subsystem-specify-subsystem) passato al linker al momento della compilazione dell'applicazione. Se si specifica **/SUBSYSTEM:CONSOLE**, si richiede al sistema operativo di riempire gli handle con una sessione della console all'avvio, se il padre non ha già riempito la tabella di handle standard mediante ereditarietà. Viceversa, **/SUBSYSTEM:WINDOWS** implica che l'applicazione non necessita di una console e probabilmente non userà gli handle standard. Altre informazioni sull'ereditarietà degli handle sono disponibili nella documentazione relativa a [**STARTF\_USESTDHANDLES**](/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
 
 Alcune applicazioni operano all'esterno dei limiti del sottosistema dichiarato. Ad esempio, un'applicazione **/SUBSYSTEM:WINDOWS** potrebbe controllare/usare gli handle standard per la registrazione o il debug, ma funzionare normalmente con un'interfaccia utente grafica. Queste applicazioni dovranno verificare accuratamente lo stato degli handle standard all'avvio e usare [**AttachConsole**](attachconsole.md), [**AllocConsole**](allocconsole.md), and [**FreeConsole**](freeconsole.md) per aggiungere/rimuovere una console, se necessario.
 
-Alcune applicazioni possono anche variare il comportamento in base al tipo di handle ereditato. La distinzione del tipo tra console, pipe, file e altri può essere eseguita con [**GetFileType**](https://docs.microsoft.com/windows/win32/api/fileapi/nf-fileapi-getfiletype).
+Alcune applicazioni possono anche variare il comportamento in base al tipo di handle ereditato. La distinzione del tipo tra console, pipe, file e altri può essere eseguita con [**GetFileType**](/windows/win32/api/fileapi/nf-fileapi-getfiletype).
 
 ### <a name="attachdetach-behavior"></a>Comportamento di collegamento/scollegamento
 
@@ -112,16 +112,16 @@ Un esempio è disponibile in [Lettura di eventi del buffer di input](reading-inp
 
 [Handle della console](console-handles.md)
 
-[**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858)
+[**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea)
 
 [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
 [**ReadConsoleInput**](readconsoleinput.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetStdHandle**](setstdhandle.md)
 
 [**WriteConsole**](writeconsole.md)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

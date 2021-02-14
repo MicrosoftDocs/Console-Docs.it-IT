@@ -25,12 +25,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: bfc16edccb2f1be2b22c81992800d8f62d86cf4f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: b067d701b2568165a4cf0f9368c37a06ba6863c8
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037984"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358941"
 ---
 # <a name="getconsoleprocesslist-function"></a>GetConsoleProcessList (funzione)
 
@@ -59,13 +59,13 @@ Se la funzione ha esito positivo, il valore restituito è minore o uguale a *dwP
 
 Se il buffer è troppo piccolo per conservare tutti gli identificatori di processo validi, il valore restituito è il numero necessario di elementi di matrice. La funzione non avrà archiviato identificatori nel buffer. In questa situazione, utilizzare il valore restituito per allocare un buffer sufficientemente grande da archiviare l'intero elenco e chiamare di nuovo la funzione.
 
-Se il valore restituito è zero, la funzione non è riuscita perché a ogni console è associato almeno un processo. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se il valore restituito è zero, la funzione non è riuscita perché a ogni console è associato almeno un processo. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 Se `NULL` è stato specificato un elenco di processi o il numero di processi è pari a 0, la chiamata restituirà 0 e restituirà `GetLastError` `ERROR_INVALID_PARAMETER` . Fornire un buffer di almeno un elemento per chiamare questa funzione. Allocare un buffer più grande e chiamare di nuovo se il codice restituito è più grande della lunghezza del buffer fornito.
 
 ## <a name="remarks"></a>Commenti
 
-Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-local-context](./includes/no-vt-equiv-local-context.md)]
 
@@ -76,11 +76,11 @@ Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ Wi
 | Client minimo supportato | \[Solo app desktop Windows XP\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2003\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [**AttachConsole**](attachconsole.md)
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)

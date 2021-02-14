@@ -36,12 +36,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: dc2c7930ab76587edc9ae1991d4493c858b0ec30
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: e4b9cdae52da2e23ff93e1904c4cb24ebac62831
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039289"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357781"
 ---
 # <a name="writeconsoleinput-function"></a>WriteConsoleInput (funzione)
 
@@ -63,9 +63,9 @@ BOOL WINAPI WriteConsoleInput(
 ## <a name="parameters"></a>Parametri
 
 *hConsoleInput* \[ in\]  
-Handle per il buffer di input della console. L'handle deve avere il diritto di accesso in **\_ scrittura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+Handle per il buffer di input della console. L'handle deve disporre del diritto di accesso **GENERIC\_WRITE**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
-*lpBuffer* \[ in\]  
+*lpBuffer* \[in\]  
 Puntatore a una matrice di strutture [**di \_ record di input**](input-record-str.md) che contengono dati da scrivere nel buffer di input.
 
 *nLength* \[ in\]  
@@ -78,9 +78,9 @@ Puntatore a una variabile che riceve il numero di record di input effettivamente
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 **WriteConsoleInput** inserisce i record di input nel buffer di input dietro tutti gli eventi in sospeso nel buffer. Il buffer di input aumenta in modo dinamico, se necessario, per mantenere il numero di eventi scritti.
 
@@ -93,22 +93,22 @@ Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere inf
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **WriteConsoleInputW** (Unicode) e **WriteConsoleInputA** (ANSI) |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**RECORD di INPUT \_**](input-record-str.md)
 
 [Funzioni di input della console di basso livello](low-level-console-input-functions.md)
 
-[**MapVirtualKey**](https://msdn.microsoft.com/library/windows/desktop/ms646306)
+[**MapVirtualKey**](/windows/win32/api/winuser/nf-winuser-mapvirtualkeya)
 
 [**PeekConsoleInput**](peekconsoleinput.md)
 
@@ -118,4 +118,4 @@ Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere inf
 
 [**SetConsoleOutputCP**](setconsoleoutputcp.md)
 
-[**VkKeyScan**](https://msdn.microsoft.com/library/windows/desktop/ms646329)
+[**VkKeyScan**](/windows/win32/api/winuser/nf-winuser-vkkeyscana)

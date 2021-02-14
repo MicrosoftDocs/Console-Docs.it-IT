@@ -36,12 +36,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: b67f741aafcb067e85d339d550646261a46c273a
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 1f10285cfc5c671ac5d31b8a575e84b1fd0f6a14
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037259"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100359031"
 ---
 # <a name="writeconsoleoutput-function"></a>WriteConsoleOutput (funzione)
 
@@ -63,10 +63,10 @@ BOOL WINAPI WriteConsoleOutput(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
-Handle per il buffer dello schermo della console. L'handle deve avere il diritto di accesso in **\_ scrittura generico** . Per altre informazioni, vedere [sicurezza e diritti di accesso del buffer della console](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Handle per il buffer dello schermo della console. L'handle deve disporre del diritto di accesso **GENERIC\_WRITE**. Per altre informazioni, vedere [Sicurezza dei buffer della console e diritti di accesso](console-buffer-security-and-access-rights.md).
 
-*lpBuffer* \[ in\]  
+*lpBuffer* \[in\]  
 Dati da scrivere nel buffer dello schermo della console. Questo puntatore viene considerato l'origine di una matrice bidimensionale di strutture di [**\_ informazioni char**](char-info-str.md) la cui dimensione è specificata dal parametro *dwBufferSize* .
 
 *dwBufferSize* \[ in\]  
@@ -82,9 +82,9 @@ Puntatore a una struttura [**di \_ Rect di piccole dimensioni**](small-rect-str.
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 **WriteConsoleOutput** considera il buffer di origine e il buffer dello schermo di destinazione come matrici bidimensionali (colonne e righe di celle di tipo carattere). Il rettangolo a cui punta il parametro *lpWriteRegion* specifica le dimensioni e la posizione del blocco in cui scrivere nel buffer dello schermo della console. Un rettangolo con le stesse dimensioni si trova con la cella superiore sinistra in corrispondenza delle coordinate del parametro *dwBufferCoord* nella matrice *lpBuffer* . I dati delle celle presenti nell'intersezione tra il rettangolo e il rettangolo del buffer di origine (le cui dimensioni sono specificate dal parametro *dwBufferSize* ) vengono scritti nel rettangolo di destinazione.
 
@@ -92,7 +92,7 @@ Le celle nel rettangolo di destinazione il cui percorso di origine corrispondent
 
 Prima della restituzione di **WriteConsoleOutput** , imposta i membri di *lpWriteRegion* sul rettangolo del buffer dello schermo effettivo interessato dall'operazione di scrittura. Questo rettangolo riflette le celle del rettangolo di destinazione per cui esiste una cella corrispondente nel buffer di origine, perché **WriteConsoleOutput** Ritaglia le dimensioni del rettangolo di destinazione ai limiti del buffer dello schermo della console.
 
-Se il rettangolo specificato da *lpWriteRegion* si trova completamente all'esterno dei limiti del buffer dello schermo della console o se il rettangolo corrispondente è posizionato completamente all'esterno dei limiti del buffer di origine, non viene scritto alcun dato. In questo caso, la funzione restituisce con i membri della struttura a cui punta il set di parametri *lpWriteRegion* , in modo tale che il membro **destro** sia minore della **sinistra** o che il membro **inferiore** sia minore della **parte superiore** . Per determinare le dimensioni del buffer dello schermo della console, usare la funzione [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) .
+Se il rettangolo specificato da *lpWriteRegion* si trova completamente all'esterno dei limiti del buffer dello schermo della console o se il rettangolo corrispondente è posizionato completamente all'esterno dei limiti del buffer di origine, non viene scritto alcun dato. In questo caso, la funzione restituisce con i membri della struttura a cui punta il set di parametri *lpWriteRegion* , in modo tale che il membro **destro** sia minore della **sinistra** o che il membro **inferiore** sia minore della **parte superiore**. Per determinare le dimensioni del buffer dello schermo della console, usare la funzione [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) .
 
 **WriteConsoleOutput** non ha alcun effetto sulla posizione del cursore.
 
@@ -109,16 +109,16 @@ Per un esempio, vedere [lettura e scrittura di blocchi di caratteri e attributi]
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi2. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **WriteConsoleOutputW** (Unicode) e **WriteConsoleOutputA** (ANSI) |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**\_informazioni char**](char-info-str.md)
 

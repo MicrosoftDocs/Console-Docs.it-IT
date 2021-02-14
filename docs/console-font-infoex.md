@@ -27,12 +27,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: ef89d1bf47a4153d44140d3f9f4845bb7496680e
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 3ab4424be99ba9eceda54db1ebf7c7e13560f722
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039259"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358151"
 ---
 # <a name="console_font_infoex-structure"></a>\_Struttura INFOEX del tipo di carattere della console \_
 
@@ -65,7 +65,7 @@ Indice del tipo di carattere nella tabella dei tipi di carattere della console d
 Struttura [**Coord**](coord-str.md) che contiene la larghezza e l'altezza di ogni carattere del tipo di carattere, in unità logiche. Il membro **X** contiene la larghezza, mentre il membro **Y** contiene l'altezza.
 
 **FontFamily**  
-Il passo del carattere e la famiglia. Per informazioni sui valori possibili per questo membro, vedere la descrizione del membro **tmPitchAndFamily** della struttura [**TEXTMETRIC**](https://msdn.microsoft.com/library/windows/desktop/dd145132) .
+Il passo del carattere e la famiglia. Per informazioni sui valori possibili per questo membro, vedere la descrizione del membro **tmPitchAndFamily** della struttura [**TEXTMETRIC**](/windows/win32/api/wingdi/ns-wingdi-textmetrica) .
 
 **SpessoreCarattere**  
 Spessore del carattere. Il peso può variare da 100 a 1000, in multipli di 100. Ad esempio, il peso normale è 400, mentre 700 è in grassetto.

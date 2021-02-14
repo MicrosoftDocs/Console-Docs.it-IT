@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 0226cd94-86d0-452b-80e6-e0fed8af0a62
-ms.openlocfilehash: 13ad97a30459ba3abd0ed197352e69e6e8b45d47
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a520c1688bf9e682e5c6696738f5b81d30679d7b
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037069"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358481"
 ---
 # <a name="using-the-high-level-input-and-output-functions"></a>Uso delle funzioni di input e output di High-Level
 
@@ -26,7 +26,7 @@ ms.locfileid: "93037069"
 
 Nell'esempio seguente vengono utilizzate le funzioni di I/O della console di alto livello per l'I/o della console. Per ulteriori informazioni sulle funzioni di I/O della console di alto livello, vedere [i/o](high-level-console-i-o.md)della console di alto livello.
 
-Nell'esempio si presuppone che le modalità di I/O predefinite siano attive inizialmente per le prime chiamate alle funzioni [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) e [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) . La modalità di input viene quindi modificata per attivare la modalità di input offline e la modalità di input echo per la seconda chiamata a **ReadFile** e **WriteFile** . La funzione [**SetConsoleTextAttribute**](setconsoletextattribute.md) viene utilizzata per impostare i colori in cui verrà visualizzato il testo scritto successivamente. Prima di uscire, il programma ripristina gli attributi di colore e la modalità di input della console originale.
+Nell'esempio si presuppone che le modalità di I/O predefinite siano attive inizialmente per le prime chiamate alle funzioni [**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile) e [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) . La modalità di input viene quindi modificata per attivare la modalità di input offline e la modalità di input echo per la seconda chiamata a **ReadFile** e **WriteFile**. La funzione [**SetConsoleTextAttribute**](setconsoletextattribute.md) viene utilizzata per impostare i colori in cui verrà visualizzato il testo scritto successivamente. Prima di uscire, il programma ripristina gli attributi di colore e la modalità di input della console originale.
 
 La funzione dell'esempio `NewLine` viene utilizzata quando la modalità di input della riga è disabilitata. Gestisce i ritorni a capo spostando la posizione del cursore sulla prima cella della riga successiva. Se il cursore si trova già nell'ultima riga del buffer dello schermo della console, il contenuto del buffer dello schermo della console viene spostato verso l'alto di una riga.
 

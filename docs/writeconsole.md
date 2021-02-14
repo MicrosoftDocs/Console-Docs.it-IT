@@ -38,12 +38,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: 426aa6711e46e0d5cda1eb1b7dab7b2b0b7156d6
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: HT
+ms.openlocfilehash: 27caf0b0a804b99fdfe695efef4c085bf0c51567
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420290"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357611"
 ---
 # <a name="writeconsole-function"></a>Funzione WriteConsole
 
@@ -81,7 +81,7 @@ Puntatore a una variabile che riceve il numero di caratteri effettivamente scrit
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Osservazioni
 
@@ -89,15 +89,15 @@ La funzione **WriteConsole** scrive i caratteri nel buffer dello schermo della c
 
 I caratteri vengono scritti usando gli attributi del colore di primo piano e di sfondo associati al buffer dello schermo della console. La funzione [**SetConsoleTextAttribute**](setconsoletextattribute.md) modifica questi colori. Per determinare gli attributi di colore correnti e la posizione corrente del cursore, usare [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md).
 
-Tutte le modalità di input che influiscono sul comportamento della funzione [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) hanno lo stesso effetto su **WriteConsole**. Per recuperare e impostare le modalità di output di un buffer dello schermo della console, usare le funzioni [**GetConsoleMode**](getconsolemode.md) e [**SetConsoleMode**](setconsolemode.md).
+Tutte le modalità di input che influiscono sul comportamento della funzione [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) hanno lo stesso effetto su **WriteConsole**. Per recuperare e impostare le modalità di output di un buffer dello schermo della console, usare le funzioni [**GetConsoleMode**](getconsolemode.md) e [**SetConsoleMode**](setconsolemode.md).
 
 [!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-**WriteConsole** ha esito negativo se viene usata con un handle standard che viene reindirizzato a un file. Se un'applicazione elabora l'output multilingue che può essere reindirizzato, determinare se l'handle di output è un handle della console (un metodo consiste nel chiamare la funzione [**GetConsoleMode**](getconsolemode.md) e verificare se l'operazione ha esito positivo). Se l'handle è un handle della console, chiamare **WriteConsole**. Se l'handle non è un handle della console, l'output viene reindirizzato ed è necessario chiamare [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) per eseguire le funzioni di I/O. Assicurarsi di anteporre un prefisso a un file di testo normale Unicode con un indicatore dell'ordine dei byte. Per altre informazioni, vedere [Using Byte Order Marks](https://msdn.microsoft.com/library/windows/desktop/dd374101) (Uso degli indicatori dell'ordine dei byte).
+**WriteConsole** ha esito negativo se viene usata con un handle standard che viene reindirizzato a un file. Se un'applicazione elabora l'output multilingue che può essere reindirizzato, determinare se l'handle di output è un handle della console (un metodo consiste nel chiamare la funzione [**GetConsoleMode**](getconsolemode.md) e verificare se l'operazione ha esito positivo). Se l'handle è un handle della console, chiamare **WriteConsole**. Se l'handle non è un handle della console, l'output viene reindirizzato ed è necessario chiamare [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) per eseguire le funzioni di I/O. Assicurarsi di anteporre un prefisso a un file di testo normale Unicode con un indicatore dell'ordine dei byte. Per altre informazioni, vedere [Using Byte Order Marks](/windows/win32/intl/using-byte-order-marks) (Uso degli indicatori dell'ordine dei byte).
 
 Sebbene un'applicazione possa usare **WriteConsole** in modalità ANSI per scrivere caratteri ANSI, le console non supportano le sequenze di "escape ANSI" o "terminale virtuale", a meno che non siano abilitate. Per altre informazioni e per l'applicabilità della versione del sistema operativo, vedere [**Sequenze del terminale virtuale della console**](console-virtual-terminal-sequences.md).
 
-Quando le sequenze di escape del terminale virtuale non sono abilitate, le funzioni della console possono fornire funzionalità equivalenti. Per altre informazioni, vedere [**SetCursorPos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx), [**SetConsoleTextAttribute**](setconsoletextattribute.md) e [**GetConsoleCursorInfo**](getconsolecursorinfo.md).
+Quando le sequenze di escape del terminale virtuale non sono abilitate, le funzioni della console possono fornire funzionalità equivalenti. Per altre informazioni, vedere [**SetCursorPos**](/windows/win32/api/winuser/nf-winuser-setcursorpos), [**SetConsoleTextAttribute**](setconsoletextattribute.md) e [**GetConsoleCursorInfo**](getconsolecursorinfo.md).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -134,6 +134,6 @@ Quando le sequenze di escape del terminale virtuale non sono abilitate, le funzi
 
 [**SetConsoleTextAttribute**](setconsoletextattribute.md)
 
-[**SetCursorPos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx)
+[**SetCursorPos**](/windows/win32/api/winuser/nf-winuser-setcursorpos)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

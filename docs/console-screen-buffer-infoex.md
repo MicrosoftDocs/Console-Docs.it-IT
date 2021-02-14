@@ -27,12 +27,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: baf6eeb51cbae5ce410c190852c22ae237e6a367
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 1e4e30601655190bc6f597bbd33dd99f14f8d488
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038349"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358082"
 ---
 # <a name="console_screen_buffer_infoex-structure"></a>\_ \_ Struttura INFOEX buffer dello schermo della console \_
 
@@ -66,7 +66,7 @@ Struttura [**Coord**](coord-str.md) che contiene le dimensioni del buffer dello 
 Struttura [**Coord**](coord-str.md) che contiene le coordinate di riga e di colonna del cursore nel buffer dello schermo della console.
 
 **wAttributes**  
-Attributi dei caratteri scritti in un buffer dello schermo dalle funzioni [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) e [**WriteConsole**](writeconsole.md) oppure restituiti a un buffer dello schermo dalle funzioni [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) e [**ReadConsole**](readconsole.md) . Per altre informazioni, vedere [attributi carattere](console-screen-buffers.md#character-attributes).
+Attributi dei caratteri scritti in un buffer dello schermo dalle funzioni [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) e [**WriteConsole**](writeconsole.md) oppure restituiti a un buffer dello schermo dalle funzioni [**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile) e [**ReadConsole**](readconsole.md) . Per altre informazioni, vedere [attributi carattere](console-screen-buffers.md#character-attributes).
 
 **srWindow**  
 Una [**piccola struttura \_ Rect**](small-rect-str.md) che contiene le coordinate del buffer dello schermo della console degli angoli superiore sinistro e inferiore destro della finestra di visualizzazione.
@@ -78,10 +78,10 @@ Struttura [**Coord**](coord-str.md) che contiene la dimensione massima della fin
 Attributo Fill per i popup della console.
 
 **bFullscreenSupported**  
-Se questo membro è `TRUE` , la modalità schermo intero è supportata; in caso contrario, non lo è. Questa operazione sarà sempre `FALSE` destinata ai sistemi dopo Windows Vista con il [modello di driver WDDM](https://docs.microsoft.com/windows-hardware/drivers/display/introduction-to-the-windows-vista-and-later-display-driver-model) , perché l'accesso diretto a VGA diretto al monitor non è più disponibile.
+Se questo membro è `TRUE` , la modalità schermo intero è supportata; in caso contrario, non lo è. Questa operazione sarà sempre `FALSE` destinata ai sistemi dopo Windows Vista con il [modello di driver WDDM](/windows-hardware/drivers/display/introduction-to-the-windows-vista-and-later-display-driver-model) , perché l'accesso diretto a VGA diretto al monitor non è più disponibile.
 
 **ColorTable**  
-Matrice di valori [**COLORREF**](https://msdn.microsoft.com/library/windows/desktop/dd183449) che descrivono le impostazioni relative ai colori della console.
+Matrice di valori [**COLORREF**](/windows/win32/gdi/colorref) che descrivono le impostazioni relative ai colori della console.
 
 ## <a name="requirements"></a>Requisiti
 

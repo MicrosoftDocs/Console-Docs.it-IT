@@ -32,12 +32,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: d204fd3effe5169b6be3e60a9e3c0d39fa418d20
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 4285bb64e919851a38494383a440afa6b94c8032
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038909"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358471"
 ---
 # <a name="getconsolealiasexeslength-function"></a>GetConsoleAliasExesLength (funzione)
 
@@ -61,7 +61,7 @@ Dimensioni del buffer necessarie per archiviare i nomi di tutti i file eseguibil
 
 ## <a name="remarks"></a>Commenti
 
-Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ WinNT** come 0x0501 o versione successiva. Per ulteriori informazioni, vedere [utilizzo delle intestazioni di Windows](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
@@ -69,10 +69,10 @@ Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ Wi
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Client minimo supportato | \[Solo app desktop Windows 2000 Professional\] |
-| Server minimo supportato | Solo app desktop di Windows 2000 Server \[\] |
+| Client minimo supportato | Windows 2000 Professional \[solo app desktop\] |
+| Server minimo supportato | Windows 2000 Server \[solo app desktop\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Nomi Unicode e ANSI | **GetConsoleAliasExesLengthW** (Unicode) e **GetConsoleAliasExesLengthA** (ANSI) |
 
@@ -82,7 +82,7 @@ Per compilare un'applicazione che usa questa funzione, definire **\_ Win32 \_ Wi
 
 [Alias di console](console-aliases.md)
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
 [**GetConsoleAlias**](getconsolealias.md)
 

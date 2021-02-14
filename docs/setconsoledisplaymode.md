@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 52d7e50d7ced5615cb296c0590876e4604057e42
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: af61d897269311ccfa9db336083e898f6d75da80
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039389"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357701"
 ---
 # <a name="setconsoledisplaymode-function"></a>SetConsoleDisplayMode (funzione)
 
@@ -49,7 +49,7 @@ BOOL WINAPI SetConsoleDisplayMode(
 
 ## <a name="parameters"></a>Parametri
 
-*hConsoleOutput* \[ in\]  
+*hConsoleOutput* \[in\]  
 Handle per il buffer dello schermo della console.
 
 *dwFlags* \[ in\]  
@@ -67,7 +67,7 @@ Puntatore a una struttura [**Coord**](coord-str.md) che riceve le nuove dimensio
 
 Se la funzione ha esito positivo, il valore restituito è diverso da zero.
 
-Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere informazioni estese sull'errore, chiamare [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Se la funzione ha esito negativo, il valore restituito è zero. Per informazioni dettagliate sull'errore, chiamare [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Osservazioni
 
@@ -80,13 +80,13 @@ Se la funzione ha esito negativo, il valore restituito è zero. Per ottenere inf
 | Client minimo supportato | \[Solo app desktop Windows XP\] |
 | Server minimo supportato | \[Solo app desktop Windows Server 2003\] |
 | Intestazione | ConsoleApi3. h (tramite WinCon. h, Includi Windows. h) |
-| Libreria | Kernel32. lib |
+| Libreria | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Funzioni console](console-functions.md)
+[Funzioni della console](console-functions.md)
 
-[Modalità console](console-modes.md)
+[Modalità della console](console-modes.md)
 
 [**GetConsoleDisplayMode**](getconsoledisplaymode.md)
